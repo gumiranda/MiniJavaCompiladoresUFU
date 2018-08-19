@@ -1,0 +1,1911 @@
+State 0:
+prog' -> . prog [ # ]
+-- On CLASS shift to state 1
+-- On prog shift to state 145
+
+State 1:
+prog -> CLASS . ID ACHAVE list(var_decl) list(declaracao_metodo) comando_block FCHAVE EOF [ # ]
+-- On ID shift to state 2
+
+State 2:
+prog -> CLASS ID . ACHAVE list(var_decl) list(declaracao_metodo) comando_block FCHAVE EOF [ # ]
+-- On ACHAVE shift to state 3
+
+State 3:
+prog -> CLASS ID ACHAVE . list(var_decl) list(declaracao_metodo) comando_block FCHAVE EOF [ # ]
+-- On STRING shift to state 4
+-- On INT shift to state 5
+-- On DOUBLE shift to state 6
+-- On BOOLEAN shift to state 7
+-- On var_decl shift to state 8
+-- On tipo_simples shift to state 9
+-- On tipo shift to state 10
+-- On list(var_decl) shift to state 17
+-- On STATIC reduce production list(var_decl) -> 
+-- On PUBLIC reduce production list(var_decl) -> 
+
+State 4:
+tipo_simples -> STRING . [ ID ]
+-- On ID reduce production tipo_simples -> STRING 
+
+State 5:
+tipo_simples -> INT . [ ID ]
+-- On ID reduce production tipo_simples -> INT 
+
+State 6:
+tipo_simples -> DOUBLE . [ ID ]
+-- On ID reduce production tipo_simples -> DOUBLE 
+
+State 7:
+tipo_simples -> BOOLEAN . [ ID ]
+-- On ID reduce production tipo_simples -> BOOLEAN 
+
+State 8:
+list(var_decl) -> var_decl . list(var_decl) [ WHILE STATIC RETURN PUBLIC NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On STRING shift to state 4
+-- On INT shift to state 5
+-- On DOUBLE shift to state 6
+-- On BOOLEAN shift to state 7
+-- On var_decl shift to state 8
+-- On tipo_simples shift to state 9
+-- On tipo shift to state 10
+-- On list(var_decl) shift to state 16
+-- On WHILE reduce production list(var_decl) -> 
+-- On STATIC reduce production list(var_decl) -> 
+-- On RETURN reduce production list(var_decl) -> 
+-- On PUBLIC reduce production list(var_decl) -> 
+-- On NOT reduce production list(var_decl) -> 
+-- On LITSTRING reduce production list(var_decl) -> 
+-- On LITINT reduce production list(var_decl) -> 
+-- On LITDOUBLE reduce production list(var_decl) -> 
+-- On LITBOOLEAN reduce production list(var_decl) -> 
+-- On IF reduce production list(var_decl) -> 
+-- On ID reduce production list(var_decl) -> 
+-- On FCHAVE reduce production list(var_decl) -> 
+-- On ESCREVA reduce production list(var_decl) -> 
+-- On APAR reduce production list(var_decl) -> 
+
+State 9:
+tipo -> tipo_simples . [ ID ]
+-- On ID reduce production tipo -> tipo_simples 
+
+State 10:
+var_decl -> tipo . separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA [ WHILE STRING STATIC RETURN PUBLIC NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN INT IF ID FCHAVE ESCREVA DOUBLE BOOLEAN APAR ]
+-- On ID shift to state 11
+-- On separated_nonempty_list(VIRGULA,ID) shift to state 14
+
+State 11:
+separated_nonempty_list(VIRGULA,ID) -> ID . [ PONTOEVIRGULA ]
+separated_nonempty_list(VIRGULA,ID) -> ID . VIRGULA separated_nonempty_list(VIRGULA,ID) [ PONTOEVIRGULA ]
+-- On VIRGULA shift to state 12
+-- On PONTOEVIRGULA reduce production separated_nonempty_list(VIRGULA,ID) -> ID 
+
+State 12:
+separated_nonempty_list(VIRGULA,ID) -> ID VIRGULA . separated_nonempty_list(VIRGULA,ID) [ PONTOEVIRGULA ]
+-- On ID shift to state 11
+-- On separated_nonempty_list(VIRGULA,ID) shift to state 13
+
+State 13:
+separated_nonempty_list(VIRGULA,ID) -> ID VIRGULA separated_nonempty_list(VIRGULA,ID) . [ PONTOEVIRGULA ]
+-- On PONTOEVIRGULA reduce production separated_nonempty_list(VIRGULA,ID) -> ID VIRGULA separated_nonempty_list(VIRGULA,ID) 
+
+State 14:
+var_decl -> tipo separated_nonempty_list(VIRGULA,ID) . PONTOEVIRGULA [ WHILE STRING STATIC RETURN PUBLIC NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN INT IF ID FCHAVE ESCREVA DOUBLE BOOLEAN APAR ]
+-- On PONTOEVIRGULA shift to state 15
+
+State 15:
+var_decl -> tipo separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA . [ WHILE STRING STATIC RETURN PUBLIC NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN INT IF ID FCHAVE ESCREVA DOUBLE BOOLEAN APAR ]
+-- On WHILE reduce production var_decl -> tipo separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA 
+-- On STRING reduce production var_decl -> tipo separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA 
+-- On STATIC reduce production var_decl -> tipo separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA 
+-- On RETURN reduce production var_decl -> tipo separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA 
+-- On PUBLIC reduce production var_decl -> tipo separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA 
+-- On NOT reduce production var_decl -> tipo separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA 
+-- On LITSTRING reduce production var_decl -> tipo separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA 
+-- On LITINT reduce production var_decl -> tipo separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA 
+-- On LITDOUBLE reduce production var_decl -> tipo separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA 
+-- On LITBOOLEAN reduce production var_decl -> tipo separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA 
+-- On INT reduce production var_decl -> tipo separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA 
+-- On IF reduce production var_decl -> tipo separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA 
+-- On ID reduce production var_decl -> tipo separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA 
+-- On FCHAVE reduce production var_decl -> tipo separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA 
+-- On ESCREVA reduce production var_decl -> tipo separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA 
+-- On DOUBLE reduce production var_decl -> tipo separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA 
+-- On BOOLEAN reduce production var_decl -> tipo separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA 
+-- On APAR reduce production var_decl -> tipo separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA 
+
+State 16:
+list(var_decl) -> var_decl list(var_decl) . [ WHILE STATIC RETURN PUBLIC NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On WHILE reduce production list(var_decl) -> var_decl list(var_decl) 
+-- On STATIC reduce production list(var_decl) -> var_decl list(var_decl) 
+-- On RETURN reduce production list(var_decl) -> var_decl list(var_decl) 
+-- On PUBLIC reduce production list(var_decl) -> var_decl list(var_decl) 
+-- On NOT reduce production list(var_decl) -> var_decl list(var_decl) 
+-- On LITSTRING reduce production list(var_decl) -> var_decl list(var_decl) 
+-- On LITINT reduce production list(var_decl) -> var_decl list(var_decl) 
+-- On LITDOUBLE reduce production list(var_decl) -> var_decl list(var_decl) 
+-- On LITBOOLEAN reduce production list(var_decl) -> var_decl list(var_decl) 
+-- On IF reduce production list(var_decl) -> var_decl list(var_decl) 
+-- On ID reduce production list(var_decl) -> var_decl list(var_decl) 
+-- On FCHAVE reduce production list(var_decl) -> var_decl list(var_decl) 
+-- On ESCREVA reduce production list(var_decl) -> var_decl list(var_decl) 
+-- On APAR reduce production list(var_decl) -> var_decl list(var_decl) 
+
+State 17:
+prog -> CLASS ID ACHAVE list(var_decl) . list(declaracao_metodo) comando_block FCHAVE EOF [ # ]
+-- On STATIC shift to state 18
+-- On list(declaracao_metodo) shift to state 126
+-- On declaracao_metodo shift to state 143
+-- On PUBLIC reduce production list(declaracao_metodo) -> 
+
+State 18:
+declaracao_metodo -> STATIC . tipo ID APAR loption(separated_nonempty_list(VIRGULA,parametro)) FPAR ACHAVE list(var_decl) list(comando) FCHAVE [ STATIC PUBLIC ]
+-- On STRING shift to state 4
+-- On INT shift to state 5
+-- On DOUBLE shift to state 6
+-- On BOOLEAN shift to state 7
+-- On tipo_simples shift to state 9
+-- On tipo shift to state 19
+
+State 19:
+declaracao_metodo -> STATIC tipo . ID APAR loption(separated_nonempty_list(VIRGULA,parametro)) FPAR ACHAVE list(var_decl) list(comando) FCHAVE [ STATIC PUBLIC ]
+-- On ID shift to state 20
+
+State 20:
+declaracao_metodo -> STATIC tipo ID . APAR loption(separated_nonempty_list(VIRGULA,parametro)) FPAR ACHAVE list(var_decl) list(comando) FCHAVE [ STATIC PUBLIC ]
+-- On APAR shift to state 21
+
+State 21:
+declaracao_metodo -> STATIC tipo ID APAR . loption(separated_nonempty_list(VIRGULA,parametro)) FPAR ACHAVE list(var_decl) list(comando) FCHAVE [ STATIC PUBLIC ]
+-- On STRING shift to state 4
+-- On INT shift to state 5
+-- On DOUBLE shift to state 6
+-- On BOOLEAN shift to state 7
+-- On tipo_simples shift to state 9
+-- On tipo shift to state 22
+-- On separated_nonempty_list(VIRGULA,parametro) shift to state 24
+-- On parametro shift to state 25
+-- On loption(separated_nonempty_list(VIRGULA,parametro)) shift to state 28
+-- On FPAR reduce production loption(separated_nonempty_list(VIRGULA,parametro)) -> 
+
+State 22:
+parametro -> tipo . ID [ VIRGULA FPAR ]
+-- On ID shift to state 23
+
+State 23:
+parametro -> tipo ID . [ VIRGULA FPAR ]
+-- On VIRGULA reduce production parametro -> tipo ID 
+-- On FPAR reduce production parametro -> tipo ID 
+
+State 24:
+loption(separated_nonempty_list(VIRGULA,parametro)) -> separated_nonempty_list(VIRGULA,parametro) . [ FPAR ]
+-- On FPAR reduce production loption(separated_nonempty_list(VIRGULA,parametro)) -> separated_nonempty_list(VIRGULA,parametro) 
+
+State 25:
+separated_nonempty_list(VIRGULA,parametro) -> parametro . [ FPAR ]
+separated_nonempty_list(VIRGULA,parametro) -> parametro . VIRGULA separated_nonempty_list(VIRGULA,parametro) [ FPAR ]
+-- On VIRGULA shift to state 26
+-- On FPAR reduce production separated_nonempty_list(VIRGULA,parametro) -> parametro 
+
+State 26:
+separated_nonempty_list(VIRGULA,parametro) -> parametro VIRGULA . separated_nonempty_list(VIRGULA,parametro) [ FPAR ]
+-- On STRING shift to state 4
+-- On INT shift to state 5
+-- On DOUBLE shift to state 6
+-- On BOOLEAN shift to state 7
+-- On tipo_simples shift to state 9
+-- On tipo shift to state 22
+-- On separated_nonempty_list(VIRGULA,parametro) shift to state 27
+-- On parametro shift to state 25
+
+State 27:
+separated_nonempty_list(VIRGULA,parametro) -> parametro VIRGULA separated_nonempty_list(VIRGULA,parametro) . [ FPAR ]
+-- On FPAR reduce production separated_nonempty_list(VIRGULA,parametro) -> parametro VIRGULA separated_nonempty_list(VIRGULA,parametro) 
+
+State 28:
+declaracao_metodo -> STATIC tipo ID APAR loption(separated_nonempty_list(VIRGULA,parametro)) . FPAR ACHAVE list(var_decl) list(comando) FCHAVE [ STATIC PUBLIC ]
+-- On FPAR shift to state 29
+
+State 29:
+declaracao_metodo -> STATIC tipo ID APAR loption(separated_nonempty_list(VIRGULA,parametro)) FPAR . ACHAVE list(var_decl) list(comando) FCHAVE [ STATIC PUBLIC ]
+-- On ACHAVE shift to state 30
+
+State 30:
+declaracao_metodo -> STATIC tipo ID APAR loption(separated_nonempty_list(VIRGULA,parametro)) FPAR ACHAVE . list(var_decl) list(comando) FCHAVE [ STATIC PUBLIC ]
+-- On STRING shift to state 4
+-- On INT shift to state 5
+-- On DOUBLE shift to state 6
+-- On BOOLEAN shift to state 7
+-- On var_decl shift to state 8
+-- On tipo_simples shift to state 9
+-- On tipo shift to state 10
+-- On list(var_decl) shift to state 31
+-- On WHILE reduce production list(var_decl) -> 
+-- On RETURN reduce production list(var_decl) -> 
+-- On NOT reduce production list(var_decl) -> 
+-- On LITSTRING reduce production list(var_decl) -> 
+-- On LITINT reduce production list(var_decl) -> 
+-- On LITDOUBLE reduce production list(var_decl) -> 
+-- On LITBOOLEAN reduce production list(var_decl) -> 
+-- On IF reduce production list(var_decl) -> 
+-- On ID reduce production list(var_decl) -> 
+-- On FCHAVE reduce production list(var_decl) -> 
+-- On ESCREVA reduce production list(var_decl) -> 
+-- On APAR reduce production list(var_decl) -> 
+
+State 31:
+declaracao_metodo -> STATIC tipo ID APAR loption(separated_nonempty_list(VIRGULA,parametro)) FPAR ACHAVE list(var_decl) . list(comando) FCHAVE [ STATIC PUBLIC ]
+-- On WHILE shift to state 32
+-- On RETURN shift to state 80
+-- On NOT shift to state 34
+-- On LITSTRING shift to state 36
+-- On LITINT shift to state 37
+-- On LITDOUBLE shift to state 38
+-- On LITBOOLEAN shift to state 39
+-- On IF shift to state 84
+-- On ID shift to state 40
+-- On ESCREVA shift to state 89
+-- On APAR shift to state 42
+-- On variavel shift to state 43
+-- On separated_nonempty_list(VIRGULA,expressao) shift to state 94
+-- On list(comando) shift to state 124
+-- On expressao shift to state 105
+-- On comando_se shift to state 109
+-- On comando_retorno shift to state 110
+-- On comando_leia shift to state 111
+-- On comando_escreva shift to state 112
+-- On comando_enquanto shift to state 113
+-- On comando_chamada shift to state 114
+-- On comando_atribuicao shift to state 115
+-- On comando shift to state 116
+-- On chamada shift to state 118
+-- On FCHAVE reduce production list(comando) -> 
+
+State 32:
+comando_enquanto -> WHILE . APAR expressao FPAR ACHAVE list(comando) FCHAVE [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On APAR shift to state 33
+
+State 33:
+comando_enquanto -> WHILE APAR . expressao FPAR ACHAVE list(comando) FCHAVE [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On NOT shift to state 34
+-- On LITSTRING shift to state 36
+-- On LITINT shift to state 37
+-- On LITDOUBLE shift to state 38
+-- On LITBOOLEAN shift to state 39
+-- On ID shift to state 40
+-- On APAR shift to state 42
+-- On variavel shift to state 43
+-- On expressao shift to state 77
+-- On chamada shift to state 49
+
+State 34:
+expressao -> NOT . LITBOOLEAN [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On LITBOOLEAN shift to state 35
+
+State 35:
+expressao -> NOT LITBOOLEAN . [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On VIRGULA reduce production expressao -> NOT LITBOOLEAN 
+-- On SUB reduce production expressao -> NOT LITBOOLEAN 
+-- On SOMA reduce production expressao -> NOT LITBOOLEAN 
+-- On PONTOEVIRGULA reduce production expressao -> NOT LITBOOLEAN 
+-- On OU reduce production expressao -> NOT LITBOOLEAN 
+-- On MULT reduce production expressao -> NOT LITBOOLEAN 
+-- On MENORIGUAL reduce production expressao -> NOT LITBOOLEAN 
+-- On MENOR reduce production expressao -> NOT LITBOOLEAN 
+-- On MAIORIGUAL reduce production expressao -> NOT LITBOOLEAN 
+-- On MAIOR reduce production expressao -> NOT LITBOOLEAN 
+-- On LEIA reduce production expressao -> NOT LITBOOLEAN 
+-- On IGUAL reduce production expressao -> NOT LITBOOLEAN 
+-- On FPAR reduce production expressao -> NOT LITBOOLEAN 
+-- On E reduce production expressao -> NOT LITBOOLEAN 
+-- On DIVISAO reduce production expressao -> NOT LITBOOLEAN 
+-- On DIFERENTE reduce production expressao -> NOT LITBOOLEAN 
+-- On ATRIB reduce production expressao -> NOT LITBOOLEAN 
+
+State 36:
+expressao -> LITSTRING . [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On VIRGULA reduce production expressao -> LITSTRING 
+-- On SUB reduce production expressao -> LITSTRING 
+-- On SOMA reduce production expressao -> LITSTRING 
+-- On PONTOEVIRGULA reduce production expressao -> LITSTRING 
+-- On OU reduce production expressao -> LITSTRING 
+-- On MULT reduce production expressao -> LITSTRING 
+-- On MENORIGUAL reduce production expressao -> LITSTRING 
+-- On MENOR reduce production expressao -> LITSTRING 
+-- On MAIORIGUAL reduce production expressao -> LITSTRING 
+-- On MAIOR reduce production expressao -> LITSTRING 
+-- On LEIA reduce production expressao -> LITSTRING 
+-- On IGUAL reduce production expressao -> LITSTRING 
+-- On FPAR reduce production expressao -> LITSTRING 
+-- On E reduce production expressao -> LITSTRING 
+-- On DIVISAO reduce production expressao -> LITSTRING 
+-- On DIFERENTE reduce production expressao -> LITSTRING 
+-- On ATRIB reduce production expressao -> LITSTRING 
+
+State 37:
+expressao -> LITINT . [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On VIRGULA reduce production expressao -> LITINT 
+-- On SUB reduce production expressao -> LITINT 
+-- On SOMA reduce production expressao -> LITINT 
+-- On PONTOEVIRGULA reduce production expressao -> LITINT 
+-- On OU reduce production expressao -> LITINT 
+-- On MULT reduce production expressao -> LITINT 
+-- On MENORIGUAL reduce production expressao -> LITINT 
+-- On MENOR reduce production expressao -> LITINT 
+-- On MAIORIGUAL reduce production expressao -> LITINT 
+-- On MAIOR reduce production expressao -> LITINT 
+-- On LEIA reduce production expressao -> LITINT 
+-- On IGUAL reduce production expressao -> LITINT 
+-- On FPAR reduce production expressao -> LITINT 
+-- On E reduce production expressao -> LITINT 
+-- On DIVISAO reduce production expressao -> LITINT 
+-- On DIFERENTE reduce production expressao -> LITINT 
+-- On ATRIB reduce production expressao -> LITINT 
+
+State 38:
+expressao -> LITDOUBLE . [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On VIRGULA reduce production expressao -> LITDOUBLE 
+-- On SUB reduce production expressao -> LITDOUBLE 
+-- On SOMA reduce production expressao -> LITDOUBLE 
+-- On PONTOEVIRGULA reduce production expressao -> LITDOUBLE 
+-- On OU reduce production expressao -> LITDOUBLE 
+-- On MULT reduce production expressao -> LITDOUBLE 
+-- On MENORIGUAL reduce production expressao -> LITDOUBLE 
+-- On MENOR reduce production expressao -> LITDOUBLE 
+-- On MAIORIGUAL reduce production expressao -> LITDOUBLE 
+-- On MAIOR reduce production expressao -> LITDOUBLE 
+-- On LEIA reduce production expressao -> LITDOUBLE 
+-- On IGUAL reduce production expressao -> LITDOUBLE 
+-- On FPAR reduce production expressao -> LITDOUBLE 
+-- On E reduce production expressao -> LITDOUBLE 
+-- On DIVISAO reduce production expressao -> LITDOUBLE 
+-- On DIFERENTE reduce production expressao -> LITDOUBLE 
+-- On ATRIB reduce production expressao -> LITDOUBLE 
+
+State 39:
+expressao -> LITBOOLEAN . [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On VIRGULA reduce production expressao -> LITBOOLEAN 
+-- On SUB reduce production expressao -> LITBOOLEAN 
+-- On SOMA reduce production expressao -> LITBOOLEAN 
+-- On PONTOEVIRGULA reduce production expressao -> LITBOOLEAN 
+-- On OU reduce production expressao -> LITBOOLEAN 
+-- On MULT reduce production expressao -> LITBOOLEAN 
+-- On MENORIGUAL reduce production expressao -> LITBOOLEAN 
+-- On MENOR reduce production expressao -> LITBOOLEAN 
+-- On MAIORIGUAL reduce production expressao -> LITBOOLEAN 
+-- On MAIOR reduce production expressao -> LITBOOLEAN 
+-- On LEIA reduce production expressao -> LITBOOLEAN 
+-- On IGUAL reduce production expressao -> LITBOOLEAN 
+-- On FPAR reduce production expressao -> LITBOOLEAN 
+-- On E reduce production expressao -> LITBOOLEAN 
+-- On DIVISAO reduce production expressao -> LITBOOLEAN 
+-- On DIFERENTE reduce production expressao -> LITBOOLEAN 
+-- On ATRIB reduce production expressao -> LITBOOLEAN 
+
+State 40:
+chamada -> ID . APAR loption(separated_nonempty_list(VIRGULA,expressao)) FPAR [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+variavel -> ID . [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On APAR shift to state 41
+-- On VIRGULA reduce production variavel -> ID 
+-- On SUB reduce production variavel -> ID 
+-- On SOMA reduce production variavel -> ID 
+-- On PONTOEVIRGULA reduce production variavel -> ID 
+-- On OU reduce production variavel -> ID 
+-- On MULT reduce production variavel -> ID 
+-- On MENORIGUAL reduce production variavel -> ID 
+-- On MENOR reduce production variavel -> ID 
+-- On MAIORIGUAL reduce production variavel -> ID 
+-- On MAIOR reduce production variavel -> ID 
+-- On LEIA reduce production variavel -> ID 
+-- On IGUAL reduce production variavel -> ID 
+-- On FPAR reduce production variavel -> ID 
+-- On E reduce production variavel -> ID 
+-- On DIVISAO reduce production variavel -> ID 
+-- On DIFERENTE reduce production variavel -> ID 
+-- On ATRIB reduce production variavel -> ID 
+
+State 41:
+chamada -> ID APAR . loption(separated_nonempty_list(VIRGULA,expressao)) FPAR [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On NOT shift to state 34
+-- On LITSTRING shift to state 36
+-- On LITINT shift to state 37
+-- On LITDOUBLE shift to state 38
+-- On LITBOOLEAN shift to state 39
+-- On ID shift to state 40
+-- On APAR shift to state 42
+-- On variavel shift to state 43
+-- On separated_nonempty_list(VIRGULA,expressao) shift to state 71
+-- On loption(separated_nonempty_list(VIRGULA,expressao)) shift to state 72
+-- On expressao shift to state 74
+-- On chamada shift to state 49
+-- On FPAR reduce production loption(separated_nonempty_list(VIRGULA,expressao)) -> 
+
+State 42:
+expressao -> APAR . expressao FPAR [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On NOT shift to state 34
+-- On LITSTRING shift to state 36
+-- On LITINT shift to state 37
+-- On LITDOUBLE shift to state 38
+-- On LITBOOLEAN shift to state 39
+-- On ID shift to state 40
+-- On APAR shift to state 42
+-- On variavel shift to state 43
+-- On expressao shift to state 44
+-- On chamada shift to state 49
+
+State 43:
+expressao -> variavel . [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On VIRGULA reduce production expressao -> variavel 
+-- On SUB reduce production expressao -> variavel 
+-- On SOMA reduce production expressao -> variavel 
+-- On PONTOEVIRGULA reduce production expressao -> variavel 
+-- On OU reduce production expressao -> variavel 
+-- On MULT reduce production expressao -> variavel 
+-- On MENORIGUAL reduce production expressao -> variavel 
+-- On MENOR reduce production expressao -> variavel 
+-- On MAIORIGUAL reduce production expressao -> variavel 
+-- On MAIOR reduce production expressao -> variavel 
+-- On LEIA reduce production expressao -> variavel 
+-- On IGUAL reduce production expressao -> variavel 
+-- On FPAR reduce production expressao -> variavel 
+-- On E reduce production expressao -> variavel 
+-- On DIVISAO reduce production expressao -> variavel 
+-- On DIFERENTE reduce production expressao -> variavel 
+-- On ATRIB reduce production expressao -> variavel 
+
+State 44:
+expressao -> expressao . SOMA expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . SUB expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . MULT expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . DIVISAO expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . MENOR expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . MENORIGUAL expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . IGUAL expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . DIFERENTE expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . MAIOR expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . MAIORIGUAL expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . E expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . OU expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> APAR expressao . FPAR [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On SUB shift to state 45
+-- On SOMA shift to state 52
+-- On OU shift to state 54
+-- On MULT shift to state 47
+-- On MENORIGUAL shift to state 56
+-- On MENOR shift to state 58
+-- On MAIORIGUAL shift to state 60
+-- On MAIOR shift to state 62
+-- On IGUAL shift to state 64
+-- On FPAR shift to state 70
+-- On E shift to state 66
+-- On DIVISAO shift to state 50
+-- On DIFERENTE shift to state 68
+
+State 45:
+expressao -> expressao SUB . expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On NOT shift to state 34
+-- On LITSTRING shift to state 36
+-- On LITINT shift to state 37
+-- On LITDOUBLE shift to state 38
+-- On LITBOOLEAN shift to state 39
+-- On ID shift to state 40
+-- On APAR shift to state 42
+-- On variavel shift to state 43
+-- On expressao shift to state 46
+-- On chamada shift to state 49
+
+State 46:
+expressao -> expressao . SOMA expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . SUB expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao SUB expressao . [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MULT expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . DIVISAO expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MENOR expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MENORIGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . IGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . DIFERENTE expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MAIOR expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MAIORIGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . E expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . OU expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On MULT shift to state 47
+-- On DIVISAO shift to state 50
+-- On VIRGULA reduce production expressao -> expressao SUB expressao 
+-- On SUB reduce production expressao -> expressao SUB expressao 
+-- On SOMA reduce production expressao -> expressao SUB expressao 
+-- On PONTOEVIRGULA reduce production expressao -> expressao SUB expressao 
+-- On OU reduce production expressao -> expressao SUB expressao 
+-- On MENORIGUAL reduce production expressao -> expressao SUB expressao 
+-- On MENOR reduce production expressao -> expressao SUB expressao 
+-- On MAIORIGUAL reduce production expressao -> expressao SUB expressao 
+-- On MAIOR reduce production expressao -> expressao SUB expressao 
+-- On LEIA reduce production expressao -> expressao SUB expressao 
+-- On IGUAL reduce production expressao -> expressao SUB expressao 
+-- On FPAR reduce production expressao -> expressao SUB expressao 
+-- On E reduce production expressao -> expressao SUB expressao 
+-- On DIFERENTE reduce production expressao -> expressao SUB expressao 
+-- On ATRIB reduce production expressao -> expressao SUB expressao 
+
+State 47:
+expressao -> expressao MULT . expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On NOT shift to state 34
+-- On LITSTRING shift to state 36
+-- On LITINT shift to state 37
+-- On LITDOUBLE shift to state 38
+-- On LITBOOLEAN shift to state 39
+-- On ID shift to state 40
+-- On APAR shift to state 42
+-- On variavel shift to state 43
+-- On expressao shift to state 48
+-- On chamada shift to state 49
+
+State 48:
+expressao -> expressao . SOMA expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . SUB expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MULT expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao MULT expressao . [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . DIVISAO expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MENOR expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MENORIGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . IGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . DIFERENTE expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MAIOR expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MAIORIGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . E expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . OU expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On VIRGULA reduce production expressao -> expressao MULT expressao 
+-- On SUB reduce production expressao -> expressao MULT expressao 
+-- On SOMA reduce production expressao -> expressao MULT expressao 
+-- On PONTOEVIRGULA reduce production expressao -> expressao MULT expressao 
+-- On OU reduce production expressao -> expressao MULT expressao 
+-- On MULT reduce production expressao -> expressao MULT expressao 
+-- On MENORIGUAL reduce production expressao -> expressao MULT expressao 
+-- On MENOR reduce production expressao -> expressao MULT expressao 
+-- On MAIORIGUAL reduce production expressao -> expressao MULT expressao 
+-- On MAIOR reduce production expressao -> expressao MULT expressao 
+-- On LEIA reduce production expressao -> expressao MULT expressao 
+-- On IGUAL reduce production expressao -> expressao MULT expressao 
+-- On FPAR reduce production expressao -> expressao MULT expressao 
+-- On E reduce production expressao -> expressao MULT expressao 
+-- On DIVISAO reduce production expressao -> expressao MULT expressao 
+-- On DIFERENTE reduce production expressao -> expressao MULT expressao 
+-- On ATRIB reduce production expressao -> expressao MULT expressao 
+
+State 49:
+expressao -> chamada . [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On VIRGULA reduce production expressao -> chamada 
+-- On SUB reduce production expressao -> chamada 
+-- On SOMA reduce production expressao -> chamada 
+-- On PONTOEVIRGULA reduce production expressao -> chamada 
+-- On OU reduce production expressao -> chamada 
+-- On MULT reduce production expressao -> chamada 
+-- On MENORIGUAL reduce production expressao -> chamada 
+-- On MENOR reduce production expressao -> chamada 
+-- On MAIORIGUAL reduce production expressao -> chamada 
+-- On MAIOR reduce production expressao -> chamada 
+-- On LEIA reduce production expressao -> chamada 
+-- On IGUAL reduce production expressao -> chamada 
+-- On FPAR reduce production expressao -> chamada 
+-- On E reduce production expressao -> chamada 
+-- On DIVISAO reduce production expressao -> chamada 
+-- On DIFERENTE reduce production expressao -> chamada 
+-- On ATRIB reduce production expressao -> chamada 
+
+State 50:
+expressao -> expressao DIVISAO . expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On NOT shift to state 34
+-- On LITSTRING shift to state 36
+-- On LITINT shift to state 37
+-- On LITDOUBLE shift to state 38
+-- On LITBOOLEAN shift to state 39
+-- On ID shift to state 40
+-- On APAR shift to state 42
+-- On variavel shift to state 43
+-- On expressao shift to state 51
+-- On chamada shift to state 49
+
+State 51:
+expressao -> expressao . SOMA expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . SUB expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MULT expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . DIVISAO expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao DIVISAO expressao . [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MENOR expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MENORIGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . IGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . DIFERENTE expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MAIOR expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MAIORIGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . E expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . OU expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On VIRGULA reduce production expressao -> expressao DIVISAO expressao 
+-- On SUB reduce production expressao -> expressao DIVISAO expressao 
+-- On SOMA reduce production expressao -> expressao DIVISAO expressao 
+-- On PONTOEVIRGULA reduce production expressao -> expressao DIVISAO expressao 
+-- On OU reduce production expressao -> expressao DIVISAO expressao 
+-- On MULT reduce production expressao -> expressao DIVISAO expressao 
+-- On MENORIGUAL reduce production expressao -> expressao DIVISAO expressao 
+-- On MENOR reduce production expressao -> expressao DIVISAO expressao 
+-- On MAIORIGUAL reduce production expressao -> expressao DIVISAO expressao 
+-- On MAIOR reduce production expressao -> expressao DIVISAO expressao 
+-- On LEIA reduce production expressao -> expressao DIVISAO expressao 
+-- On IGUAL reduce production expressao -> expressao DIVISAO expressao 
+-- On FPAR reduce production expressao -> expressao DIVISAO expressao 
+-- On E reduce production expressao -> expressao DIVISAO expressao 
+-- On DIVISAO reduce production expressao -> expressao DIVISAO expressao 
+-- On DIFERENTE reduce production expressao -> expressao DIVISAO expressao 
+-- On ATRIB reduce production expressao -> expressao DIVISAO expressao 
+
+State 52:
+expressao -> expressao SOMA . expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On NOT shift to state 34
+-- On LITSTRING shift to state 36
+-- On LITINT shift to state 37
+-- On LITDOUBLE shift to state 38
+-- On LITBOOLEAN shift to state 39
+-- On ID shift to state 40
+-- On APAR shift to state 42
+-- On variavel shift to state 43
+-- On expressao shift to state 53
+-- On chamada shift to state 49
+
+State 53:
+expressao -> expressao . SOMA expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao SOMA expressao . [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . SUB expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MULT expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . DIVISAO expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MENOR expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MENORIGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . IGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . DIFERENTE expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MAIOR expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MAIORIGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . E expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . OU expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On MULT shift to state 47
+-- On DIVISAO shift to state 50
+-- On VIRGULA reduce production expressao -> expressao SOMA expressao 
+-- On SUB reduce production expressao -> expressao SOMA expressao 
+-- On SOMA reduce production expressao -> expressao SOMA expressao 
+-- On PONTOEVIRGULA reduce production expressao -> expressao SOMA expressao 
+-- On OU reduce production expressao -> expressao SOMA expressao 
+-- On MENORIGUAL reduce production expressao -> expressao SOMA expressao 
+-- On MENOR reduce production expressao -> expressao SOMA expressao 
+-- On MAIORIGUAL reduce production expressao -> expressao SOMA expressao 
+-- On MAIOR reduce production expressao -> expressao SOMA expressao 
+-- On LEIA reduce production expressao -> expressao SOMA expressao 
+-- On IGUAL reduce production expressao -> expressao SOMA expressao 
+-- On FPAR reduce production expressao -> expressao SOMA expressao 
+-- On E reduce production expressao -> expressao SOMA expressao 
+-- On DIFERENTE reduce production expressao -> expressao SOMA expressao 
+-- On ATRIB reduce production expressao -> expressao SOMA expressao 
+
+State 54:
+expressao -> expressao OU . expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On NOT shift to state 34
+-- On LITSTRING shift to state 36
+-- On LITINT shift to state 37
+-- On LITDOUBLE shift to state 38
+-- On LITBOOLEAN shift to state 39
+-- On ID shift to state 40
+-- On APAR shift to state 42
+-- On variavel shift to state 43
+-- On expressao shift to state 55
+-- On chamada shift to state 49
+
+State 55:
+expressao -> expressao . SOMA expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . SUB expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MULT expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . DIVISAO expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MENOR expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MENORIGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . IGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . DIFERENTE expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MAIOR expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MAIORIGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . E expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . OU expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao OU expressao . [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On SUB shift to state 45
+-- On SOMA shift to state 52
+-- On MULT shift to state 47
+-- On MENORIGUAL shift to state 56
+-- On MENOR shift to state 58
+-- On MAIORIGUAL shift to state 60
+-- On MAIOR shift to state 62
+-- On IGUAL shift to state 64
+-- On E shift to state 66
+-- On DIVISAO shift to state 50
+-- On DIFERENTE shift to state 68
+-- On VIRGULA reduce production expressao -> expressao OU expressao 
+-- On PONTOEVIRGULA reduce production expressao -> expressao OU expressao 
+-- On OU reduce production expressao -> expressao OU expressao 
+-- On LEIA reduce production expressao -> expressao OU expressao 
+-- On FPAR reduce production expressao -> expressao OU expressao 
+-- On ATRIB reduce production expressao -> expressao OU expressao 
+
+State 56:
+expressao -> expressao MENORIGUAL . expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On NOT shift to state 34
+-- On LITSTRING shift to state 36
+-- On LITINT shift to state 37
+-- On LITDOUBLE shift to state 38
+-- On LITBOOLEAN shift to state 39
+-- On ID shift to state 40
+-- On APAR shift to state 42
+-- On variavel shift to state 43
+-- On expressao shift to state 57
+-- On chamada shift to state 49
+
+State 57:
+expressao -> expressao . SOMA expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . SUB expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MULT expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . DIVISAO expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MENOR expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MENORIGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao MENORIGUAL expressao . [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . IGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . DIFERENTE expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MAIOR expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MAIORIGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . E expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . OU expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On SUB shift to state 45
+-- On SOMA shift to state 52
+-- On MULT shift to state 47
+-- On DIVISAO shift to state 50
+-- On VIRGULA reduce production expressao -> expressao MENORIGUAL expressao 
+-- On PONTOEVIRGULA reduce production expressao -> expressao MENORIGUAL expressao 
+-- On OU reduce production expressao -> expressao MENORIGUAL expressao 
+-- On MENORIGUAL reduce production expressao -> expressao MENORIGUAL expressao 
+-- On MENOR reduce production expressao -> expressao MENORIGUAL expressao 
+-- On MAIORIGUAL reduce production expressao -> expressao MENORIGUAL expressao 
+-- On MAIOR reduce production expressao -> expressao MENORIGUAL expressao 
+-- On LEIA reduce production expressao -> expressao MENORIGUAL expressao 
+-- On IGUAL reduce production expressao -> expressao MENORIGUAL expressao 
+-- On FPAR reduce production expressao -> expressao MENORIGUAL expressao 
+-- On E reduce production expressao -> expressao MENORIGUAL expressao 
+-- On DIFERENTE reduce production expressao -> expressao MENORIGUAL expressao 
+-- On ATRIB reduce production expressao -> expressao MENORIGUAL expressao 
+
+State 58:
+expressao -> expressao MENOR . expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On NOT shift to state 34
+-- On LITSTRING shift to state 36
+-- On LITINT shift to state 37
+-- On LITDOUBLE shift to state 38
+-- On LITBOOLEAN shift to state 39
+-- On ID shift to state 40
+-- On APAR shift to state 42
+-- On variavel shift to state 43
+-- On expressao shift to state 59
+-- On chamada shift to state 49
+
+State 59:
+expressao -> expressao . SOMA expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . SUB expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MULT expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . DIVISAO expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MENOR expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao MENOR expressao . [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MENORIGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . IGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . DIFERENTE expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MAIOR expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MAIORIGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . E expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . OU expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On SUB shift to state 45
+-- On SOMA shift to state 52
+-- On MULT shift to state 47
+-- On DIVISAO shift to state 50
+-- On VIRGULA reduce production expressao -> expressao MENOR expressao 
+-- On PONTOEVIRGULA reduce production expressao -> expressao MENOR expressao 
+-- On OU reduce production expressao -> expressao MENOR expressao 
+-- On MENORIGUAL reduce production expressao -> expressao MENOR expressao 
+-- On MENOR reduce production expressao -> expressao MENOR expressao 
+-- On MAIORIGUAL reduce production expressao -> expressao MENOR expressao 
+-- On MAIOR reduce production expressao -> expressao MENOR expressao 
+-- On LEIA reduce production expressao -> expressao MENOR expressao 
+-- On IGUAL reduce production expressao -> expressao MENOR expressao 
+-- On FPAR reduce production expressao -> expressao MENOR expressao 
+-- On E reduce production expressao -> expressao MENOR expressao 
+-- On DIFERENTE reduce production expressao -> expressao MENOR expressao 
+-- On ATRIB reduce production expressao -> expressao MENOR expressao 
+
+State 60:
+expressao -> expressao MAIORIGUAL . expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On NOT shift to state 34
+-- On LITSTRING shift to state 36
+-- On LITINT shift to state 37
+-- On LITDOUBLE shift to state 38
+-- On LITBOOLEAN shift to state 39
+-- On ID shift to state 40
+-- On APAR shift to state 42
+-- On variavel shift to state 43
+-- On expressao shift to state 61
+-- On chamada shift to state 49
+
+State 61:
+expressao -> expressao . SOMA expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . SUB expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MULT expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . DIVISAO expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MENOR expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MENORIGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . IGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . DIFERENTE expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MAIOR expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MAIORIGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao MAIORIGUAL expressao . [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . E expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . OU expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On SUB shift to state 45
+-- On SOMA shift to state 52
+-- On MULT shift to state 47
+-- On DIVISAO shift to state 50
+-- On VIRGULA reduce production expressao -> expressao MAIORIGUAL expressao 
+-- On PONTOEVIRGULA reduce production expressao -> expressao MAIORIGUAL expressao 
+-- On OU reduce production expressao -> expressao MAIORIGUAL expressao 
+-- On MENORIGUAL reduce production expressao -> expressao MAIORIGUAL expressao 
+-- On MENOR reduce production expressao -> expressao MAIORIGUAL expressao 
+-- On MAIORIGUAL reduce production expressao -> expressao MAIORIGUAL expressao 
+-- On MAIOR reduce production expressao -> expressao MAIORIGUAL expressao 
+-- On LEIA reduce production expressao -> expressao MAIORIGUAL expressao 
+-- On IGUAL reduce production expressao -> expressao MAIORIGUAL expressao 
+-- On FPAR reduce production expressao -> expressao MAIORIGUAL expressao 
+-- On E reduce production expressao -> expressao MAIORIGUAL expressao 
+-- On DIFERENTE reduce production expressao -> expressao MAIORIGUAL expressao 
+-- On ATRIB reduce production expressao -> expressao MAIORIGUAL expressao 
+
+State 62:
+expressao -> expressao MAIOR . expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On NOT shift to state 34
+-- On LITSTRING shift to state 36
+-- On LITINT shift to state 37
+-- On LITDOUBLE shift to state 38
+-- On LITBOOLEAN shift to state 39
+-- On ID shift to state 40
+-- On APAR shift to state 42
+-- On variavel shift to state 43
+-- On expressao shift to state 63
+-- On chamada shift to state 49
+
+State 63:
+expressao -> expressao . SOMA expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . SUB expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MULT expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . DIVISAO expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MENOR expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MENORIGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . IGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . DIFERENTE expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MAIOR expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao MAIOR expressao . [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MAIORIGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . E expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . OU expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On SUB shift to state 45
+-- On SOMA shift to state 52
+-- On MULT shift to state 47
+-- On DIVISAO shift to state 50
+-- On VIRGULA reduce production expressao -> expressao MAIOR expressao 
+-- On PONTOEVIRGULA reduce production expressao -> expressao MAIOR expressao 
+-- On OU reduce production expressao -> expressao MAIOR expressao 
+-- On MENORIGUAL reduce production expressao -> expressao MAIOR expressao 
+-- On MENOR reduce production expressao -> expressao MAIOR expressao 
+-- On MAIORIGUAL reduce production expressao -> expressao MAIOR expressao 
+-- On MAIOR reduce production expressao -> expressao MAIOR expressao 
+-- On LEIA reduce production expressao -> expressao MAIOR expressao 
+-- On IGUAL reduce production expressao -> expressao MAIOR expressao 
+-- On FPAR reduce production expressao -> expressao MAIOR expressao 
+-- On E reduce production expressao -> expressao MAIOR expressao 
+-- On DIFERENTE reduce production expressao -> expressao MAIOR expressao 
+-- On ATRIB reduce production expressao -> expressao MAIOR expressao 
+
+State 64:
+expressao -> expressao IGUAL . expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On NOT shift to state 34
+-- On LITSTRING shift to state 36
+-- On LITINT shift to state 37
+-- On LITDOUBLE shift to state 38
+-- On LITBOOLEAN shift to state 39
+-- On ID shift to state 40
+-- On APAR shift to state 42
+-- On variavel shift to state 43
+-- On expressao shift to state 65
+-- On chamada shift to state 49
+
+State 65:
+expressao -> expressao . SOMA expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . SUB expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MULT expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . DIVISAO expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MENOR expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MENORIGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . IGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao IGUAL expressao . [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . DIFERENTE expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MAIOR expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MAIORIGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . E expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . OU expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On SUB shift to state 45
+-- On SOMA shift to state 52
+-- On MULT shift to state 47
+-- On MENORIGUAL shift to state 56
+-- On MENOR shift to state 58
+-- On MAIORIGUAL shift to state 60
+-- On MAIOR shift to state 62
+-- On DIVISAO shift to state 50
+-- On VIRGULA reduce production expressao -> expressao IGUAL expressao 
+-- On PONTOEVIRGULA reduce production expressao -> expressao IGUAL expressao 
+-- On OU reduce production expressao -> expressao IGUAL expressao 
+-- On LEIA reduce production expressao -> expressao IGUAL expressao 
+-- On IGUAL reduce production expressao -> expressao IGUAL expressao 
+-- On FPAR reduce production expressao -> expressao IGUAL expressao 
+-- On E reduce production expressao -> expressao IGUAL expressao 
+-- On DIFERENTE reduce production expressao -> expressao IGUAL expressao 
+-- On ATRIB reduce production expressao -> expressao IGUAL expressao 
+
+State 66:
+expressao -> expressao E . expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On NOT shift to state 34
+-- On LITSTRING shift to state 36
+-- On LITINT shift to state 37
+-- On LITDOUBLE shift to state 38
+-- On LITBOOLEAN shift to state 39
+-- On ID shift to state 40
+-- On APAR shift to state 42
+-- On variavel shift to state 43
+-- On expressao shift to state 67
+-- On chamada shift to state 49
+
+State 67:
+expressao -> expressao . SOMA expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . SUB expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MULT expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . DIVISAO expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MENOR expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MENORIGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . IGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . DIFERENTE expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MAIOR expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MAIORIGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . E expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao E expressao . [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . OU expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On SUB shift to state 45
+-- On SOMA shift to state 52
+-- On MULT shift to state 47
+-- On MENORIGUAL shift to state 56
+-- On MENOR shift to state 58
+-- On MAIORIGUAL shift to state 60
+-- On MAIOR shift to state 62
+-- On IGUAL shift to state 64
+-- On DIVISAO shift to state 50
+-- On DIFERENTE shift to state 68
+-- On VIRGULA reduce production expressao -> expressao E expressao 
+-- On PONTOEVIRGULA reduce production expressao -> expressao E expressao 
+-- On OU reduce production expressao -> expressao E expressao 
+-- On LEIA reduce production expressao -> expressao E expressao 
+-- On FPAR reduce production expressao -> expressao E expressao 
+-- On E reduce production expressao -> expressao E expressao 
+-- On ATRIB reduce production expressao -> expressao E expressao 
+
+State 68:
+expressao -> expressao DIFERENTE . expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On NOT shift to state 34
+-- On LITSTRING shift to state 36
+-- On LITINT shift to state 37
+-- On LITDOUBLE shift to state 38
+-- On LITBOOLEAN shift to state 39
+-- On ID shift to state 40
+-- On APAR shift to state 42
+-- On variavel shift to state 43
+-- On expressao shift to state 69
+-- On chamada shift to state 49
+
+State 69:
+expressao -> expressao . SOMA expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . SUB expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MULT expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . DIVISAO expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MENOR expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MENORIGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . IGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . DIFERENTE expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao DIFERENTE expressao . [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MAIOR expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MAIORIGUAL expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . E expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . OU expressao [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On SUB shift to state 45
+-- On SOMA shift to state 52
+-- On MULT shift to state 47
+-- On MENORIGUAL shift to state 56
+-- On MENOR shift to state 58
+-- On MAIORIGUAL shift to state 60
+-- On MAIOR shift to state 62
+-- On DIVISAO shift to state 50
+-- On VIRGULA reduce production expressao -> expressao DIFERENTE expressao 
+-- On PONTOEVIRGULA reduce production expressao -> expressao DIFERENTE expressao 
+-- On OU reduce production expressao -> expressao DIFERENTE expressao 
+-- On LEIA reduce production expressao -> expressao DIFERENTE expressao 
+-- On IGUAL reduce production expressao -> expressao DIFERENTE expressao 
+-- On FPAR reduce production expressao -> expressao DIFERENTE expressao 
+-- On E reduce production expressao -> expressao DIFERENTE expressao 
+-- On DIFERENTE reduce production expressao -> expressao DIFERENTE expressao 
+-- On ATRIB reduce production expressao -> expressao DIFERENTE expressao 
+
+State 70:
+expressao -> APAR expressao FPAR . [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On VIRGULA reduce production expressao -> APAR expressao FPAR 
+-- On SUB reduce production expressao -> APAR expressao FPAR 
+-- On SOMA reduce production expressao -> APAR expressao FPAR 
+-- On PONTOEVIRGULA reduce production expressao -> APAR expressao FPAR 
+-- On OU reduce production expressao -> APAR expressao FPAR 
+-- On MULT reduce production expressao -> APAR expressao FPAR 
+-- On MENORIGUAL reduce production expressao -> APAR expressao FPAR 
+-- On MENOR reduce production expressao -> APAR expressao FPAR 
+-- On MAIORIGUAL reduce production expressao -> APAR expressao FPAR 
+-- On MAIOR reduce production expressao -> APAR expressao FPAR 
+-- On LEIA reduce production expressao -> APAR expressao FPAR 
+-- On IGUAL reduce production expressao -> APAR expressao FPAR 
+-- On FPAR reduce production expressao -> APAR expressao FPAR 
+-- On E reduce production expressao -> APAR expressao FPAR 
+-- On DIVISAO reduce production expressao -> APAR expressao FPAR 
+-- On DIFERENTE reduce production expressao -> APAR expressao FPAR 
+-- On ATRIB reduce production expressao -> APAR expressao FPAR 
+
+State 71:
+loption(separated_nonempty_list(VIRGULA,expressao)) -> separated_nonempty_list(VIRGULA,expressao) . [ FPAR ]
+-- On FPAR reduce production loption(separated_nonempty_list(VIRGULA,expressao)) -> separated_nonempty_list(VIRGULA,expressao) 
+
+State 72:
+chamada -> ID APAR loption(separated_nonempty_list(VIRGULA,expressao)) . FPAR [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On FPAR shift to state 73
+
+State 73:
+chamada -> ID APAR loption(separated_nonempty_list(VIRGULA,expressao)) FPAR . [ VIRGULA SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ATRIB ]
+-- On VIRGULA reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRGULA,expressao)) FPAR 
+-- On SUB reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRGULA,expressao)) FPAR 
+-- On SOMA reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRGULA,expressao)) FPAR 
+-- On PONTOEVIRGULA reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRGULA,expressao)) FPAR 
+-- On OU reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRGULA,expressao)) FPAR 
+-- On MULT reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRGULA,expressao)) FPAR 
+-- On MENORIGUAL reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRGULA,expressao)) FPAR 
+-- On MENOR reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRGULA,expressao)) FPAR 
+-- On MAIORIGUAL reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRGULA,expressao)) FPAR 
+-- On MAIOR reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRGULA,expressao)) FPAR 
+-- On LEIA reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRGULA,expressao)) FPAR 
+-- On IGUAL reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRGULA,expressao)) FPAR 
+-- On FPAR reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRGULA,expressao)) FPAR 
+-- On E reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRGULA,expressao)) FPAR 
+-- On DIVISAO reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRGULA,expressao)) FPAR 
+-- On DIFERENTE reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRGULA,expressao)) FPAR 
+-- On ATRIB reduce production chamada -> ID APAR loption(separated_nonempty_list(VIRGULA,expressao)) FPAR 
+
+State 74:
+expressao -> expressao . SOMA expressao [ VIRGULA SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . SUB expressao [ VIRGULA SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . MULT expressao [ VIRGULA SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . DIVISAO expressao [ VIRGULA SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . MENOR expressao [ VIRGULA SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . MENORIGUAL expressao [ VIRGULA SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . IGUAL expressao [ VIRGULA SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . DIFERENTE expressao [ VIRGULA SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . MAIOR expressao [ VIRGULA SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . MAIORIGUAL expressao [ VIRGULA SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . E expressao [ VIRGULA SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . OU expressao [ VIRGULA SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL FPAR E DIVISAO DIFERENTE ]
+separated_nonempty_list(VIRGULA,expressao) -> expressao . [ LEIA FPAR ]
+separated_nonempty_list(VIRGULA,expressao) -> expressao . VIRGULA separated_nonempty_list(VIRGULA,expressao) [ LEIA FPAR ]
+-- On VIRGULA shift to state 75
+-- On SUB shift to state 45
+-- On SOMA shift to state 52
+-- On OU shift to state 54
+-- On MULT shift to state 47
+-- On MENORIGUAL shift to state 56
+-- On MENOR shift to state 58
+-- On MAIORIGUAL shift to state 60
+-- On MAIOR shift to state 62
+-- On IGUAL shift to state 64
+-- On E shift to state 66
+-- On DIVISAO shift to state 50
+-- On DIFERENTE shift to state 68
+-- On LEIA reduce production separated_nonempty_list(VIRGULA,expressao) -> expressao 
+-- On FPAR reduce production separated_nonempty_list(VIRGULA,expressao) -> expressao 
+
+State 75:
+separated_nonempty_list(VIRGULA,expressao) -> expressao VIRGULA . separated_nonempty_list(VIRGULA,expressao) [ LEIA FPAR ]
+-- On NOT shift to state 34
+-- On LITSTRING shift to state 36
+-- On LITINT shift to state 37
+-- On LITDOUBLE shift to state 38
+-- On LITBOOLEAN shift to state 39
+-- On ID shift to state 40
+-- On APAR shift to state 42
+-- On variavel shift to state 43
+-- On separated_nonempty_list(VIRGULA,expressao) shift to state 76
+-- On expressao shift to state 74
+-- On chamada shift to state 49
+
+State 76:
+separated_nonempty_list(VIRGULA,expressao) -> expressao VIRGULA separated_nonempty_list(VIRGULA,expressao) . [ LEIA FPAR ]
+-- On LEIA reduce production separated_nonempty_list(VIRGULA,expressao) -> expressao VIRGULA separated_nonempty_list(VIRGULA,expressao) 
+-- On FPAR reduce production separated_nonempty_list(VIRGULA,expressao) -> expressao VIRGULA separated_nonempty_list(VIRGULA,expressao) 
+
+State 77:
+comando_enquanto -> WHILE APAR expressao . FPAR ACHAVE list(comando) FCHAVE [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+expressao -> expressao . SOMA expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . SUB expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . MULT expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . DIVISAO expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . MENOR expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . MENORIGUAL expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . IGUAL expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . DIFERENTE expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . MAIOR expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . MAIORIGUAL expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . E expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . OU expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+-- On SUB shift to state 45
+-- On SOMA shift to state 52
+-- On OU shift to state 54
+-- On MULT shift to state 47
+-- On MENORIGUAL shift to state 56
+-- On MENOR shift to state 58
+-- On MAIORIGUAL shift to state 60
+-- On MAIOR shift to state 62
+-- On IGUAL shift to state 64
+-- On FPAR shift to state 78
+-- On E shift to state 66
+-- On DIVISAO shift to state 50
+-- On DIFERENTE shift to state 68
+
+State 78:
+comando_enquanto -> WHILE APAR expressao FPAR . ACHAVE list(comando) FCHAVE [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On ACHAVE shift to state 79
+
+State 79:
+comando_enquanto -> WHILE APAR expressao FPAR ACHAVE . list(comando) FCHAVE [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On WHILE shift to state 32
+-- On RETURN shift to state 80
+-- On NOT shift to state 34
+-- On LITSTRING shift to state 36
+-- On LITINT shift to state 37
+-- On LITDOUBLE shift to state 38
+-- On LITBOOLEAN shift to state 39
+-- On IF shift to state 84
+-- On ID shift to state 40
+-- On ESCREVA shift to state 89
+-- On APAR shift to state 42
+-- On variavel shift to state 43
+-- On separated_nonempty_list(VIRGULA,expressao) shift to state 94
+-- On list(comando) shift to state 122
+-- On expressao shift to state 105
+-- On comando_se shift to state 109
+-- On comando_retorno shift to state 110
+-- On comando_leia shift to state 111
+-- On comando_escreva shift to state 112
+-- On comando_enquanto shift to state 113
+-- On comando_chamada shift to state 114
+-- On comando_atribuicao shift to state 115
+-- On comando shift to state 116
+-- On chamada shift to state 118
+-- On FCHAVE reduce production list(comando) -> 
+
+State 80:
+comando_retorno -> RETURN . option(expressao) PONTOEVIRGULA [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On NOT shift to state 34
+-- On LITSTRING shift to state 36
+-- On LITINT shift to state 37
+-- On LITDOUBLE shift to state 38
+-- On LITBOOLEAN shift to state 39
+-- On ID shift to state 40
+-- On APAR shift to state 42
+-- On variavel shift to state 43
+-- On option(expressao) shift to state 81
+-- On expressao shift to state 83
+-- On chamada shift to state 49
+-- On PONTOEVIRGULA reduce production option(expressao) -> 
+
+State 81:
+comando_retorno -> RETURN option(expressao) . PONTOEVIRGULA [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On PONTOEVIRGULA shift to state 82
+
+State 82:
+comando_retorno -> RETURN option(expressao) PONTOEVIRGULA . [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On WHILE reduce production comando_retorno -> RETURN option(expressao) PONTOEVIRGULA 
+-- On RETURN reduce production comando_retorno -> RETURN option(expressao) PONTOEVIRGULA 
+-- On NOT reduce production comando_retorno -> RETURN option(expressao) PONTOEVIRGULA 
+-- On LITSTRING reduce production comando_retorno -> RETURN option(expressao) PONTOEVIRGULA 
+-- On LITINT reduce production comando_retorno -> RETURN option(expressao) PONTOEVIRGULA 
+-- On LITDOUBLE reduce production comando_retorno -> RETURN option(expressao) PONTOEVIRGULA 
+-- On LITBOOLEAN reduce production comando_retorno -> RETURN option(expressao) PONTOEVIRGULA 
+-- On IF reduce production comando_retorno -> RETURN option(expressao) PONTOEVIRGULA 
+-- On ID reduce production comando_retorno -> RETURN option(expressao) PONTOEVIRGULA 
+-- On FCHAVE reduce production comando_retorno -> RETURN option(expressao) PONTOEVIRGULA 
+-- On ESCREVA reduce production comando_retorno -> RETURN option(expressao) PONTOEVIRGULA 
+-- On APAR reduce production comando_retorno -> RETURN option(expressao) PONTOEVIRGULA 
+
+State 83:
+expressao -> expressao . SOMA expressao [ SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expressao -> expressao . SUB expressao [ SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expressao -> expressao . MULT expressao [ SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expressao -> expressao . DIVISAO expressao [ SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expressao -> expressao . MENOR expressao [ SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expressao -> expressao . MENORIGUAL expressao [ SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expressao -> expressao . IGUAL expressao [ SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expressao -> expressao . DIFERENTE expressao [ SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expressao -> expressao . MAIOR expressao [ SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expressao -> expressao . MAIORIGUAL expressao [ SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expressao -> expressao . E expressao [ SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expressao -> expressao . OU expressao [ SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+option(expressao) -> expressao . [ PONTOEVIRGULA ]
+-- On SUB shift to state 45
+-- On SOMA shift to state 52
+-- On OU shift to state 54
+-- On MULT shift to state 47
+-- On MENORIGUAL shift to state 56
+-- On MENOR shift to state 58
+-- On MAIORIGUAL shift to state 60
+-- On MAIOR shift to state 62
+-- On IGUAL shift to state 64
+-- On E shift to state 66
+-- On DIVISAO shift to state 50
+-- On DIFERENTE shift to state 68
+-- On PONTOEVIRGULA reduce production option(expressao) -> expressao 
+
+State 84:
+comando_se -> IF . APAR expressao FPAR ACHAVE list(comando) FCHAVE option(comando_senao) [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On APAR shift to state 85
+
+State 85:
+comando_se -> IF APAR . expressao FPAR ACHAVE list(comando) FCHAVE option(comando_senao) [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On NOT shift to state 34
+-- On LITSTRING shift to state 36
+-- On LITINT shift to state 37
+-- On LITDOUBLE shift to state 38
+-- On LITBOOLEAN shift to state 39
+-- On ID shift to state 40
+-- On APAR shift to state 42
+-- On variavel shift to state 43
+-- On expressao shift to state 86
+-- On chamada shift to state 49
+
+State 86:
+comando_se -> IF APAR expressao . FPAR ACHAVE list(comando) FCHAVE option(comando_senao) [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+expressao -> expressao . SOMA expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . SUB expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . MULT expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . DIVISAO expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . MENOR expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . MENORIGUAL expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . IGUAL expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . DIFERENTE expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . MAIOR expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . MAIORIGUAL expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . E expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expressao -> expressao . OU expressao [ SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+-- On SUB shift to state 45
+-- On SOMA shift to state 52
+-- On OU shift to state 54
+-- On MULT shift to state 47
+-- On MENORIGUAL shift to state 56
+-- On MENOR shift to state 58
+-- On MAIORIGUAL shift to state 60
+-- On MAIOR shift to state 62
+-- On IGUAL shift to state 64
+-- On FPAR shift to state 87
+-- On E shift to state 66
+-- On DIVISAO shift to state 50
+-- On DIFERENTE shift to state 68
+
+State 87:
+comando_se -> IF APAR expressao FPAR . ACHAVE list(comando) FCHAVE option(comando_senao) [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On ACHAVE shift to state 88
+
+State 88:
+comando_se -> IF APAR expressao FPAR ACHAVE . list(comando) FCHAVE option(comando_senao) [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On WHILE shift to state 32
+-- On RETURN shift to state 80
+-- On NOT shift to state 34
+-- On LITSTRING shift to state 36
+-- On LITINT shift to state 37
+-- On LITDOUBLE shift to state 38
+-- On LITBOOLEAN shift to state 39
+-- On IF shift to state 84
+-- On ID shift to state 40
+-- On ESCREVA shift to state 89
+-- On APAR shift to state 42
+-- On variavel shift to state 43
+-- On separated_nonempty_list(VIRGULA,expressao) shift to state 94
+-- On list(comando) shift to state 99
+-- On expressao shift to state 105
+-- On comando_se shift to state 109
+-- On comando_retorno shift to state 110
+-- On comando_leia shift to state 111
+-- On comando_escreva shift to state 112
+-- On comando_enquanto shift to state 113
+-- On comando_chamada shift to state 114
+-- On comando_atribuicao shift to state 115
+-- On comando shift to state 116
+-- On chamada shift to state 118
+-- On FCHAVE reduce production list(comando) -> 
+
+State 89:
+comando_escreva -> ESCREVA . APAR separated_nonempty_list(VIRGULA,expressao) FPAR PONTOEVIRGULA [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On APAR shift to state 90
+
+State 90:
+comando_escreva -> ESCREVA APAR . separated_nonempty_list(VIRGULA,expressao) FPAR PONTOEVIRGULA [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On NOT shift to state 34
+-- On LITSTRING shift to state 36
+-- On LITINT shift to state 37
+-- On LITDOUBLE shift to state 38
+-- On LITBOOLEAN shift to state 39
+-- On ID shift to state 40
+-- On APAR shift to state 42
+-- On variavel shift to state 43
+-- On separated_nonempty_list(VIRGULA,expressao) shift to state 91
+-- On expressao shift to state 74
+-- On chamada shift to state 49
+
+State 91:
+comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expressao) . FPAR PONTOEVIRGULA [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On FPAR shift to state 92
+
+State 92:
+comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expressao) FPAR . PONTOEVIRGULA [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On PONTOEVIRGULA shift to state 93
+
+State 93:
+comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expressao) FPAR PONTOEVIRGULA . [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On WHILE reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expressao) FPAR PONTOEVIRGULA 
+-- On RETURN reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expressao) FPAR PONTOEVIRGULA 
+-- On NOT reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expressao) FPAR PONTOEVIRGULA 
+-- On LITSTRING reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expressao) FPAR PONTOEVIRGULA 
+-- On LITINT reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expressao) FPAR PONTOEVIRGULA 
+-- On LITDOUBLE reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expressao) FPAR PONTOEVIRGULA 
+-- On LITBOOLEAN reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expressao) FPAR PONTOEVIRGULA 
+-- On IF reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expressao) FPAR PONTOEVIRGULA 
+-- On ID reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expressao) FPAR PONTOEVIRGULA 
+-- On FCHAVE reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expressao) FPAR PONTOEVIRGULA 
+-- On ESCREVA reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expressao) FPAR PONTOEVIRGULA 
+-- On APAR reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expressao) FPAR PONTOEVIRGULA 
+
+State 94:
+comando_leia -> separated_nonempty_list(VIRGULA,expressao) . LEIA APAR FPAR PONTOEVIRGULA [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On LEIA shift to state 95
+
+State 95:
+comando_leia -> separated_nonempty_list(VIRGULA,expressao) LEIA . APAR FPAR PONTOEVIRGULA [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On APAR shift to state 96
+
+State 96:
+comando_leia -> separated_nonempty_list(VIRGULA,expressao) LEIA APAR . FPAR PONTOEVIRGULA [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On FPAR shift to state 97
+
+State 97:
+comando_leia -> separated_nonempty_list(VIRGULA,expressao) LEIA APAR FPAR . PONTOEVIRGULA [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On PONTOEVIRGULA shift to state 98
+
+State 98:
+comando_leia -> separated_nonempty_list(VIRGULA,expressao) LEIA APAR FPAR PONTOEVIRGULA . [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On WHILE reduce production comando_leia -> separated_nonempty_list(VIRGULA,expressao) LEIA APAR FPAR PONTOEVIRGULA 
+-- On RETURN reduce production comando_leia -> separated_nonempty_list(VIRGULA,expressao) LEIA APAR FPAR PONTOEVIRGULA 
+-- On NOT reduce production comando_leia -> separated_nonempty_list(VIRGULA,expressao) LEIA APAR FPAR PONTOEVIRGULA 
+-- On LITSTRING reduce production comando_leia -> separated_nonempty_list(VIRGULA,expressao) LEIA APAR FPAR PONTOEVIRGULA 
+-- On LITINT reduce production comando_leia -> separated_nonempty_list(VIRGULA,expressao) LEIA APAR FPAR PONTOEVIRGULA 
+-- On LITDOUBLE reduce production comando_leia -> separated_nonempty_list(VIRGULA,expressao) LEIA APAR FPAR PONTOEVIRGULA 
+-- On LITBOOLEAN reduce production comando_leia -> separated_nonempty_list(VIRGULA,expressao) LEIA APAR FPAR PONTOEVIRGULA 
+-- On IF reduce production comando_leia -> separated_nonempty_list(VIRGULA,expressao) LEIA APAR FPAR PONTOEVIRGULA 
+-- On ID reduce production comando_leia -> separated_nonempty_list(VIRGULA,expressao) LEIA APAR FPAR PONTOEVIRGULA 
+-- On FCHAVE reduce production comando_leia -> separated_nonempty_list(VIRGULA,expressao) LEIA APAR FPAR PONTOEVIRGULA 
+-- On ESCREVA reduce production comando_leia -> separated_nonempty_list(VIRGULA,expressao) LEIA APAR FPAR PONTOEVIRGULA 
+-- On APAR reduce production comando_leia -> separated_nonempty_list(VIRGULA,expressao) LEIA APAR FPAR PONTOEVIRGULA 
+
+State 99:
+comando_se -> IF APAR expressao FPAR ACHAVE list(comando) . FCHAVE option(comando_senao) [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On FCHAVE shift to state 100
+
+State 100:
+comando_se -> IF APAR expressao FPAR ACHAVE list(comando) FCHAVE . option(comando_senao) [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On ELSE shift to state 101
+-- On option(comando_senao) shift to state 120
+-- On comando_senao shift to state 121
+-- On WHILE reduce production option(comando_senao) -> 
+-- On RETURN reduce production option(comando_senao) -> 
+-- On NOT reduce production option(comando_senao) -> 
+-- On LITSTRING reduce production option(comando_senao) -> 
+-- On LITINT reduce production option(comando_senao) -> 
+-- On LITDOUBLE reduce production option(comando_senao) -> 
+-- On LITBOOLEAN reduce production option(comando_senao) -> 
+-- On IF reduce production option(comando_senao) -> 
+-- On ID reduce production option(comando_senao) -> 
+-- On FCHAVE reduce production option(comando_senao) -> 
+-- On ESCREVA reduce production option(comando_senao) -> 
+-- On APAR reduce production option(comando_senao) -> 
+
+State 101:
+comando_senao -> ELSE . ACHAVE list(comando) FCHAVE [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On ACHAVE shift to state 102
+
+State 102:
+comando_senao -> ELSE ACHAVE . list(comando) FCHAVE [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On WHILE shift to state 32
+-- On RETURN shift to state 80
+-- On NOT shift to state 34
+-- On LITSTRING shift to state 36
+-- On LITINT shift to state 37
+-- On LITDOUBLE shift to state 38
+-- On LITBOOLEAN shift to state 39
+-- On IF shift to state 84
+-- On ID shift to state 40
+-- On ESCREVA shift to state 89
+-- On APAR shift to state 42
+-- On variavel shift to state 43
+-- On separated_nonempty_list(VIRGULA,expressao) shift to state 94
+-- On list(comando) shift to state 103
+-- On expressao shift to state 105
+-- On comando_se shift to state 109
+-- On comando_retorno shift to state 110
+-- On comando_leia shift to state 111
+-- On comando_escreva shift to state 112
+-- On comando_enquanto shift to state 113
+-- On comando_chamada shift to state 114
+-- On comando_atribuicao shift to state 115
+-- On comando shift to state 116
+-- On chamada shift to state 118
+-- On FCHAVE reduce production list(comando) -> 
+
+State 103:
+comando_senao -> ELSE ACHAVE list(comando) . FCHAVE [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On FCHAVE shift to state 104
+
+State 104:
+comando_senao -> ELSE ACHAVE list(comando) FCHAVE . [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On WHILE reduce production comando_senao -> ELSE ACHAVE list(comando) FCHAVE 
+-- On RETURN reduce production comando_senao -> ELSE ACHAVE list(comando) FCHAVE 
+-- On NOT reduce production comando_senao -> ELSE ACHAVE list(comando) FCHAVE 
+-- On LITSTRING reduce production comando_senao -> ELSE ACHAVE list(comando) FCHAVE 
+-- On LITINT reduce production comando_senao -> ELSE ACHAVE list(comando) FCHAVE 
+-- On LITDOUBLE reduce production comando_senao -> ELSE ACHAVE list(comando) FCHAVE 
+-- On LITBOOLEAN reduce production comando_senao -> ELSE ACHAVE list(comando) FCHAVE 
+-- On IF reduce production comando_senao -> ELSE ACHAVE list(comando) FCHAVE 
+-- On ID reduce production comando_senao -> ELSE ACHAVE list(comando) FCHAVE 
+-- On FCHAVE reduce production comando_senao -> ELSE ACHAVE list(comando) FCHAVE 
+-- On ESCREVA reduce production comando_senao -> ELSE ACHAVE list(comando) FCHAVE 
+-- On APAR reduce production comando_senao -> ELSE ACHAVE list(comando) FCHAVE 
+
+State 105:
+comando_atribuicao -> expressao . ATRIB expressao PONTOEVIRGULA [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+expressao -> expressao . SOMA expressao [ VIRGULA SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . SUB expressao [ VIRGULA SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MULT expressao [ VIRGULA SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . DIVISAO expressao [ VIRGULA SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MENOR expressao [ VIRGULA SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MENORIGUAL expressao [ VIRGULA SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . IGUAL expressao [ VIRGULA SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . DIFERENTE expressao [ VIRGULA SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MAIOR expressao [ VIRGULA SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . MAIORIGUAL expressao [ VIRGULA SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . E expressao [ VIRGULA SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL E DIVISAO DIFERENTE ATRIB ]
+expressao -> expressao . OU expressao [ VIRGULA SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL E DIVISAO DIFERENTE ATRIB ]
+separated_nonempty_list(VIRGULA,expressao) -> expressao . [ LEIA ]
+separated_nonempty_list(VIRGULA,expressao) -> expressao . VIRGULA separated_nonempty_list(VIRGULA,expressao) [ LEIA ]
+-- On VIRGULA shift to state 75
+-- On SUB shift to state 45
+-- On SOMA shift to state 52
+-- On OU shift to state 54
+-- On MULT shift to state 47
+-- On MENORIGUAL shift to state 56
+-- On MENOR shift to state 58
+-- On MAIORIGUAL shift to state 60
+-- On MAIOR shift to state 62
+-- On IGUAL shift to state 64
+-- On E shift to state 66
+-- On DIVISAO shift to state 50
+-- On DIFERENTE shift to state 68
+-- On ATRIB shift to state 106
+-- On LEIA reduce production separated_nonempty_list(VIRGULA,expressao) -> expressao 
+
+State 106:
+comando_atribuicao -> expressao ATRIB . expressao PONTOEVIRGULA [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On NOT shift to state 34
+-- On LITSTRING shift to state 36
+-- On LITINT shift to state 37
+-- On LITDOUBLE shift to state 38
+-- On LITBOOLEAN shift to state 39
+-- On ID shift to state 40
+-- On APAR shift to state 42
+-- On variavel shift to state 43
+-- On expressao shift to state 107
+-- On chamada shift to state 49
+
+State 107:
+comando_atribuicao -> expressao ATRIB expressao . PONTOEVIRGULA [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+expressao -> expressao . SOMA expressao [ SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expressao -> expressao . SUB expressao [ SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expressao -> expressao . MULT expressao [ SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expressao -> expressao . DIVISAO expressao [ SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expressao -> expressao . MENOR expressao [ SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expressao -> expressao . MENORIGUAL expressao [ SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expressao -> expressao . IGUAL expressao [ SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expressao -> expressao . DIFERENTE expressao [ SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expressao -> expressao . MAIOR expressao [ SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expressao -> expressao . MAIORIGUAL expressao [ SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expressao -> expressao . E expressao [ SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expressao -> expressao . OU expressao [ SUB SOMA PONTOEVIRGULA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+-- On SUB shift to state 45
+-- On SOMA shift to state 52
+-- On PONTOEVIRGULA shift to state 108
+-- On OU shift to state 54
+-- On MULT shift to state 47
+-- On MENORIGUAL shift to state 56
+-- On MENOR shift to state 58
+-- On MAIORIGUAL shift to state 60
+-- On MAIOR shift to state 62
+-- On IGUAL shift to state 64
+-- On E shift to state 66
+-- On DIVISAO shift to state 50
+-- On DIFERENTE shift to state 68
+
+State 108:
+comando_atribuicao -> expressao ATRIB expressao PONTOEVIRGULA . [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On WHILE reduce production comando_atribuicao -> expressao ATRIB expressao PONTOEVIRGULA 
+-- On RETURN reduce production comando_atribuicao -> expressao ATRIB expressao PONTOEVIRGULA 
+-- On NOT reduce production comando_atribuicao -> expressao ATRIB expressao PONTOEVIRGULA 
+-- On LITSTRING reduce production comando_atribuicao -> expressao ATRIB expressao PONTOEVIRGULA 
+-- On LITINT reduce production comando_atribuicao -> expressao ATRIB expressao PONTOEVIRGULA 
+-- On LITDOUBLE reduce production comando_atribuicao -> expressao ATRIB expressao PONTOEVIRGULA 
+-- On LITBOOLEAN reduce production comando_atribuicao -> expressao ATRIB expressao PONTOEVIRGULA 
+-- On IF reduce production comando_atribuicao -> expressao ATRIB expressao PONTOEVIRGULA 
+-- On ID reduce production comando_atribuicao -> expressao ATRIB expressao PONTOEVIRGULA 
+-- On FCHAVE reduce production comando_atribuicao -> expressao ATRIB expressao PONTOEVIRGULA 
+-- On ESCREVA reduce production comando_atribuicao -> expressao ATRIB expressao PONTOEVIRGULA 
+-- On APAR reduce production comando_atribuicao -> expressao ATRIB expressao PONTOEVIRGULA 
+
+State 109:
+comando -> comando_se . [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On WHILE reduce production comando -> comando_se 
+-- On RETURN reduce production comando -> comando_se 
+-- On NOT reduce production comando -> comando_se 
+-- On LITSTRING reduce production comando -> comando_se 
+-- On LITINT reduce production comando -> comando_se 
+-- On LITDOUBLE reduce production comando -> comando_se 
+-- On LITBOOLEAN reduce production comando -> comando_se 
+-- On IF reduce production comando -> comando_se 
+-- On ID reduce production comando -> comando_se 
+-- On FCHAVE reduce production comando -> comando_se 
+-- On ESCREVA reduce production comando -> comando_se 
+-- On APAR reduce production comando -> comando_se 
+
+State 110:
+comando -> comando_retorno . [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On WHILE reduce production comando -> comando_retorno 
+-- On RETURN reduce production comando -> comando_retorno 
+-- On NOT reduce production comando -> comando_retorno 
+-- On LITSTRING reduce production comando -> comando_retorno 
+-- On LITINT reduce production comando -> comando_retorno 
+-- On LITDOUBLE reduce production comando -> comando_retorno 
+-- On LITBOOLEAN reduce production comando -> comando_retorno 
+-- On IF reduce production comando -> comando_retorno 
+-- On ID reduce production comando -> comando_retorno 
+-- On FCHAVE reduce production comando -> comando_retorno 
+-- On ESCREVA reduce production comando -> comando_retorno 
+-- On APAR reduce production comando -> comando_retorno 
+
+State 111:
+comando -> comando_leia . [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On WHILE reduce production comando -> comando_leia 
+-- On RETURN reduce production comando -> comando_leia 
+-- On NOT reduce production comando -> comando_leia 
+-- On LITSTRING reduce production comando -> comando_leia 
+-- On LITINT reduce production comando -> comando_leia 
+-- On LITDOUBLE reduce production comando -> comando_leia 
+-- On LITBOOLEAN reduce production comando -> comando_leia 
+-- On IF reduce production comando -> comando_leia 
+-- On ID reduce production comando -> comando_leia 
+-- On FCHAVE reduce production comando -> comando_leia 
+-- On ESCREVA reduce production comando -> comando_leia 
+-- On APAR reduce production comando -> comando_leia 
+
+State 112:
+comando -> comando_escreva . [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On WHILE reduce production comando -> comando_escreva 
+-- On RETURN reduce production comando -> comando_escreva 
+-- On NOT reduce production comando -> comando_escreva 
+-- On LITSTRING reduce production comando -> comando_escreva 
+-- On LITINT reduce production comando -> comando_escreva 
+-- On LITDOUBLE reduce production comando -> comando_escreva 
+-- On LITBOOLEAN reduce production comando -> comando_escreva 
+-- On IF reduce production comando -> comando_escreva 
+-- On ID reduce production comando -> comando_escreva 
+-- On FCHAVE reduce production comando -> comando_escreva 
+-- On ESCREVA reduce production comando -> comando_escreva 
+-- On APAR reduce production comando -> comando_escreva 
+
+State 113:
+comando -> comando_enquanto . [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On WHILE reduce production comando -> comando_enquanto 
+-- On RETURN reduce production comando -> comando_enquanto 
+-- On NOT reduce production comando -> comando_enquanto 
+-- On LITSTRING reduce production comando -> comando_enquanto 
+-- On LITINT reduce production comando -> comando_enquanto 
+-- On LITDOUBLE reduce production comando -> comando_enquanto 
+-- On LITBOOLEAN reduce production comando -> comando_enquanto 
+-- On IF reduce production comando -> comando_enquanto 
+-- On ID reduce production comando -> comando_enquanto 
+-- On FCHAVE reduce production comando -> comando_enquanto 
+-- On ESCREVA reduce production comando -> comando_enquanto 
+-- On APAR reduce production comando -> comando_enquanto 
+
+State 114:
+comando -> comando_chamada . [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On WHILE reduce production comando -> comando_chamada 
+-- On RETURN reduce production comando -> comando_chamada 
+-- On NOT reduce production comando -> comando_chamada 
+-- On LITSTRING reduce production comando -> comando_chamada 
+-- On LITINT reduce production comando -> comando_chamada 
+-- On LITDOUBLE reduce production comando -> comando_chamada 
+-- On LITBOOLEAN reduce production comando -> comando_chamada 
+-- On IF reduce production comando -> comando_chamada 
+-- On ID reduce production comando -> comando_chamada 
+-- On FCHAVE reduce production comando -> comando_chamada 
+-- On ESCREVA reduce production comando -> comando_chamada 
+-- On APAR reduce production comando -> comando_chamada 
+
+State 115:
+comando -> comando_atribuicao . [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On WHILE reduce production comando -> comando_atribuicao 
+-- On RETURN reduce production comando -> comando_atribuicao 
+-- On NOT reduce production comando -> comando_atribuicao 
+-- On LITSTRING reduce production comando -> comando_atribuicao 
+-- On LITINT reduce production comando -> comando_atribuicao 
+-- On LITDOUBLE reduce production comando -> comando_atribuicao 
+-- On LITBOOLEAN reduce production comando -> comando_atribuicao 
+-- On IF reduce production comando -> comando_atribuicao 
+-- On ID reduce production comando -> comando_atribuicao 
+-- On FCHAVE reduce production comando -> comando_atribuicao 
+-- On ESCREVA reduce production comando -> comando_atribuicao 
+-- On APAR reduce production comando -> comando_atribuicao 
+
+State 116:
+list(comando) -> comando . list(comando) [ FCHAVE ]
+-- On WHILE shift to state 32
+-- On RETURN shift to state 80
+-- On NOT shift to state 34
+-- On LITSTRING shift to state 36
+-- On LITINT shift to state 37
+-- On LITDOUBLE shift to state 38
+-- On LITBOOLEAN shift to state 39
+-- On IF shift to state 84
+-- On ID shift to state 40
+-- On ESCREVA shift to state 89
+-- On APAR shift to state 42
+-- On variavel shift to state 43
+-- On separated_nonempty_list(VIRGULA,expressao) shift to state 94
+-- On list(comando) shift to state 117
+-- On expressao shift to state 105
+-- On comando_se shift to state 109
+-- On comando_retorno shift to state 110
+-- On comando_leia shift to state 111
+-- On comando_escreva shift to state 112
+-- On comando_enquanto shift to state 113
+-- On comando_chamada shift to state 114
+-- On comando_atribuicao shift to state 115
+-- On comando shift to state 116
+-- On chamada shift to state 118
+-- On FCHAVE reduce production list(comando) -> 
+
+State 117:
+list(comando) -> comando list(comando) . [ FCHAVE ]
+-- On FCHAVE reduce production list(comando) -> comando list(comando) 
+
+State 118:
+comando_chamada -> chamada . PONTOEVIRGULA [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+expressao -> chamada . [ VIRGULA SUB SOMA OU MULT MENORIGUAL MENOR MAIORIGUAL MAIOR LEIA IGUAL E DIVISAO DIFERENTE ATRIB ]
+-- On PONTOEVIRGULA shift to state 119
+-- On VIRGULA reduce production expressao -> chamada 
+-- On SUB reduce production expressao -> chamada 
+-- On SOMA reduce production expressao -> chamada 
+-- On OU reduce production expressao -> chamada 
+-- On MULT reduce production expressao -> chamada 
+-- On MENORIGUAL reduce production expressao -> chamada 
+-- On MENOR reduce production expressao -> chamada 
+-- On MAIORIGUAL reduce production expressao -> chamada 
+-- On MAIOR reduce production expressao -> chamada 
+-- On LEIA reduce production expressao -> chamada 
+-- On IGUAL reduce production expressao -> chamada 
+-- On E reduce production expressao -> chamada 
+-- On DIVISAO reduce production expressao -> chamada 
+-- On DIFERENTE reduce production expressao -> chamada 
+-- On ATRIB reduce production expressao -> chamada 
+
+State 119:
+comando_chamada -> chamada PONTOEVIRGULA . [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On WHILE reduce production comando_chamada -> chamada PONTOEVIRGULA 
+-- On RETURN reduce production comando_chamada -> chamada PONTOEVIRGULA 
+-- On NOT reduce production comando_chamada -> chamada PONTOEVIRGULA 
+-- On LITSTRING reduce production comando_chamada -> chamada PONTOEVIRGULA 
+-- On LITINT reduce production comando_chamada -> chamada PONTOEVIRGULA 
+-- On LITDOUBLE reduce production comando_chamada -> chamada PONTOEVIRGULA 
+-- On LITBOOLEAN reduce production comando_chamada -> chamada PONTOEVIRGULA 
+-- On IF reduce production comando_chamada -> chamada PONTOEVIRGULA 
+-- On ID reduce production comando_chamada -> chamada PONTOEVIRGULA 
+-- On FCHAVE reduce production comando_chamada -> chamada PONTOEVIRGULA 
+-- On ESCREVA reduce production comando_chamada -> chamada PONTOEVIRGULA 
+-- On APAR reduce production comando_chamada -> chamada PONTOEVIRGULA 
+
+State 120:
+comando_se -> IF APAR expressao FPAR ACHAVE list(comando) FCHAVE option(comando_senao) . [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On WHILE reduce production comando_se -> IF APAR expressao FPAR ACHAVE list(comando) FCHAVE option(comando_senao) 
+-- On RETURN reduce production comando_se -> IF APAR expressao FPAR ACHAVE list(comando) FCHAVE option(comando_senao) 
+-- On NOT reduce production comando_se -> IF APAR expressao FPAR ACHAVE list(comando) FCHAVE option(comando_senao) 
+-- On LITSTRING reduce production comando_se -> IF APAR expressao FPAR ACHAVE list(comando) FCHAVE option(comando_senao) 
+-- On LITINT reduce production comando_se -> IF APAR expressao FPAR ACHAVE list(comando) FCHAVE option(comando_senao) 
+-- On LITDOUBLE reduce production comando_se -> IF APAR expressao FPAR ACHAVE list(comando) FCHAVE option(comando_senao) 
+-- On LITBOOLEAN reduce production comando_se -> IF APAR expressao FPAR ACHAVE list(comando) FCHAVE option(comando_senao) 
+-- On IF reduce production comando_se -> IF APAR expressao FPAR ACHAVE list(comando) FCHAVE option(comando_senao) 
+-- On ID reduce production comando_se -> IF APAR expressao FPAR ACHAVE list(comando) FCHAVE option(comando_senao) 
+-- On FCHAVE reduce production comando_se -> IF APAR expressao FPAR ACHAVE list(comando) FCHAVE option(comando_senao) 
+-- On ESCREVA reduce production comando_se -> IF APAR expressao FPAR ACHAVE list(comando) FCHAVE option(comando_senao) 
+-- On APAR reduce production comando_se -> IF APAR expressao FPAR ACHAVE list(comando) FCHAVE option(comando_senao) 
+
+State 121:
+option(comando_senao) -> comando_senao . [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On WHILE reduce production option(comando_senao) -> comando_senao 
+-- On RETURN reduce production option(comando_senao) -> comando_senao 
+-- On NOT reduce production option(comando_senao) -> comando_senao 
+-- On LITSTRING reduce production option(comando_senao) -> comando_senao 
+-- On LITINT reduce production option(comando_senao) -> comando_senao 
+-- On LITDOUBLE reduce production option(comando_senao) -> comando_senao 
+-- On LITBOOLEAN reduce production option(comando_senao) -> comando_senao 
+-- On IF reduce production option(comando_senao) -> comando_senao 
+-- On ID reduce production option(comando_senao) -> comando_senao 
+-- On FCHAVE reduce production option(comando_senao) -> comando_senao 
+-- On ESCREVA reduce production option(comando_senao) -> comando_senao 
+-- On APAR reduce production option(comando_senao) -> comando_senao 
+
+State 122:
+comando_enquanto -> WHILE APAR expressao FPAR ACHAVE list(comando) . FCHAVE [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On FCHAVE shift to state 123
+
+State 123:
+comando_enquanto -> WHILE APAR expressao FPAR ACHAVE list(comando) FCHAVE . [ WHILE RETURN NOT LITSTRING LITINT LITDOUBLE LITBOOLEAN IF ID FCHAVE ESCREVA APAR ]
+-- On WHILE reduce production comando_enquanto -> WHILE APAR expressao FPAR ACHAVE list(comando) FCHAVE 
+-- On RETURN reduce production comando_enquanto -> WHILE APAR expressao FPAR ACHAVE list(comando) FCHAVE 
+-- On NOT reduce production comando_enquanto -> WHILE APAR expressao FPAR ACHAVE list(comando) FCHAVE 
+-- On LITSTRING reduce production comando_enquanto -> WHILE APAR expressao FPAR ACHAVE list(comando) FCHAVE 
+-- On LITINT reduce production comando_enquanto -> WHILE APAR expressao FPAR ACHAVE list(comando) FCHAVE 
+-- On LITDOUBLE reduce production comando_enquanto -> WHILE APAR expressao FPAR ACHAVE list(comando) FCHAVE 
+-- On LITBOOLEAN reduce production comando_enquanto -> WHILE APAR expressao FPAR ACHAVE list(comando) FCHAVE 
+-- On IF reduce production comando_enquanto -> WHILE APAR expressao FPAR ACHAVE list(comando) FCHAVE 
+-- On ID reduce production comando_enquanto -> WHILE APAR expressao FPAR ACHAVE list(comando) FCHAVE 
+-- On FCHAVE reduce production comando_enquanto -> WHILE APAR expressao FPAR ACHAVE list(comando) FCHAVE 
+-- On ESCREVA reduce production comando_enquanto -> WHILE APAR expressao FPAR ACHAVE list(comando) FCHAVE 
+-- On APAR reduce production comando_enquanto -> WHILE APAR expressao FPAR ACHAVE list(comando) FCHAVE 
+
+State 124:
+declaracao_metodo -> STATIC tipo ID APAR loption(separated_nonempty_list(VIRGULA,parametro)) FPAR ACHAVE list(var_decl) list(comando) . FCHAVE [ STATIC PUBLIC ]
+-- On FCHAVE shift to state 125
+
+State 125:
+declaracao_metodo -> STATIC tipo ID APAR loption(separated_nonempty_list(VIRGULA,parametro)) FPAR ACHAVE list(var_decl) list(comando) FCHAVE . [ STATIC PUBLIC ]
+-- On STATIC reduce production declaracao_metodo -> STATIC tipo ID APAR loption(separated_nonempty_list(VIRGULA,parametro)) FPAR ACHAVE list(var_decl) list(comando) FCHAVE 
+-- On PUBLIC reduce production declaracao_metodo -> STATIC tipo ID APAR loption(separated_nonempty_list(VIRGULA,parametro)) FPAR ACHAVE list(var_decl) list(comando) FCHAVE 
+
+State 126:
+prog -> CLASS ID ACHAVE list(var_decl) list(declaracao_metodo) . comando_block FCHAVE EOF [ # ]
+-- On PUBLIC shift to state 127
+-- On comando_block shift to state 140
+
+State 127:
+comando_block -> PUBLIC . STATIC VOID MAIN APAR STRING ACOL FCOL ID FPAR ACHAVE list(comando) FCHAVE [ FCHAVE ]
+-- On STATIC shift to state 128
+
+State 128:
+comando_block -> PUBLIC STATIC . VOID MAIN APAR STRING ACOL FCOL ID FPAR ACHAVE list(comando) FCHAVE [ FCHAVE ]
+-- On VOID shift to state 129
+
+State 129:
+comando_block -> PUBLIC STATIC VOID . MAIN APAR STRING ACOL FCOL ID FPAR ACHAVE list(comando) FCHAVE [ FCHAVE ]
+-- On MAIN shift to state 130
+
+State 130:
+comando_block -> PUBLIC STATIC VOID MAIN . APAR STRING ACOL FCOL ID FPAR ACHAVE list(comando) FCHAVE [ FCHAVE ]
+-- On APAR shift to state 131
+
+State 131:
+comando_block -> PUBLIC STATIC VOID MAIN APAR . STRING ACOL FCOL ID FPAR ACHAVE list(comando) FCHAVE [ FCHAVE ]
+-- On STRING shift to state 132
+
+State 132:
+comando_block -> PUBLIC STATIC VOID MAIN APAR STRING . ACOL FCOL ID FPAR ACHAVE list(comando) FCHAVE [ FCHAVE ]
+-- On ACOL shift to state 133
+
+State 133:
+comando_block -> PUBLIC STATIC VOID MAIN APAR STRING ACOL . FCOL ID FPAR ACHAVE list(comando) FCHAVE [ FCHAVE ]
+-- On FCOL shift to state 134
+
+State 134:
+comando_block -> PUBLIC STATIC VOID MAIN APAR STRING ACOL FCOL . ID FPAR ACHAVE list(comando) FCHAVE [ FCHAVE ]
+-- On ID shift to state 135
+
+State 135:
+comando_block -> PUBLIC STATIC VOID MAIN APAR STRING ACOL FCOL ID . FPAR ACHAVE list(comando) FCHAVE [ FCHAVE ]
+-- On FPAR shift to state 136
+
+State 136:
+comando_block -> PUBLIC STATIC VOID MAIN APAR STRING ACOL FCOL ID FPAR . ACHAVE list(comando) FCHAVE [ FCHAVE ]
+-- On ACHAVE shift to state 137
+
+State 137:
+comando_block -> PUBLIC STATIC VOID MAIN APAR STRING ACOL FCOL ID FPAR ACHAVE . list(comando) FCHAVE [ FCHAVE ]
+-- On WHILE shift to state 32
+-- On RETURN shift to state 80
+-- On NOT shift to state 34
+-- On LITSTRING shift to state 36
+-- On LITINT shift to state 37
+-- On LITDOUBLE shift to state 38
+-- On LITBOOLEAN shift to state 39
+-- On IF shift to state 84
+-- On ID shift to state 40
+-- On ESCREVA shift to state 89
+-- On APAR shift to state 42
+-- On variavel shift to state 43
+-- On separated_nonempty_list(VIRGULA,expressao) shift to state 94
+-- On list(comando) shift to state 138
+-- On expressao shift to state 105
+-- On comando_se shift to state 109
+-- On comando_retorno shift to state 110
+-- On comando_leia shift to state 111
+-- On comando_escreva shift to state 112
+-- On comando_enquanto shift to state 113
+-- On comando_chamada shift to state 114
+-- On comando_atribuicao shift to state 115
+-- On comando shift to state 116
+-- On chamada shift to state 118
+-- On FCHAVE reduce production list(comando) -> 
+
+State 138:
+comando_block -> PUBLIC STATIC VOID MAIN APAR STRING ACOL FCOL ID FPAR ACHAVE list(comando) . FCHAVE [ FCHAVE ]
+-- On FCHAVE shift to state 139
+
+State 139:
+comando_block -> PUBLIC STATIC VOID MAIN APAR STRING ACOL FCOL ID FPAR ACHAVE list(comando) FCHAVE . [ FCHAVE ]
+-- On FCHAVE reduce production comando_block -> PUBLIC STATIC VOID MAIN APAR STRING ACOL FCOL ID FPAR ACHAVE list(comando) FCHAVE 
+
+State 140:
+prog -> CLASS ID ACHAVE list(var_decl) list(declaracao_metodo) comando_block . FCHAVE EOF [ # ]
+-- On FCHAVE shift to state 141
+
+State 141:
+prog -> CLASS ID ACHAVE list(var_decl) list(declaracao_metodo) comando_block FCHAVE . EOF [ # ]
+-- On EOF shift to state 142
+
+State 142:
+prog -> CLASS ID ACHAVE list(var_decl) list(declaracao_metodo) comando_block FCHAVE EOF . [ # ]
+-- On # reduce production prog -> CLASS ID ACHAVE list(var_decl) list(declaracao_metodo) comando_block FCHAVE EOF 
+
+State 143:
+list(declaracao_metodo) -> declaracao_metodo . list(declaracao_metodo) [ PUBLIC ]
+-- On STATIC shift to state 18
+-- On list(declaracao_metodo) shift to state 144
+-- On declaracao_metodo shift to state 143
+-- On PUBLIC reduce production list(declaracao_metodo) -> 
+
+State 144:
+list(declaracao_metodo) -> declaracao_metodo list(declaracao_metodo) . [ PUBLIC ]
+-- On PUBLIC reduce production list(declaracao_metodo) -> declaracao_metodo list(declaracao_metodo) 
+
+State 145:
+prog' -> prog . [ # ]
+-- On # accept prog
+

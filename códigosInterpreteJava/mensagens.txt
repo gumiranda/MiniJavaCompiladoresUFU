@@ -1,0 +1,967 @@
+prog: PROGRAMA ID DPTOS ARRANJO ACOL INT PPTO INT FCOL DE VIRGULA 
+##
+## Ends in an error in state: 20.
+##
+## tipo_arranjo -> ARRANJO ACOL limites FCOL DE . tipo [ PONTOEVIRGULA ]
+##
+## The known suffix of the stack is as follows:
+## ARRANJO ACOL limites FCOL DE 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA ID DPTOS ARRANJO ACOL INT PPTO INT FCOL VIRGULA 
+##
+## Ends in an error in state: 19.
+##
+## tipo_arranjo -> ARRANJO ACOL limites FCOL . DE tipo [ PONTOEVIRGULA ]
+##
+## The known suffix of the stack is as follows:
+## ARRANJO ACOL limites FCOL 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA ID DPTOS ARRANJO ACOL INT PPTO INT VIRGULA 
+##
+## Ends in an error in state: 18.
+##
+## tipo_arranjo -> ARRANJO ACOL limites . FCOL DE tipo [ PONTOEVIRGULA ]
+##
+## The known suffix of the stack is as follows:
+## ARRANJO ACOL limites 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA ID DPTOS ARRANJO ACOL INT PPTO VIRGULA 
+##
+## Ends in an error in state: 16.
+##
+## limites -> INT PPTO . INT [ FCOL ]
+##
+## The known suffix of the stack is as follows:
+## INT PPTO 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA ID DPTOS ARRANJO ACOL INT VIRGULA 
+##
+## Ends in an error in state: 15.
+##
+## limites -> INT . PPTO INT [ FCOL ]
+##
+## The known suffix of the stack is as follows:
+## INT 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA ID DPTOS ARRANJO ACOL VIRGULA 
+##
+## Ends in an error in state: 14.
+##
+## tipo_arranjo -> ARRANJO ACOL . limites FCOL DE tipo [ PONTOEVIRGULA ]
+##
+## The known suffix of the stack is as follows:
+## ARRANJO ACOL 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA ID DPTOS ARRANJO VIRGULA 
+##
+## Ends in an error in state: 13.
+##
+## tipo_arranjo -> ARRANJO . ACOL limites FCOL DE tipo [ PONTOEVIRGULA ]
+##
+## The known suffix of the stack is as follows:
+## ARRANJO 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA ID DPTOS BOOLEANO PONTOEVIRGULA VIRGULA 
+##
+## Ends in an error in state: 107.
+##
+## list(var_decl) -> var_decl . list(var_decl) [ INICIO ]
+##
+## The known suffix of the stack is as follows:
+## var_decl 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA ID DPTOS INT VIRGULA 
+##
+## Ends in an error in state: 31.
+##
+## var_decl -> separated_nonempty_list(VIRGULA,ID) DPTOS tipo . PONTOEVIRGULA [ INICIO ID ]
+##
+## The known suffix of the stack is as follows:
+## separated_nonempty_list(VIRGULA,ID) DPTOS tipo 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA ID DPTOS REGISTRO ID DPTOS BOOLEANO PONTOEVIRGULA FIM VIRGULA 
+##
+## Ends in an error in state: 29.
+##
+## tipo_registro -> REGISTRO nonempty_list(__anonymous_0) FIM . REGISTRO [ PONTOEVIRGULA ]
+##
+## The known suffix of the stack is as follows:
+## REGISTRO nonempty_list(__anonymous_0) FIM 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA ID DPTOS REGISTRO ID DPTOS INT PONTOEVIRGULA VIRGULA 
+##
+## Ends in an error in state: 26.
+##
+## nonempty_list(__anonymous_0) -> ID DPTOS tipo PONTOEVIRGULA . [ FIM ]
+## nonempty_list(__anonymous_0) -> ID DPTOS tipo PONTOEVIRGULA . nonempty_list(__anonymous_0) [ FIM ]
+##
+## The known suffix of the stack is as follows:
+## ID DPTOS tipo PONTOEVIRGULA 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA ID DPTOS REGISTRO ID DPTOS INT VIRGULA 
+##
+## Ends in an error in state: 25.
+##
+## nonempty_list(__anonymous_0) -> ID DPTOS tipo . PONTOEVIRGULA [ FIM ]
+## nonempty_list(__anonymous_0) -> ID DPTOS tipo . PONTOEVIRGULA nonempty_list(__anonymous_0) [ FIM ]
+##
+## The known suffix of the stack is as follows:
+## ID DPTOS tipo 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA ID DPTOS REGISTRO ID DPTOS VIRGULA 
+##
+## Ends in an error in state: 9.
+##
+## nonempty_list(__anonymous_0) -> ID DPTOS . tipo PONTOEVIRGULA [ FIM ]
+## nonempty_list(__anonymous_0) -> ID DPTOS . tipo PONTOEVIRGULA nonempty_list(__anonymous_0) [ FIM ]
+##
+## The known suffix of the stack is as follows:
+## ID DPTOS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA ID DPTOS REGISTRO ID VIRGULA 
+##
+## Ends in an error in state: 8.
+##
+## nonempty_list(__anonymous_0) -> ID . DPTOS tipo PONTOEVIRGULA [ FIM ]
+## nonempty_list(__anonymous_0) -> ID . DPTOS tipo PONTOEVIRGULA nonempty_list(__anonymous_0) [ FIM ]
+##
+## The known suffix of the stack is as follows:
+## ID 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA ID DPTOS REGISTRO VIRGULA 
+##
+## Ends in an error in state: 7.
+##
+## tipo_registro -> REGISTRO . nonempty_list(__anonymous_0) FIM REGISTRO [ PONTOEVIRGULA ]
+##
+## The known suffix of the stack is as follows:
+## REGISTRO 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA ID DPTOS VIRGULA 
+##
+## Ends in an error in state: 6.
+##
+## var_decl -> separated_nonempty_list(VIRGULA,ID) DPTOS . tipo PONTOEVIRGULA [ INICIO ID ]
+##
+## The known suffix of the stack is as follows:
+## separated_nonempty_list(VIRGULA,ID) DPTOS 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA ID STRING 
+##
+## Ends in an error in state: 2.
+##
+## separated_nonempty_list(VIRGULA,ID) -> ID . [ DPTOS ]
+## separated_nonempty_list(VIRGULA,ID) -> ID . VIRGULA separated_nonempty_list(VIRGULA,ID) [ DPTOS ]
+##
+## The known suffix of the stack is as follows:
+## ID 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA ID VIRGULA VIRGULA 
+##
+## Ends in an error in state: 3.
+##
+## separated_nonempty_list(VIRGULA,ID) -> ID VIRGULA . separated_nonempty_list(VIRGULA,ID) [ DPTOS ]
+##
+## The known suffix of the stack is as follows:
+## ID VIRGULA 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO ENTRADA VIRGULA 
+##
+## Ends in an error in state: 81.
+##
+## comando_entrada -> ENTRADA . separated_nonempty_list(VIRGULA,variavel) PONTOEVIRGULA [ ELSE IF SAIDA ID FIM ENTRADA ]
+##
+## The known suffix of the stack is as follows:
+## ENTRADA 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO FIM PONTOEVIRGULA VIRGULA 
+##
+## Ends in an error in state: 103.
+##
+## prog -> PROGRAMA list(var_decl) INICIO list(comando) FIM PONTOEVIRGULA . EOF [ # ]
+##
+## The known suffix of the stack is as follows:
+## PROGRAMA list(var_decl) INICIO list(comando) FIM PONTOEVIRGULA 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO FIM VIRGULA 
+##
+## Ends in an error in state: 102.
+##
+## prog -> PROGRAMA list(var_decl) INICIO list(comando) FIM . PONTOEVIRGULA EOF [ # ]
+##
+## The known suffix of the stack is as follows:
+## PROGRAMA list(var_decl) INICIO list(comando) FIM 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO ID ACOL STRING VIRGULA 
+##
+## Ends in an error in state: 46.
+##
+## expressao -> expressao . SOMA expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . SUB expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MULT expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . DIVISAO expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MENOR expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . IGUAL expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . DIFERENTE expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MAIOR expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . ELOG expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . OULOG expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . CONCAT expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## variavel -> variavel ACOL expressao . FCOL [ VIRGULA PONTOEVIRGULA PTO OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ATRIB ACOL ]
+##
+## The known suffix of the stack is as follows:
+## variavel ACOL expressao 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO ID ACOL VIRGULA 
+##
+## Ends in an error in state: 45.
+##
+## variavel -> variavel ACOL . expressao FCOL [ VIRGULA PONTOEVIRGULA PTO OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ATRIB ACOL ]
+##
+## The known suffix of the stack is as follows:
+## variavel ACOL 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO ID ATRIB STRING VIRGULA 
+##
+## Ends in an error in state: 86.
+##
+## comando_atribuicao -> variavel ATRIB expressao . PONTOEVIRGULA [ ELSE IF SAIDA ID FIM ENTRADA ]
+## expressao -> expressao . SOMA expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . SUB expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MULT expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . DIVISAO expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MENOR expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . IGUAL expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . DIFERENTE expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MAIOR expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . ELOG expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . OULOG expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . CONCAT expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL ELOG DIVISAO DIFERENTE CONCAT ]
+##
+## The known suffix of the stack is as follows:
+## variavel ATRIB expressao 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO ID ATRIB VIRGULA 
+##
+## Ends in an error in state: 85.
+##
+## comando_atribuicao -> variavel ATRIB . expressao PONTOEVIRGULA [ ELSE IF SAIDA ID FIM ENTRADA ]
+##
+## The known suffix of the stack is as follows:
+## variavel ATRIB 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO ID PTO VIRGULA 
+##
+## Ends in an error in state: 43.
+##
+## variavel -> variavel PTO . ID [ VIRGULA PONTOEVIRGULA PTO OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ATRIB ACOL ]
+##
+## The known suffix of the stack is as follows:
+## variavel PTO 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO ID VIRGULA 
+##
+## Ends in an error in state: 84.
+##
+## comando_atribuicao -> variavel . ATRIB expressao PONTOEVIRGULA [ ELSE IF SAIDA ID FIM ENTRADA ]
+## variavel -> variavel . PTO ID [ PTO ATRIB ACOL ]
+## variavel -> variavel . ACOL expressao FCOL [ PTO ATRIB ACOL ]
+##
+## The known suffix of the stack is as follows:
+## variavel 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO SAIDA ID PONTOEVIRGULA VIRGULA 
+##
+## Ends in an error in state: 105.
+##
+## list(comando) -> comando . list(comando) [ FIM ]
+##
+## The known suffix of the stack is as follows:
+## comando 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO SAIDA ID STRING 
+##
+## Ends in an error in state: 76.
+##
+## separated_nonempty_list(VIRGULA,variavel) -> variavel . [ PONTOEVIRGULA ]
+## separated_nonempty_list(VIRGULA,variavel) -> variavel . VIRGULA separated_nonempty_list(VIRGULA,variavel) [ PONTOEVIRGULA ]
+## variavel -> variavel . PTO ID [ VIRGULA PONTOEVIRGULA PTO ACOL ]
+## variavel -> variavel . ACOL expressao FCOL [ VIRGULA PONTOEVIRGULA PTO ACOL ]
+##
+## The known suffix of the stack is as follows:
+## variavel 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO SAIDA ID VIRGULA VIRGULA 
+##
+## Ends in an error in state: 77.
+##
+## separated_nonempty_list(VIRGULA,variavel) -> variavel VIRGULA . separated_nonempty_list(VIRGULA,variavel) [ PONTOEVIRGULA ]
+##
+## The known suffix of the stack is as follows:
+## variavel VIRGULA 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO SAIDA VIRGULA 
+##
+## Ends in an error in state: 75.
+##
+## comando_saida -> SAIDA . separated_nonempty_list(VIRGULA,variavel) PONTOEVIRGULA [ ELSE IF SAIDA ID FIM ENTRADA ]
+##
+## The known suffix of the stack is as follows:
+## SAIDA 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR APAR STRING VIRGULA 
+##
+## Ends in an error in state: 70.
+##
+## expressao -> expressao . SOMA expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . SUB expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MULT expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . DIVISAO expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MENOR expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . IGUAL expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . DIFERENTE expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MAIOR expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . ELOG expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . OULOG expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . CONCAT expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> APAR expressao . FPAR [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+##
+## The known suffix of the stack is as follows:
+## APAR expressao 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR APAR VIRGULA 
+##
+## Ends in an error in state: 41.
+##
+## expressao -> APAR . expressao FPAR [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+##
+## The known suffix of the stack is as follows:
+## APAR 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR ID VIRGULA 
+##
+## Ends in an error in state: 42.
+##
+## expressao -> variavel . [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## variavel -> variavel . PTO ID [ PONTOEVIRGULA PTO OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ACOL ]
+## variavel -> variavel . ACOL expressao FCOL [ PONTOEVIRGULA PTO OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ACOL ]
+##
+## The known suffix of the stack is as follows:
+## variavel 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR STRING CONCAT STRING VIRGULA 
+##
+## Ends in an error in state: 60.
+##
+## expressao -> expressao . SOMA expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . SUB expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MULT expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . DIVISAO expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MENOR expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . IGUAL expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . DIFERENTE expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MAIOR expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . ELOG expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . OULOG expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . CONCAT expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao CONCAT expressao . [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+##
+## The known suffix of the stack is as follows:
+## expressao CONCAT expressao 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR STRING CONCAT VIRGULA 
+##
+## Ends in an error in state: 59.
+##
+## expressao -> expressao CONCAT . expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+##
+## The known suffix of the stack is as follows:
+## expressao CONCAT 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR STRING DIFERENTE STRING VIRGULA 
+##
+## Ends in an error in state: 68.
+##
+## expressao -> expressao . SOMA expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . SUB expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MULT expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . DIVISAO expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MENOR expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . IGUAL expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . DIFERENTE expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao DIFERENTE expressao . [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MAIOR expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . ELOG expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . OULOG expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . CONCAT expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+##
+## The known suffix of the stack is as follows:
+## expressao DIFERENTE expressao 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR STRING DIFERENTE VIRGULA 
+##
+## Ends in an error in state: 67.
+##
+## expressao -> expressao DIFERENTE . expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+##
+## The known suffix of the stack is as follows:
+## expressao DIFERENTE 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR STRING DIVISAO VIRGULA 
+##
+## Ends in an error in state: 53.
+##
+## expressao -> expressao DIVISAO . expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+##
+## The known suffix of the stack is as follows:
+## expressao DIVISAO 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR STRING ELOG STRING VIRGULA 
+##
+## Ends in an error in state: 66.
+##
+## expressao -> expressao . SOMA expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . SUB expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MULT expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . DIVISAO expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MENOR expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . IGUAL expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . DIFERENTE expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MAIOR expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . ELOG expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao ELOG expressao . [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . OULOG expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . CONCAT expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+##
+## The known suffix of the stack is as follows:
+## expressao ELOG expressao 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR STRING ELOG VIRGULA 
+##
+## Ends in an error in state: 65.
+##
+## expressao -> expressao ELOG . expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+##
+## The known suffix of the stack is as follows:
+## expressao ELOG 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR STRING FPAR ENTAO SAIDA ID PONTOEVIRGULA FIM IF VIRGULA 
+##
+## Ends in an error in state: 99.
+##
+## comando_se -> IF APAR expressao FPAR ENTAO nonempty_list(comando) option(__anonymous_1) FIM IF . PONTOEVIRGULA [ ELSE IF SAIDA ID FIM ENTRADA ]
+##
+## The known suffix of the stack is as follows:
+## IF APAR expressao FPAR ENTAO nonempty_list(comando) option(__anonymous_1) FIM IF 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR STRING FPAR ENTAO SAIDA ID PONTOEVIRGULA FIM VIRGULA 
+##
+## Ends in an error in state: 98.
+##
+## comando_se -> IF APAR expressao FPAR ENTAO nonempty_list(comando) option(__anonymous_1) FIM . IF PONTOEVIRGULA [ ELSE IF SAIDA ID FIM ENTRADA ]
+##
+## The known suffix of the stack is as follows:
+## IF APAR expressao FPAR ENTAO nonempty_list(comando) option(__anonymous_1) FIM 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR STRING FPAR ENTAO SAIDA ID PONTOEVIRGULA ELSE SAIDA ID PONTOEVIRGULA ELSE 
+##
+## Ends in an error in state: 97.
+##
+## comando_se -> IF APAR expressao FPAR ENTAO nonempty_list(comando) option(__anonymous_1) . FIM IF PONTOEVIRGULA [ ELSE IF SAIDA ID FIM ENTRADA ]
+##
+## The known suffix of the stack is as follows:
+## IF APAR expressao FPAR ENTAO nonempty_list(comando) option(__anonymous_1) 
+##
+## WARNING: This example involves spurious reductions.
+## This implies that, although the LR(1) items shown above provide an
+## accurate view of the past (what has been recognized so far), they
+## may provide an INCOMPLETE view of the future (what was expected next).
+## In state 95, spurious reduction of production nonempty_list(comando) -> comando 
+## In state 90, spurious reduction of production option(__anonymous_1) -> ELSE nonempty_list(comando) 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR STRING FPAR ENTAO SAIDA ID PONTOEVIRGULA ELSE VIRGULA 
+##
+## Ends in an error in state: 89.
+##
+## option(__anonymous_1) -> ELSE . nonempty_list(comando) [ FIM ]
+##
+## The known suffix of the stack is as follows:
+## ELSE 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR STRING FPAR ENTAO SAIDA ID PONTOEVIRGULA VIRGULA 
+##
+## Ends in an error in state: 95.
+##
+## nonempty_list(comando) -> comando . [ ELSE FIM ]
+## nonempty_list(comando) -> comando . nonempty_list(comando) [ ELSE FIM ]
+##
+## The known suffix of the stack is as follows:
+## comando 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR STRING FPAR ENTAO VIRGULA 
+##
+## Ends in an error in state: 74.
+##
+## comando_se -> IF APAR expressao FPAR ENTAO . nonempty_list(comando) option(__anonymous_1) FIM IF PONTOEVIRGULA [ ELSE IF SAIDA ID FIM ENTRADA ]
+##
+## The known suffix of the stack is as follows:
+## IF APAR expressao FPAR ENTAO 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR STRING FPAR VIRGULA 
+##
+## Ends in an error in state: 73.
+##
+## comando_se -> IF APAR expressao FPAR . ENTAO nonempty_list(comando) option(__anonymous_1) FIM IF PONTOEVIRGULA [ ELSE IF SAIDA ID FIM ENTRADA ]
+##
+## The known suffix of the stack is as follows:
+## IF APAR expressao FPAR 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR STRING IGUAL STRING VIRGULA 
+##
+## Ends in an error in state: 64.
+##
+## expressao -> expressao . SOMA expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . SUB expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MULT expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . DIVISAO expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MENOR expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . IGUAL expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao IGUAL expressao . [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . DIFERENTE expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MAIOR expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . ELOG expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . OULOG expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . CONCAT expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+##
+## The known suffix of the stack is as follows:
+## expressao IGUAL expressao 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR STRING IGUAL VIRGULA 
+##
+## Ends in an error in state: 63.
+##
+## expressao -> expressao IGUAL . expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+##
+## The known suffix of the stack is as follows:
+## expressao IGUAL 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR STRING MAIOR STRING VIRGULA 
+##
+## Ends in an error in state: 62.
+##
+## expressao -> expressao . SOMA expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . SUB expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MULT expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . DIVISAO expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MENOR expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . IGUAL expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . DIFERENTE expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MAIOR expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao MAIOR expressao . [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . ELOG expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . OULOG expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . CONCAT expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+##
+## The known suffix of the stack is as follows:
+## expressao MAIOR expressao 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR STRING MAIOR VIRGULA 
+##
+## Ends in an error in state: 61.
+##
+## expressao -> expressao MAIOR . expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+##
+## The known suffix of the stack is as follows:
+## expressao MAIOR 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR STRING SOMA STRING VIRGULA 
+##
+## Ends in an error in state: 58.
+##
+## expressao -> expressao . SOMA expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao SOMA expressao . [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . SUB expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MULT expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . DIVISAO expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MENOR expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . IGUAL expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . DIFERENTE expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MAIOR expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . ELOG expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . OULOG expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . CONCAT expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+##
+## The known suffix of the stack is as follows:
+## expressao SOMA expressao 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR STRING SOMA VIRGULA 
+##
+## Ends in an error in state: 57.
+##
+## expressao -> expressao SOMA . expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+##
+## The known suffix of the stack is as follows:
+## expressao SOMA 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR STRING MENOR STRING VIRGULA 
+##
+## Ends in an error in state: 56.
+##
+## expressao -> expressao . SOMA expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . SUB expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MULT expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . DIVISAO expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MENOR expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao MENOR expressao . [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . IGUAL expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . DIFERENTE expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MAIOR expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . ELOG expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . OULOG expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . CONCAT expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+##
+## The known suffix of the stack is as follows:
+## expressao MENOR expressao 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR STRING MENOR VIRGULA 
+##
+## Ends in an error in state: 55.
+##
+## expressao -> expressao MENOR . expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+##
+## The known suffix of the stack is as follows:
+## expressao MENOR 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR STRING SUB STRING VIRGULA 
+##
+## Ends in an error in state: 52.
+##
+## expressao -> expressao . SOMA expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . SUB expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao SUB expressao . [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MULT expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . DIVISAO expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MENOR expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . IGUAL expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . DIFERENTE expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MAIOR expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . ELOG expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . OULOG expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . CONCAT expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+##
+## The known suffix of the stack is as follows:
+## expressao SUB expressao 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR STRING SUB VIRGULA 
+##
+## Ends in an error in state: 51.
+##
+## expressao -> expressao SUB . expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+##
+## The known suffix of the stack is as follows:
+## expressao SUB 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR STRING MULT VIRGULA 
+##
+## Ends in an error in state: 49.
+##
+## expressao -> expressao MULT . expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+##
+## The known suffix of the stack is as follows:
+## expressao MULT 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR STRING OULOG STRING VIRGULA 
+##
+## Ends in an error in state: 48.
+##
+## expressao -> expressao . SOMA expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . SUB expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MULT expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . DIVISAO expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MENOR expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . IGUAL expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . DIFERENTE expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MAIOR expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . ELOG expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . OULOG expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao OULOG expressao . [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . CONCAT expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+##
+## The known suffix of the stack is as follows:
+## expressao OULOG expressao 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR STRING OULOG VIRGULA 
+##
+## Ends in an error in state: 47.
+##
+## expressao -> expressao OULOG . expressao [ PONTOEVIRGULA OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR FCOL ELOG DIVISAO DIFERENTE CONCAT ]
+##
+## The known suffix of the stack is as follows:
+## expressao OULOG 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR STRING VIRGULA 
+##
+## Ends in an error in state: 72.
+##
+## comando_se -> IF APAR expressao . FPAR ENTAO nonempty_list(comando) option(__anonymous_1) FIM IF PONTOEVIRGULA [ ELSE IF SAIDA ID FIM ENTRADA ]
+## expressao -> expressao . SOMA expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . SUB expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MULT expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . DIVISAO expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MENOR expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . IGUAL expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . DIFERENTE expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . MAIOR expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . ELOG expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . OULOG expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR ELOG DIVISAO DIFERENTE CONCAT ]
+## expressao -> expressao . CONCAT expressao [ OULOG MULT SUB MENOR SOMA MAIOR IGUAL FPAR ELOG DIVISAO DIFERENTE CONCAT ]
+##
+## The known suffix of the stack is as follows:
+## IF APAR expressao 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF APAR VIRGULA 
+##
+## Ends in an error in state: 36.
+##
+## comando_se -> IF APAR . expressao FPAR ENTAO nonempty_list(comando) option(__anonymous_1) FIM IF PONTOEVIRGULA [ ELSE IF SAIDA ID FIM ENTRADA ]
+##
+## The known suffix of the stack is as follows:
+## IF APAR 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO IF VIRGULA 
+##
+## Ends in an error in state: 35.
+##
+## comando_se -> IF . APAR expressao FPAR ENTAO nonempty_list(comando) option(__anonymous_1) FIM IF PONTOEVIRGULA [ ELSE IF SAIDA ID FIM ENTRADA ]
+##
+## The known suffix of the stack is as follows:
+## IF 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA INICIO VIRGULA 
+##
+## Ends in an error in state: 34.
+##
+## prog -> PROGRAMA list(var_decl) INICIO . list(comando) FIM PONTOEVIRGULA EOF [ # ]
+##
+## The known suffix of the stack is as follows:
+## PROGRAMA list(var_decl) INICIO 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: PROGRAMA VIRGULA 
+##
+## Ends in an error in state: 1.
+##
+## prog -> PROGRAMA . list(var_decl) INICIO list(comando) FIM PONTOEVIRGULA EOF [ # ]
+##
+## The known suffix of the stack is as follows:
+## PROGRAMA 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
+prog: VIRGULA 
+##
+## Ends in an error in state: 0.
+##
+## prog' -> . prog [ # ]
+##
+## The known suffix of the stack is as follows:
+## 
+##
+
+<YOUR SYNTAX ERROR MESSAGE HERE>
+
