@@ -1,0 +1,60 @@
+class A
+{
+    public static void main(String[] a)
+    {
+        System.out.println(new C().m(1));
+    }
+}
+
+
+class C {
+  int a; int b; int c;
+
+  public int m(int d){
+    int j;
+    
+    j = a+b+d;
+
+    System.out.println(a+c);
+ 
+    System.out.println(a);
+    System.out.println(j);
+    System.out.println(b);
+
+    return j;
+    }
+}
+
+class E {
+      int a;
+
+      public int E(){
+        a = 5;
+    
+        return a;
+      }
+}
+
+class N {
+  int b;
+  int a;
+
+  public int N(){
+    b = 10;
+    a = E.E() + b;
+    
+    return a;
+  }
+  
+  
+}
+
+class D {
+  int d;
+  
+  public int D(){
+     d = E.E() + N.N();
+     
+     return d;
+  }
+}

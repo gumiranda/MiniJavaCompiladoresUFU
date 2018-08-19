@@ -1,0 +1,54 @@
+
+** Conflict (shift/reduce) in state 186.
+** Token involved: PUBLIC
+** This state is reached from prog after reading:
+
+declaracao_algoritmo list(var_decl) func_decl 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+prog 
+(?)
+
+** In state 186, looking ahead at PUBLIC, shifting is permitted
+** because of the following sub-derivation:
+
+declaracao_algoritmo list(var_decl) list(func_decl) comando_block EOF 
+                                    func_decl list(func_decl) 
+                                              func_decl list(func_decl) 
+                                              . PUBLIC func_type ID APAR option(fparams) FPAR func_bloc list(var_decl) FCHAVE 
+
+** In state 186, looking ahead at PUBLIC, reducing production
+** list(func_decl) -> 
+** is permitted because of the following sub-derivation:
+
+declaracao_algoritmo list(var_decl) list(func_decl) comando_block EOF // lookahead token appears because comando_block can begin with PUBLIC
+                                    func_decl list(func_decl) // lookahead token is inherited
+                                              . 
+
+** Conflict (shift/reduce) in state 19.
+** Token involved: PUBLIC
+** This state is reached from prog after reading:
+
+declaracao_algoritmo list(var_decl) 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+prog 
+(?)
+
+** In state 19, looking ahead at PUBLIC, shifting is permitted
+** because of the following sub-derivation:
+
+declaracao_algoritmo list(var_decl) list(func_decl) comando_block EOF 
+                                    func_decl list(func_decl) 
+                                    . PUBLIC func_type ID APAR option(fparams) FPAR func_bloc list(var_decl) FCHAVE 
+
+** In state 19, looking ahead at PUBLIC, reducing production
+** list(func_decl) -> 
+** is permitted because of the following sub-derivation:
+
+declaracao_algoritmo list(var_decl) list(func_decl) comando_block EOF // lookahead token appears because comando_block can begin with PUBLIC
+                                    . 

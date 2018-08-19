@@ -1,0 +1,2785 @@
+State 0:
+prog' -> . prog [ # ]
+-- On PUBLIC shift to state 1
+-- On prog shift to state 5
+-- On declaracao_algoritmo shift to state 6
+
+State 1:
+declaracao_algoritmo -> PUBLIC . CLASS ID ACHAVE [ VOID STATIC PUBLIC LOGICO INTEIRO DOUBLE CARACTER ]
+-- On CLASS shift to state 2
+
+State 2:
+declaracao_algoritmo -> PUBLIC CLASS . ID ACHAVE [ VOID STATIC PUBLIC LOGICO INTEIRO DOUBLE CARACTER ]
+-- On ID shift to state 3
+
+State 3:
+declaracao_algoritmo -> PUBLIC CLASS ID . ACHAVE [ VOID STATIC PUBLIC LOGICO INTEIRO DOUBLE CARACTER ]
+-- On ACHAVE shift to state 4
+
+State 4:
+declaracao_algoritmo -> PUBLIC CLASS ID ACHAVE . [ VOID STATIC PUBLIC LOGICO INTEIRO DOUBLE CARACTER ]
+-- On VOID reduce production declaracao_algoritmo -> PUBLIC CLASS ID ACHAVE 
+-- On STATIC reduce production declaracao_algoritmo -> PUBLIC CLASS ID ACHAVE 
+-- On PUBLIC reduce production declaracao_algoritmo -> PUBLIC CLASS ID ACHAVE 
+-- On LOGICO reduce production declaracao_algoritmo -> PUBLIC CLASS ID ACHAVE 
+-- On INTEIRO reduce production declaracao_algoritmo -> PUBLIC CLASS ID ACHAVE 
+-- On DOUBLE reduce production declaracao_algoritmo -> PUBLIC CLASS ID ACHAVE 
+-- On CARACTER reduce production declaracao_algoritmo -> PUBLIC CLASS ID ACHAVE 
+
+State 5:
+prog' -> prog . [ # ]
+-- On # accept prog
+
+State 6:
+prog -> declaracao_algoritmo . list(var_decl) list(func_decl) comando_block EOF [ # ]
+-- On VOID shift to state 7
+-- On LOGICO shift to state 8
+-- On INTEIRO shift to state 9
+-- On DOUBLE shift to state 10
+-- On CARACTER shift to state 11
+-- On var_decl shift to state 12
+-- On tp_primitivo shift to state 13
+-- On list(var_decl) shift to state 20
+-- On STATIC reduce production list(var_decl) -> 
+-- On PUBLIC reduce production list(var_decl) -> 
+
+State 7:
+tp_primitivo -> VOID . [ ID ]
+-- On ID reduce production tp_primitivo -> VOID 
+
+State 8:
+tp_primitivo -> LOGICO . [ ID ]
+-- On ID reduce production tp_primitivo -> LOGICO 
+
+State 9:
+tp_primitivo -> INTEIRO . [ ID ]
+-- On ID reduce production tp_primitivo -> INTEIRO 
+
+State 10:
+tp_primitivo -> DOUBLE . [ ID ]
+-- On ID reduce production tp_primitivo -> DOUBLE 
+
+State 11:
+tp_primitivo -> CARACTER . [ ID ]
+-- On ID reduce production tp_primitivo -> CARACTER 
+
+State 12:
+list(var_decl) -> var_decl . list(var_decl) [ STATIC PUBLIC FCHAVE ]
+-- On VOID shift to state 7
+-- On LOGICO shift to state 8
+-- On INTEIRO shift to state 9
+-- On DOUBLE shift to state 10
+-- On CARACTER shift to state 11
+-- On var_decl shift to state 12
+-- On tp_primitivo shift to state 13
+-- On list(var_decl) shift to state 19
+-- On STATIC reduce production list(var_decl) -> 
+-- On PUBLIC reduce production list(var_decl) -> 
+-- On FCHAVE reduce production list(var_decl) -> 
+
+State 13:
+var_decl -> tp_primitivo . separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA [ VOID STATIC PUBLIC LOGICO INTEIRO FCHAVE DOUBLE CARACTER ]
+-- On ID shift to state 14
+-- On separated_nonempty_list(VIRGULA,ID) shift to state 17
+
+State 14:
+separated_nonempty_list(VIRGULA,ID) -> ID . [ PONTOEVIRGULA ]
+separated_nonempty_list(VIRGULA,ID) -> ID . VIRGULA separated_nonempty_list(VIRGULA,ID) [ PONTOEVIRGULA ]
+-- On VIRGULA shift to state 15
+-- On PONTOEVIRGULA reduce production separated_nonempty_list(VIRGULA,ID) -> ID 
+
+State 15:
+separated_nonempty_list(VIRGULA,ID) -> ID VIRGULA . separated_nonempty_list(VIRGULA,ID) [ PONTOEVIRGULA ]
+-- On ID shift to state 14
+-- On separated_nonempty_list(VIRGULA,ID) shift to state 16
+
+State 16:
+separated_nonempty_list(VIRGULA,ID) -> ID VIRGULA separated_nonempty_list(VIRGULA,ID) . [ PONTOEVIRGULA ]
+-- On PONTOEVIRGULA reduce production separated_nonempty_list(VIRGULA,ID) -> ID VIRGULA separated_nonempty_list(VIRGULA,ID) 
+
+State 17:
+var_decl -> tp_primitivo separated_nonempty_list(VIRGULA,ID) . PONTOEVIRGULA [ VOID STATIC PUBLIC LOGICO INTEIRO FCHAVE DOUBLE CARACTER ]
+-- On PONTOEVIRGULA shift to state 18
+
+State 18:
+var_decl -> tp_primitivo separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA . [ VOID STATIC PUBLIC LOGICO INTEIRO FCHAVE DOUBLE CARACTER ]
+-- On VOID reduce production var_decl -> tp_primitivo separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA 
+-- On STATIC reduce production var_decl -> tp_primitivo separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA 
+-- On PUBLIC reduce production var_decl -> tp_primitivo separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA 
+-- On LOGICO reduce production var_decl -> tp_primitivo separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA 
+-- On INTEIRO reduce production var_decl -> tp_primitivo separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA 
+-- On FCHAVE reduce production var_decl -> tp_primitivo separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA 
+-- On DOUBLE reduce production var_decl -> tp_primitivo separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA 
+-- On CARACTER reduce production var_decl -> tp_primitivo separated_nonempty_list(VIRGULA,ID) PONTOEVIRGULA 
+
+State 19:
+list(var_decl) -> var_decl list(var_decl) . [ STATIC PUBLIC FCHAVE ]
+-- On STATIC reduce production list(var_decl) -> var_decl list(var_decl) 
+-- On PUBLIC reduce production list(var_decl) -> var_decl list(var_decl) 
+-- On FCHAVE reduce production list(var_decl) -> var_decl list(var_decl) 
+
+State 20:
+prog -> declaracao_algoritmo list(var_decl) . list(func_decl) comando_block EOF [ # ]
+-- On STATIC shift to state 21
+-- On list(func_decl) shift to state 159
+-- On func_decl shift to state 175
+-- On PUBLIC reduce production list(func_decl) -> 
+
+State 21:
+func_decl -> STATIC . func_type ID APAR option(fparams) FPAR func_bloc list(var_decl) FCHAVE [ STATIC PUBLIC ]
+-- On VOID shift to state 7
+-- On LOGICO shift to state 8
+-- On INTEIRO shift to state 9
+-- On DOUBLE shift to state 10
+-- On CARACTER shift to state 11
+-- On tp_primitivo shift to state 22
+-- On func_type shift to state 23
+
+State 22:
+func_type -> tp_primitivo . [ ID ]
+-- On ID reduce production func_type -> tp_primitivo 
+
+State 23:
+func_decl -> STATIC func_type . ID APAR option(fparams) FPAR func_bloc list(var_decl) FCHAVE [ STATIC PUBLIC ]
+-- On ID shift to state 24
+
+State 24:
+func_decl -> STATIC func_type ID . APAR option(fparams) FPAR func_bloc list(var_decl) FCHAVE [ STATIC PUBLIC ]
+-- On APAR shift to state 25
+
+State 25:
+func_decl -> STATIC func_type ID APAR . option(fparams) FPAR func_bloc list(var_decl) FCHAVE [ STATIC PUBLIC ]
+-- On VOID shift to state 7
+-- On LOGICO shift to state 8
+-- On INTEIRO shift to state 9
+-- On DOUBLE shift to state 10
+-- On CARACTER shift to state 11
+-- On tp_primitivo shift to state 26
+-- On separated_nonempty_list(VIRGULA,fparam) shift to state 28
+-- On option(fparams) shift to state 29
+-- On fparams shift to state 155
+-- On fparam shift to state 156
+-- On FPAR reduce production option(fparams) -> 
+
+State 26:
+fparam -> tp_primitivo . ID [ VIRGULA FPAR ]
+-- On ID shift to state 27
+
+State 27:
+fparam -> tp_primitivo ID . [ VIRGULA FPAR ]
+-- On VIRGULA reduce production fparam -> tp_primitivo ID 
+-- On FPAR reduce production fparam -> tp_primitivo ID 
+
+State 28:
+fparams -> separated_nonempty_list(VIRGULA,fparam) . [ FPAR ]
+-- On FPAR reduce production fparams -> separated_nonempty_list(VIRGULA,fparam) 
+
+State 29:
+func_decl -> STATIC func_type ID APAR option(fparams) . FPAR func_bloc list(var_decl) FCHAVE [ STATIC PUBLIC ]
+-- On FPAR shift to state 30
+
+State 30:
+func_decl -> STATIC func_type ID APAR option(fparams) FPAR . func_bloc list(var_decl) FCHAVE [ STATIC PUBLIC ]
+-- On ACHAVE shift to state 31
+-- On func_bloc shift to state 152
+
+State 31:
+func_bloc -> ACHAVE . list(comando_list) [ VOID LOGICO INTEIRO FCHAVE DOUBLE CARACTER ]
+-- On VERDADEIRO shift to state 32
+-- On SE shift to state 33
+-- On RETORNE shift to state 89
+-- On PARA shift to state 93
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On ESCREVAL shift to state 105
+-- On ESCREVA shift to state 110
+-- On ENQUANTO shift to state 115
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On list(comando_list) shift to state 151
+-- On fcall shift to state 122
+-- On expr shift to state 124
+-- On comando_se shift to state 132
+-- On comando_ret shift to state 133
+-- On comando_para shift to state 134
+-- On comando_list shift to state 135
+-- On comando_leia shift to state 137
+-- On comando_fcall shift to state 138
+-- On comando_escreval shift to state 139
+-- On comando_escreva shift to state 140
+-- On comando_enquanto shift to state 141
+-- On comando_attr shift to state 142
+-- On VOID reduce production list(comando_list) -> 
+-- On LOGICO reduce production list(comando_list) -> 
+-- On INTEIRO reduce production list(comando_list) -> 
+-- On FCHAVE reduce production list(comando_list) -> 
+-- On DOUBLE reduce production list(comando_list) -> 
+-- On CARACTER reduce production list(comando_list) -> 
+
+State 32:
+logico_value -> VERDADEIRO . [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On VIRGULA reduce production logico_value -> VERDADEIRO 
+-- On SUB reduce production logico_value -> VERDADEIRO 
+-- On SOMA reduce production logico_value -> VERDADEIRO 
+-- On POTENCIA reduce production logico_value -> VERDADEIRO 
+-- On PONTOEVIRGULA reduce production logico_value -> VERDADEIRO 
+-- On PASSO reduce production logico_value -> VERDADEIRO 
+-- On OU reduce production logico_value -> VERDADEIRO 
+-- On MULT reduce production logico_value -> VERDADEIRO 
+-- On MOD reduce production logico_value -> VERDADEIRO 
+-- On MENORIGUAL reduce production logico_value -> VERDADEIRO 
+-- On MENOR reduce production logico_value -> VERDADEIRO 
+-- On MAIORIGUAL reduce production logico_value -> VERDADEIRO 
+-- On MAIOR reduce production logico_value -> VERDADEIRO 
+-- On IGUAL reduce production logico_value -> VERDADEIRO 
+-- On FPAR reduce production logico_value -> VERDADEIRO 
+-- On FCOL reduce production logico_value -> VERDADEIRO 
+-- On E reduce production logico_value -> VERDADEIRO 
+-- On DIVISAO reduce production logico_value -> VERDADEIRO 
+-- On DIFERENTE reduce production logico_value -> VERDADEIRO 
+-- On DE reduce production logico_value -> VERDADEIRO 
+-- On ATRIB reduce production logico_value -> VERDADEIRO 
+-- On ATE reduce production logico_value -> VERDADEIRO 
+
+State 33:
+comando_se -> SE . APAR expr FPAR ACHAVE list(comando_list) option(comando_senao) FCHAVE [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On APAR shift to state 34
+
+State 34:
+comando_se -> SE APAR . expr FPAR ACHAVE list(comando_list) option(comando_senao) FCHAVE [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VERDADEIRO shift to state 32
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On fcall shift to state 46
+-- On expr shift to state 86
+
+State 35:
+expr -> LITSTRING . [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On VIRGULA reduce production expr -> LITSTRING 
+-- On SUB reduce production expr -> LITSTRING 
+-- On SOMA reduce production expr -> LITSTRING 
+-- On POTENCIA reduce production expr -> LITSTRING 
+-- On PONTOEVIRGULA reduce production expr -> LITSTRING 
+-- On PASSO reduce production expr -> LITSTRING 
+-- On OU reduce production expr -> LITSTRING 
+-- On MULT reduce production expr -> LITSTRING 
+-- On MOD reduce production expr -> LITSTRING 
+-- On MENORIGUAL reduce production expr -> LITSTRING 
+-- On MENOR reduce production expr -> LITSTRING 
+-- On MAIORIGUAL reduce production expr -> LITSTRING 
+-- On MAIOR reduce production expr -> LITSTRING 
+-- On IGUAL reduce production expr -> LITSTRING 
+-- On FPAR reduce production expr -> LITSTRING 
+-- On FCOL reduce production expr -> LITSTRING 
+-- On E reduce production expr -> LITSTRING 
+-- On DIVISAO reduce production expr -> LITSTRING 
+-- On DIFERENTE reduce production expr -> LITSTRING 
+-- On DE reduce production expr -> LITSTRING 
+-- On ATRIB reduce production expr -> LITSTRING 
+-- On ATE reduce production expr -> LITSTRING 
+
+State 36:
+expr -> LITCHAR . [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On VIRGULA reduce production expr -> LITCHAR 
+-- On SUB reduce production expr -> LITCHAR 
+-- On SOMA reduce production expr -> LITCHAR 
+-- On POTENCIA reduce production expr -> LITCHAR 
+-- On PONTOEVIRGULA reduce production expr -> LITCHAR 
+-- On PASSO reduce production expr -> LITCHAR 
+-- On OU reduce production expr -> LITCHAR 
+-- On MULT reduce production expr -> LITCHAR 
+-- On MOD reduce production expr -> LITCHAR 
+-- On MENORIGUAL reduce production expr -> LITCHAR 
+-- On MENOR reduce production expr -> LITCHAR 
+-- On MAIORIGUAL reduce production expr -> LITCHAR 
+-- On MAIOR reduce production expr -> LITCHAR 
+-- On IGUAL reduce production expr -> LITCHAR 
+-- On FPAR reduce production expr -> LITCHAR 
+-- On FCOL reduce production expr -> LITCHAR 
+-- On E reduce production expr -> LITCHAR 
+-- On DIVISAO reduce production expr -> LITCHAR 
+-- On DIFERENTE reduce production expr -> LITCHAR 
+-- On DE reduce production expr -> LITCHAR 
+-- On ATRIB reduce production expr -> LITCHAR 
+-- On ATE reduce production expr -> LITCHAR 
+
+State 37:
+expr -> INT . [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On VIRGULA reduce production expr -> INT 
+-- On SUB reduce production expr -> INT 
+-- On SOMA reduce production expr -> INT 
+-- On POTENCIA reduce production expr -> INT 
+-- On PONTOEVIRGULA reduce production expr -> INT 
+-- On PASSO reduce production expr -> INT 
+-- On OU reduce production expr -> INT 
+-- On MULT reduce production expr -> INT 
+-- On MOD reduce production expr -> INT 
+-- On MENORIGUAL reduce production expr -> INT 
+-- On MENOR reduce production expr -> INT 
+-- On MAIORIGUAL reduce production expr -> INT 
+-- On MAIOR reduce production expr -> INT 
+-- On IGUAL reduce production expr -> INT 
+-- On FPAR reduce production expr -> INT 
+-- On FCOL reduce production expr -> INT 
+-- On E reduce production expr -> INT 
+-- On DIVISAO reduce production expr -> INT 
+-- On DIFERENTE reduce production expr -> INT 
+-- On DE reduce production expr -> INT 
+-- On ATRIB reduce production expr -> INT 
+-- On ATE reduce production expr -> INT 
+
+State 38:
+fcall -> ID . APAR option(fargs) FPAR [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+lvalue -> ID . [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ACOL ]
+-- On APAR shift to state 39
+-- On VIRGULA reduce production lvalue -> ID 
+-- On SUB reduce production lvalue -> ID 
+-- On SOMA reduce production lvalue -> ID 
+-- On POTENCIA reduce production lvalue -> ID 
+-- On PONTOEVIRGULA reduce production lvalue -> ID 
+-- On PASSO reduce production lvalue -> ID 
+-- On OU reduce production lvalue -> ID 
+-- On MULT reduce production lvalue -> ID 
+-- On MOD reduce production lvalue -> ID 
+-- On MENORIGUAL reduce production lvalue -> ID 
+-- On MENOR reduce production lvalue -> ID 
+-- On MAIORIGUAL reduce production lvalue -> ID 
+-- On MAIOR reduce production lvalue -> ID 
+-- On IGUAL reduce production lvalue -> ID 
+-- On FPAR reduce production lvalue -> ID 
+-- On FCOL reduce production lvalue -> ID 
+-- On E reduce production lvalue -> ID 
+-- On DIVISAO reduce production lvalue -> ID 
+-- On DIFERENTE reduce production lvalue -> ID 
+-- On DE reduce production lvalue -> ID 
+-- On ATRIB reduce production lvalue -> ID 
+-- On ATE reduce production lvalue -> ID 
+-- On ACOL reduce production lvalue -> ID 
+
+State 39:
+fcall -> ID APAR . option(fargs) FPAR [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On VERDADEIRO shift to state 32
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On APAR shift to state 42
+-- On separated_nonempty_list(VIRGULA,expr) shift to state 79
+-- On option(fargs) shift to state 80
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On fcall shift to state 46
+-- On fargs shift to state 82
+-- On expr shift to state 83
+-- On FPAR reduce production option(fargs) -> 
+
+State 40:
+expr -> FLOAT . [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On VIRGULA reduce production expr -> FLOAT 
+-- On SUB reduce production expr -> FLOAT 
+-- On SOMA reduce production expr -> FLOAT 
+-- On POTENCIA reduce production expr -> FLOAT 
+-- On PONTOEVIRGULA reduce production expr -> FLOAT 
+-- On PASSO reduce production expr -> FLOAT 
+-- On OU reduce production expr -> FLOAT 
+-- On MULT reduce production expr -> FLOAT 
+-- On MOD reduce production expr -> FLOAT 
+-- On MENORIGUAL reduce production expr -> FLOAT 
+-- On MENOR reduce production expr -> FLOAT 
+-- On MAIORIGUAL reduce production expr -> FLOAT 
+-- On MAIOR reduce production expr -> FLOAT 
+-- On IGUAL reduce production expr -> FLOAT 
+-- On FPAR reduce production expr -> FLOAT 
+-- On FCOL reduce production expr -> FLOAT 
+-- On E reduce production expr -> FLOAT 
+-- On DIVISAO reduce production expr -> FLOAT 
+-- On DIFERENTE reduce production expr -> FLOAT 
+-- On DE reduce production expr -> FLOAT 
+-- On ATRIB reduce production expr -> FLOAT 
+-- On ATE reduce production expr -> FLOAT 
+
+State 41:
+logico_value -> FALSO . [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On VIRGULA reduce production logico_value -> FALSO 
+-- On SUB reduce production logico_value -> FALSO 
+-- On SOMA reduce production logico_value -> FALSO 
+-- On POTENCIA reduce production logico_value -> FALSO 
+-- On PONTOEVIRGULA reduce production logico_value -> FALSO 
+-- On PASSO reduce production logico_value -> FALSO 
+-- On OU reduce production logico_value -> FALSO 
+-- On MULT reduce production logico_value -> FALSO 
+-- On MOD reduce production logico_value -> FALSO 
+-- On MENORIGUAL reduce production logico_value -> FALSO 
+-- On MENOR reduce production logico_value -> FALSO 
+-- On MAIORIGUAL reduce production logico_value -> FALSO 
+-- On MAIOR reduce production logico_value -> FALSO 
+-- On IGUAL reduce production logico_value -> FALSO 
+-- On FPAR reduce production logico_value -> FALSO 
+-- On FCOL reduce production logico_value -> FALSO 
+-- On E reduce production logico_value -> FALSO 
+-- On DIVISAO reduce production logico_value -> FALSO 
+-- On DIFERENTE reduce production logico_value -> FALSO 
+-- On DE reduce production logico_value -> FALSO 
+-- On ATRIB reduce production logico_value -> FALSO 
+-- On ATE reduce production logico_value -> FALSO 
+
+State 42:
+expr -> APAR . expr FPAR [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On VERDADEIRO shift to state 32
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On fcall shift to state 46
+-- On expr shift to state 77
+
+State 43:
+expr -> lvalue . [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+lvalue -> lvalue . ACOL expr FCOL [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ACOL ]
+-- On ACOL shift to state 44
+-- On VIRGULA reduce production expr -> lvalue 
+-- On SUB reduce production expr -> lvalue 
+-- On SOMA reduce production expr -> lvalue 
+-- On POTENCIA reduce production expr -> lvalue 
+-- On PONTOEVIRGULA reduce production expr -> lvalue 
+-- On PASSO reduce production expr -> lvalue 
+-- On OU reduce production expr -> lvalue 
+-- On MULT reduce production expr -> lvalue 
+-- On MOD reduce production expr -> lvalue 
+-- On MENORIGUAL reduce production expr -> lvalue 
+-- On MENOR reduce production expr -> lvalue 
+-- On MAIORIGUAL reduce production expr -> lvalue 
+-- On MAIOR reduce production expr -> lvalue 
+-- On IGUAL reduce production expr -> lvalue 
+-- On FPAR reduce production expr -> lvalue 
+-- On FCOL reduce production expr -> lvalue 
+-- On E reduce production expr -> lvalue 
+-- On DIVISAO reduce production expr -> lvalue 
+-- On DIFERENTE reduce production expr -> lvalue 
+-- On DE reduce production expr -> lvalue 
+-- On ATRIB reduce production expr -> lvalue 
+-- On ATE reduce production expr -> lvalue 
+
+State 44:
+lvalue -> lvalue ACOL . expr FCOL [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ACOL ]
+-- On VERDADEIRO shift to state 32
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On fcall shift to state 46
+-- On expr shift to state 47
+
+State 45:
+expr -> logico_value . [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On VIRGULA reduce production expr -> logico_value 
+-- On SUB reduce production expr -> logico_value 
+-- On SOMA reduce production expr -> logico_value 
+-- On POTENCIA reduce production expr -> logico_value 
+-- On PONTOEVIRGULA reduce production expr -> logico_value 
+-- On PASSO reduce production expr -> logico_value 
+-- On OU reduce production expr -> logico_value 
+-- On MULT reduce production expr -> logico_value 
+-- On MOD reduce production expr -> logico_value 
+-- On MENORIGUAL reduce production expr -> logico_value 
+-- On MENOR reduce production expr -> logico_value 
+-- On MAIORIGUAL reduce production expr -> logico_value 
+-- On MAIOR reduce production expr -> logico_value 
+-- On IGUAL reduce production expr -> logico_value 
+-- On FPAR reduce production expr -> logico_value 
+-- On FCOL reduce production expr -> logico_value 
+-- On E reduce production expr -> logico_value 
+-- On DIVISAO reduce production expr -> logico_value 
+-- On DIFERENTE reduce production expr -> logico_value 
+-- On DE reduce production expr -> logico_value 
+-- On ATRIB reduce production expr -> logico_value 
+-- On ATE reduce production expr -> logico_value 
+
+State 46:
+expr -> fcall . [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On VIRGULA reduce production expr -> fcall 
+-- On SUB reduce production expr -> fcall 
+-- On SOMA reduce production expr -> fcall 
+-- On POTENCIA reduce production expr -> fcall 
+-- On PONTOEVIRGULA reduce production expr -> fcall 
+-- On PASSO reduce production expr -> fcall 
+-- On OU reduce production expr -> fcall 
+-- On MULT reduce production expr -> fcall 
+-- On MOD reduce production expr -> fcall 
+-- On MENORIGUAL reduce production expr -> fcall 
+-- On MENOR reduce production expr -> fcall 
+-- On MAIORIGUAL reduce production expr -> fcall 
+-- On MAIOR reduce production expr -> fcall 
+-- On IGUAL reduce production expr -> fcall 
+-- On FPAR reduce production expr -> fcall 
+-- On FCOL reduce production expr -> fcall 
+-- On E reduce production expr -> fcall 
+-- On DIVISAO reduce production expr -> fcall 
+-- On DIFERENTE reduce production expr -> fcall 
+-- On DE reduce production expr -> fcall 
+-- On ATRIB reduce production expr -> fcall 
+-- On ATE reduce production expr -> fcall 
+
+State 47:
+expr -> expr . SOMA expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FCOL E DIVISAO DIFERENTE ]
+expr -> expr . SUB expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FCOL E DIVISAO DIFERENTE ]
+expr -> expr . MULT expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FCOL E DIVISAO DIFERENTE ]
+expr -> expr . DIVISAO expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FCOL E DIVISAO DIFERENTE ]
+expr -> expr . POTENCIA expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FCOL E DIVISAO DIFERENTE ]
+expr -> expr . MOD expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FCOL E DIVISAO DIFERENTE ]
+expr -> expr . IGUAL expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FCOL E DIVISAO DIFERENTE ]
+expr -> expr . DIFERENTE expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FCOL E DIVISAO DIFERENTE ]
+expr -> expr . MENOR expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FCOL E DIVISAO DIFERENTE ]
+expr -> expr . MENORIGUAL expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FCOL E DIVISAO DIFERENTE ]
+expr -> expr . MAIOR expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FCOL E DIVISAO DIFERENTE ]
+expr -> expr . MAIORIGUAL expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FCOL E DIVISAO DIFERENTE ]
+expr -> expr . E expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FCOL E DIVISAO DIFERENTE ]
+expr -> expr . OU expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FCOL E DIVISAO DIFERENTE ]
+lvalue -> lvalue ACOL expr . FCOL [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ACOL ]
+-- On SUB shift to state 48
+-- On SOMA shift to state 58
+-- On POTENCIA shift to state 50
+-- On OU shift to state 60
+-- On MULT shift to state 52
+-- On MOD shift to state 54
+-- On MENORIGUAL shift to state 62
+-- On MENOR shift to state 64
+-- On MAIORIGUAL shift to state 66
+-- On MAIOR shift to state 68
+-- On IGUAL shift to state 70
+-- On FCOL shift to state 76
+-- On E shift to state 72
+-- On DIVISAO shift to state 56
+-- On DIFERENTE shift to state 74
+
+State 48:
+expr -> expr SUB . expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On VERDADEIRO shift to state 32
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On fcall shift to state 46
+-- On expr shift to state 49
+
+State 49:
+expr -> expr . SOMA expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . SUB expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr SUB expr . [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MULT expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . DIVISAO expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . POTENCIA expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MOD expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . IGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . DIFERENTE expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MENOR expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MENORIGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MAIOR expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MAIORIGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . E expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . OU expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On POTENCIA shift to state 50
+-- On MULT shift to state 52
+-- On MOD shift to state 54
+-- On DIVISAO shift to state 56
+-- On VIRGULA reduce production expr -> expr SUB expr 
+-- On SUB reduce production expr -> expr SUB expr 
+-- On SOMA reduce production expr -> expr SUB expr 
+-- On PONTOEVIRGULA reduce production expr -> expr SUB expr 
+-- On PASSO reduce production expr -> expr SUB expr 
+-- On OU reduce production expr -> expr SUB expr 
+-- On MENORIGUAL reduce production expr -> expr SUB expr 
+-- On MENOR reduce production expr -> expr SUB expr 
+-- On MAIORIGUAL reduce production expr -> expr SUB expr 
+-- On MAIOR reduce production expr -> expr SUB expr 
+-- On IGUAL reduce production expr -> expr SUB expr 
+-- On FPAR reduce production expr -> expr SUB expr 
+-- On FCOL reduce production expr -> expr SUB expr 
+-- On E reduce production expr -> expr SUB expr 
+-- On DIFERENTE reduce production expr -> expr SUB expr 
+-- On DE reduce production expr -> expr SUB expr 
+-- On ATRIB reduce production expr -> expr SUB expr 
+-- On ATE reduce production expr -> expr SUB expr 
+
+State 50:
+expr -> expr POTENCIA . expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On VERDADEIRO shift to state 32
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On fcall shift to state 46
+-- On expr shift to state 51
+
+State 51:
+expr -> expr . SOMA expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . SUB expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MULT expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . DIVISAO expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . POTENCIA expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr POTENCIA expr . [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MOD expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . IGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . DIFERENTE expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MENOR expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MENORIGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MAIOR expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MAIORIGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . E expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . OU expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On POTENCIA shift to state 50
+-- On VIRGULA reduce production expr -> expr POTENCIA expr 
+-- On SUB reduce production expr -> expr POTENCIA expr 
+-- On SOMA reduce production expr -> expr POTENCIA expr 
+-- On PONTOEVIRGULA reduce production expr -> expr POTENCIA expr 
+-- On PASSO reduce production expr -> expr POTENCIA expr 
+-- On OU reduce production expr -> expr POTENCIA expr 
+-- On MULT reduce production expr -> expr POTENCIA expr 
+-- On MOD reduce production expr -> expr POTENCIA expr 
+-- On MENORIGUAL reduce production expr -> expr POTENCIA expr 
+-- On MENOR reduce production expr -> expr POTENCIA expr 
+-- On MAIORIGUAL reduce production expr -> expr POTENCIA expr 
+-- On MAIOR reduce production expr -> expr POTENCIA expr 
+-- On IGUAL reduce production expr -> expr POTENCIA expr 
+-- On FPAR reduce production expr -> expr POTENCIA expr 
+-- On FCOL reduce production expr -> expr POTENCIA expr 
+-- On E reduce production expr -> expr POTENCIA expr 
+-- On DIVISAO reduce production expr -> expr POTENCIA expr 
+-- On DIFERENTE reduce production expr -> expr POTENCIA expr 
+-- On DE reduce production expr -> expr POTENCIA expr 
+-- On ATRIB reduce production expr -> expr POTENCIA expr 
+-- On ATE reduce production expr -> expr POTENCIA expr 
+
+State 52:
+expr -> expr MULT . expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On VERDADEIRO shift to state 32
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On fcall shift to state 46
+-- On expr shift to state 53
+
+State 53:
+expr -> expr . SOMA expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . SUB expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MULT expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr MULT expr . [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . DIVISAO expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . POTENCIA expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MOD expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . IGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . DIFERENTE expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MENOR expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MENORIGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MAIOR expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MAIORIGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . E expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . OU expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On POTENCIA shift to state 50
+-- On VIRGULA reduce production expr -> expr MULT expr 
+-- On SUB reduce production expr -> expr MULT expr 
+-- On SOMA reduce production expr -> expr MULT expr 
+-- On PONTOEVIRGULA reduce production expr -> expr MULT expr 
+-- On PASSO reduce production expr -> expr MULT expr 
+-- On OU reduce production expr -> expr MULT expr 
+-- On MULT reduce production expr -> expr MULT expr 
+-- On MOD reduce production expr -> expr MULT expr 
+-- On MENORIGUAL reduce production expr -> expr MULT expr 
+-- On MENOR reduce production expr -> expr MULT expr 
+-- On MAIORIGUAL reduce production expr -> expr MULT expr 
+-- On MAIOR reduce production expr -> expr MULT expr 
+-- On IGUAL reduce production expr -> expr MULT expr 
+-- On FPAR reduce production expr -> expr MULT expr 
+-- On FCOL reduce production expr -> expr MULT expr 
+-- On E reduce production expr -> expr MULT expr 
+-- On DIVISAO reduce production expr -> expr MULT expr 
+-- On DIFERENTE reduce production expr -> expr MULT expr 
+-- On DE reduce production expr -> expr MULT expr 
+-- On ATRIB reduce production expr -> expr MULT expr 
+-- On ATE reduce production expr -> expr MULT expr 
+
+State 54:
+expr -> expr MOD . expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On VERDADEIRO shift to state 32
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On fcall shift to state 46
+-- On expr shift to state 55
+
+State 55:
+expr -> expr . SOMA expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . SUB expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MULT expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . DIVISAO expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . POTENCIA expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MOD expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr MOD expr . [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . IGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . DIFERENTE expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MENOR expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MENORIGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MAIOR expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MAIORIGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . E expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . OU expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On POTENCIA shift to state 50
+-- On VIRGULA reduce production expr -> expr MOD expr 
+-- On SUB reduce production expr -> expr MOD expr 
+-- On SOMA reduce production expr -> expr MOD expr 
+-- On PONTOEVIRGULA reduce production expr -> expr MOD expr 
+-- On PASSO reduce production expr -> expr MOD expr 
+-- On OU reduce production expr -> expr MOD expr 
+-- On MULT reduce production expr -> expr MOD expr 
+-- On MOD reduce production expr -> expr MOD expr 
+-- On MENORIGUAL reduce production expr -> expr MOD expr 
+-- On MENOR reduce production expr -> expr MOD expr 
+-- On MAIORIGUAL reduce production expr -> expr MOD expr 
+-- On MAIOR reduce production expr -> expr MOD expr 
+-- On IGUAL reduce production expr -> expr MOD expr 
+-- On FPAR reduce production expr -> expr MOD expr 
+-- On FCOL reduce production expr -> expr MOD expr 
+-- On E reduce production expr -> expr MOD expr 
+-- On DIVISAO reduce production expr -> expr MOD expr 
+-- On DIFERENTE reduce production expr -> expr MOD expr 
+-- On DE reduce production expr -> expr MOD expr 
+-- On ATRIB reduce production expr -> expr MOD expr 
+-- On ATE reduce production expr -> expr MOD expr 
+
+State 56:
+expr -> expr DIVISAO . expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On VERDADEIRO shift to state 32
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On fcall shift to state 46
+-- On expr shift to state 57
+
+State 57:
+expr -> expr . SOMA expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . SUB expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MULT expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . DIVISAO expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr DIVISAO expr . [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . POTENCIA expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MOD expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . IGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . DIFERENTE expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MENOR expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MENORIGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MAIOR expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MAIORIGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . E expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . OU expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On POTENCIA shift to state 50
+-- On VIRGULA reduce production expr -> expr DIVISAO expr 
+-- On SUB reduce production expr -> expr DIVISAO expr 
+-- On SOMA reduce production expr -> expr DIVISAO expr 
+-- On PONTOEVIRGULA reduce production expr -> expr DIVISAO expr 
+-- On PASSO reduce production expr -> expr DIVISAO expr 
+-- On OU reduce production expr -> expr DIVISAO expr 
+-- On MULT reduce production expr -> expr DIVISAO expr 
+-- On MOD reduce production expr -> expr DIVISAO expr 
+-- On MENORIGUAL reduce production expr -> expr DIVISAO expr 
+-- On MENOR reduce production expr -> expr DIVISAO expr 
+-- On MAIORIGUAL reduce production expr -> expr DIVISAO expr 
+-- On MAIOR reduce production expr -> expr DIVISAO expr 
+-- On IGUAL reduce production expr -> expr DIVISAO expr 
+-- On FPAR reduce production expr -> expr DIVISAO expr 
+-- On FCOL reduce production expr -> expr DIVISAO expr 
+-- On E reduce production expr -> expr DIVISAO expr 
+-- On DIVISAO reduce production expr -> expr DIVISAO expr 
+-- On DIFERENTE reduce production expr -> expr DIVISAO expr 
+-- On DE reduce production expr -> expr DIVISAO expr 
+-- On ATRIB reduce production expr -> expr DIVISAO expr 
+-- On ATE reduce production expr -> expr DIVISAO expr 
+
+State 58:
+expr -> expr SOMA . expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On VERDADEIRO shift to state 32
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On fcall shift to state 46
+-- On expr shift to state 59
+
+State 59:
+expr -> expr . SOMA expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr SOMA expr . [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . SUB expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MULT expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . DIVISAO expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . POTENCIA expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MOD expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . IGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . DIFERENTE expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MENOR expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MENORIGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MAIOR expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MAIORIGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . E expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . OU expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On POTENCIA shift to state 50
+-- On MULT shift to state 52
+-- On MOD shift to state 54
+-- On DIVISAO shift to state 56
+-- On VIRGULA reduce production expr -> expr SOMA expr 
+-- On SUB reduce production expr -> expr SOMA expr 
+-- On SOMA reduce production expr -> expr SOMA expr 
+-- On PONTOEVIRGULA reduce production expr -> expr SOMA expr 
+-- On PASSO reduce production expr -> expr SOMA expr 
+-- On OU reduce production expr -> expr SOMA expr 
+-- On MENORIGUAL reduce production expr -> expr SOMA expr 
+-- On MENOR reduce production expr -> expr SOMA expr 
+-- On MAIORIGUAL reduce production expr -> expr SOMA expr 
+-- On MAIOR reduce production expr -> expr SOMA expr 
+-- On IGUAL reduce production expr -> expr SOMA expr 
+-- On FPAR reduce production expr -> expr SOMA expr 
+-- On FCOL reduce production expr -> expr SOMA expr 
+-- On E reduce production expr -> expr SOMA expr 
+-- On DIFERENTE reduce production expr -> expr SOMA expr 
+-- On DE reduce production expr -> expr SOMA expr 
+-- On ATRIB reduce production expr -> expr SOMA expr 
+-- On ATE reduce production expr -> expr SOMA expr 
+
+State 60:
+expr -> expr OU . expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On VERDADEIRO shift to state 32
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On fcall shift to state 46
+-- On expr shift to state 61
+
+State 61:
+expr -> expr . SOMA expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . SUB expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MULT expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . DIVISAO expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . POTENCIA expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MOD expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . IGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . DIFERENTE expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MENOR expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MENORIGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MAIOR expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MAIORIGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . E expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . OU expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr OU expr . [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On SUB shift to state 48
+-- On SOMA shift to state 58
+-- On POTENCIA shift to state 50
+-- On MULT shift to state 52
+-- On MOD shift to state 54
+-- On MENORIGUAL shift to state 62
+-- On MENOR shift to state 64
+-- On MAIORIGUAL shift to state 66
+-- On MAIOR shift to state 68
+-- On IGUAL shift to state 70
+-- On E shift to state 72
+-- On DIVISAO shift to state 56
+-- On DIFERENTE shift to state 74
+-- On VIRGULA reduce production expr -> expr OU expr 
+-- On PONTOEVIRGULA reduce production expr -> expr OU expr 
+-- On PASSO reduce production expr -> expr OU expr 
+-- On OU reduce production expr -> expr OU expr 
+-- On FPAR reduce production expr -> expr OU expr 
+-- On FCOL reduce production expr -> expr OU expr 
+-- On DE reduce production expr -> expr OU expr 
+-- On ATRIB reduce production expr -> expr OU expr 
+-- On ATE reduce production expr -> expr OU expr 
+
+State 62:
+expr -> expr MENORIGUAL . expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On VERDADEIRO shift to state 32
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On fcall shift to state 46
+-- On expr shift to state 63
+
+State 63:
+expr -> expr . SOMA expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . SUB expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MULT expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . DIVISAO expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . POTENCIA expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MOD expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . IGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . DIFERENTE expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MENOR expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MENORIGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr MENORIGUAL expr . [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MAIOR expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MAIORIGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . E expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . OU expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On SUB shift to state 48
+-- On SOMA shift to state 58
+-- On POTENCIA shift to state 50
+-- On MULT shift to state 52
+-- On MOD shift to state 54
+-- On DIVISAO shift to state 56
+-- On VIRGULA reduce production expr -> expr MENORIGUAL expr 
+-- On PONTOEVIRGULA reduce production expr -> expr MENORIGUAL expr 
+-- On PASSO reduce production expr -> expr MENORIGUAL expr 
+-- On OU reduce production expr -> expr MENORIGUAL expr 
+-- On MENORIGUAL reduce production expr -> expr MENORIGUAL expr 
+-- On MENOR reduce production expr -> expr MENORIGUAL expr 
+-- On MAIORIGUAL reduce production expr -> expr MENORIGUAL expr 
+-- On MAIOR reduce production expr -> expr MENORIGUAL expr 
+-- On IGUAL reduce production expr -> expr MENORIGUAL expr 
+-- On FPAR reduce production expr -> expr MENORIGUAL expr 
+-- On FCOL reduce production expr -> expr MENORIGUAL expr 
+-- On E reduce production expr -> expr MENORIGUAL expr 
+-- On DIFERENTE reduce production expr -> expr MENORIGUAL expr 
+-- On DE reduce production expr -> expr MENORIGUAL expr 
+-- On ATRIB reduce production expr -> expr MENORIGUAL expr 
+-- On ATE reduce production expr -> expr MENORIGUAL expr 
+
+State 64:
+expr -> expr MENOR . expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On VERDADEIRO shift to state 32
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On fcall shift to state 46
+-- On expr shift to state 65
+
+State 65:
+expr -> expr . SOMA expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . SUB expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MULT expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . DIVISAO expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . POTENCIA expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MOD expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . IGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . DIFERENTE expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MENOR expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr MENOR expr . [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MENORIGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MAIOR expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MAIORIGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . E expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . OU expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On SUB shift to state 48
+-- On SOMA shift to state 58
+-- On POTENCIA shift to state 50
+-- On MULT shift to state 52
+-- On MOD shift to state 54
+-- On DIVISAO shift to state 56
+-- On VIRGULA reduce production expr -> expr MENOR expr 
+-- On PONTOEVIRGULA reduce production expr -> expr MENOR expr 
+-- On PASSO reduce production expr -> expr MENOR expr 
+-- On OU reduce production expr -> expr MENOR expr 
+-- On MENORIGUAL reduce production expr -> expr MENOR expr 
+-- On MENOR reduce production expr -> expr MENOR expr 
+-- On MAIORIGUAL reduce production expr -> expr MENOR expr 
+-- On MAIOR reduce production expr -> expr MENOR expr 
+-- On IGUAL reduce production expr -> expr MENOR expr 
+-- On FPAR reduce production expr -> expr MENOR expr 
+-- On FCOL reduce production expr -> expr MENOR expr 
+-- On E reduce production expr -> expr MENOR expr 
+-- On DIFERENTE reduce production expr -> expr MENOR expr 
+-- On DE reduce production expr -> expr MENOR expr 
+-- On ATRIB reduce production expr -> expr MENOR expr 
+-- On ATE reduce production expr -> expr MENOR expr 
+
+State 66:
+expr -> expr MAIORIGUAL . expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On VERDADEIRO shift to state 32
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On fcall shift to state 46
+-- On expr shift to state 67
+
+State 67:
+expr -> expr . SOMA expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . SUB expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MULT expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . DIVISAO expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . POTENCIA expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MOD expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . IGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . DIFERENTE expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MENOR expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MENORIGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MAIOR expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MAIORIGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr MAIORIGUAL expr . [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . E expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . OU expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On SUB shift to state 48
+-- On SOMA shift to state 58
+-- On POTENCIA shift to state 50
+-- On MULT shift to state 52
+-- On MOD shift to state 54
+-- On DIVISAO shift to state 56
+-- On VIRGULA reduce production expr -> expr MAIORIGUAL expr 
+-- On PONTOEVIRGULA reduce production expr -> expr MAIORIGUAL expr 
+-- On PASSO reduce production expr -> expr MAIORIGUAL expr 
+-- On OU reduce production expr -> expr MAIORIGUAL expr 
+-- On MENORIGUAL reduce production expr -> expr MAIORIGUAL expr 
+-- On MENOR reduce production expr -> expr MAIORIGUAL expr 
+-- On MAIORIGUAL reduce production expr -> expr MAIORIGUAL expr 
+-- On MAIOR reduce production expr -> expr MAIORIGUAL expr 
+-- On IGUAL reduce production expr -> expr MAIORIGUAL expr 
+-- On FPAR reduce production expr -> expr MAIORIGUAL expr 
+-- On FCOL reduce production expr -> expr MAIORIGUAL expr 
+-- On E reduce production expr -> expr MAIORIGUAL expr 
+-- On DIFERENTE reduce production expr -> expr MAIORIGUAL expr 
+-- On DE reduce production expr -> expr MAIORIGUAL expr 
+-- On ATRIB reduce production expr -> expr MAIORIGUAL expr 
+-- On ATE reduce production expr -> expr MAIORIGUAL expr 
+
+State 68:
+expr -> expr MAIOR . expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On VERDADEIRO shift to state 32
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On fcall shift to state 46
+-- On expr shift to state 69
+
+State 69:
+expr -> expr . SOMA expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . SUB expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MULT expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . DIVISAO expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . POTENCIA expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MOD expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . IGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . DIFERENTE expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MENOR expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MENORIGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MAIOR expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr MAIOR expr . [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MAIORIGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . E expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . OU expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On SUB shift to state 48
+-- On SOMA shift to state 58
+-- On POTENCIA shift to state 50
+-- On MULT shift to state 52
+-- On MOD shift to state 54
+-- On DIVISAO shift to state 56
+-- On VIRGULA reduce production expr -> expr MAIOR expr 
+-- On PONTOEVIRGULA reduce production expr -> expr MAIOR expr 
+-- On PASSO reduce production expr -> expr MAIOR expr 
+-- On OU reduce production expr -> expr MAIOR expr 
+-- On MENORIGUAL reduce production expr -> expr MAIOR expr 
+-- On MENOR reduce production expr -> expr MAIOR expr 
+-- On MAIORIGUAL reduce production expr -> expr MAIOR expr 
+-- On MAIOR reduce production expr -> expr MAIOR expr 
+-- On IGUAL reduce production expr -> expr MAIOR expr 
+-- On FPAR reduce production expr -> expr MAIOR expr 
+-- On FCOL reduce production expr -> expr MAIOR expr 
+-- On E reduce production expr -> expr MAIOR expr 
+-- On DIFERENTE reduce production expr -> expr MAIOR expr 
+-- On DE reduce production expr -> expr MAIOR expr 
+-- On ATRIB reduce production expr -> expr MAIOR expr 
+-- On ATE reduce production expr -> expr MAIOR expr 
+
+State 70:
+expr -> expr IGUAL . expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On VERDADEIRO shift to state 32
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On fcall shift to state 46
+-- On expr shift to state 71
+
+State 71:
+expr -> expr . SOMA expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . SUB expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MULT expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . DIVISAO expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . POTENCIA expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MOD expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . IGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr IGUAL expr . [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . DIFERENTE expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MENOR expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MENORIGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MAIOR expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MAIORIGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . E expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . OU expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On SUB shift to state 48
+-- On SOMA shift to state 58
+-- On POTENCIA shift to state 50
+-- On MULT shift to state 52
+-- On MOD shift to state 54
+-- On MENORIGUAL shift to state 62
+-- On MENOR shift to state 64
+-- On MAIORIGUAL shift to state 66
+-- On MAIOR shift to state 68
+-- On DIVISAO shift to state 56
+-- On VIRGULA reduce production expr -> expr IGUAL expr 
+-- On PONTOEVIRGULA reduce production expr -> expr IGUAL expr 
+-- On PASSO reduce production expr -> expr IGUAL expr 
+-- On OU reduce production expr -> expr IGUAL expr 
+-- On IGUAL reduce production expr -> expr IGUAL expr 
+-- On FPAR reduce production expr -> expr IGUAL expr 
+-- On FCOL reduce production expr -> expr IGUAL expr 
+-- On E reduce production expr -> expr IGUAL expr 
+-- On DIFERENTE reduce production expr -> expr IGUAL expr 
+-- On DE reduce production expr -> expr IGUAL expr 
+-- On ATRIB reduce production expr -> expr IGUAL expr 
+-- On ATE reduce production expr -> expr IGUAL expr 
+
+State 72:
+expr -> expr E . expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On VERDADEIRO shift to state 32
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On fcall shift to state 46
+-- On expr shift to state 73
+
+State 73:
+expr -> expr . SOMA expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . SUB expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MULT expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . DIVISAO expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . POTENCIA expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MOD expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . IGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . DIFERENTE expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MENOR expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MENORIGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MAIOR expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MAIORIGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . E expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr E expr . [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . OU expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On SUB shift to state 48
+-- On SOMA shift to state 58
+-- On POTENCIA shift to state 50
+-- On MULT shift to state 52
+-- On MOD shift to state 54
+-- On MENORIGUAL shift to state 62
+-- On MENOR shift to state 64
+-- On MAIORIGUAL shift to state 66
+-- On MAIOR shift to state 68
+-- On IGUAL shift to state 70
+-- On DIVISAO shift to state 56
+-- On DIFERENTE shift to state 74
+-- On VIRGULA reduce production expr -> expr E expr 
+-- On PONTOEVIRGULA reduce production expr -> expr E expr 
+-- On PASSO reduce production expr -> expr E expr 
+-- On OU reduce production expr -> expr E expr 
+-- On FPAR reduce production expr -> expr E expr 
+-- On FCOL reduce production expr -> expr E expr 
+-- On E reduce production expr -> expr E expr 
+-- On DE reduce production expr -> expr E expr 
+-- On ATRIB reduce production expr -> expr E expr 
+-- On ATE reduce production expr -> expr E expr 
+
+State 74:
+expr -> expr DIFERENTE . expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On VERDADEIRO shift to state 32
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On fcall shift to state 46
+-- On expr shift to state 75
+
+State 75:
+expr -> expr . SOMA expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . SUB expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MULT expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . DIVISAO expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . POTENCIA expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MOD expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . IGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . DIFERENTE expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr DIFERENTE expr . [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MENOR expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MENORIGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MAIOR expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . MAIORIGUAL expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . E expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+expr -> expr . OU expr [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On SUB shift to state 48
+-- On SOMA shift to state 58
+-- On POTENCIA shift to state 50
+-- On MULT shift to state 52
+-- On MOD shift to state 54
+-- On MENORIGUAL shift to state 62
+-- On MENOR shift to state 64
+-- On MAIORIGUAL shift to state 66
+-- On MAIOR shift to state 68
+-- On DIVISAO shift to state 56
+-- On VIRGULA reduce production expr -> expr DIFERENTE expr 
+-- On PONTOEVIRGULA reduce production expr -> expr DIFERENTE expr 
+-- On PASSO reduce production expr -> expr DIFERENTE expr 
+-- On OU reduce production expr -> expr DIFERENTE expr 
+-- On IGUAL reduce production expr -> expr DIFERENTE expr 
+-- On FPAR reduce production expr -> expr DIFERENTE expr 
+-- On FCOL reduce production expr -> expr DIFERENTE expr 
+-- On E reduce production expr -> expr DIFERENTE expr 
+-- On DIFERENTE reduce production expr -> expr DIFERENTE expr 
+-- On DE reduce production expr -> expr DIFERENTE expr 
+-- On ATRIB reduce production expr -> expr DIFERENTE expr 
+-- On ATE reduce production expr -> expr DIFERENTE expr 
+
+State 76:
+lvalue -> lvalue ACOL expr FCOL . [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ACOL ]
+-- On VIRGULA reduce production lvalue -> lvalue ACOL expr FCOL 
+-- On SUB reduce production lvalue -> lvalue ACOL expr FCOL 
+-- On SOMA reduce production lvalue -> lvalue ACOL expr FCOL 
+-- On POTENCIA reduce production lvalue -> lvalue ACOL expr FCOL 
+-- On PONTOEVIRGULA reduce production lvalue -> lvalue ACOL expr FCOL 
+-- On PASSO reduce production lvalue -> lvalue ACOL expr FCOL 
+-- On OU reduce production lvalue -> lvalue ACOL expr FCOL 
+-- On MULT reduce production lvalue -> lvalue ACOL expr FCOL 
+-- On MOD reduce production lvalue -> lvalue ACOL expr FCOL 
+-- On MENORIGUAL reduce production lvalue -> lvalue ACOL expr FCOL 
+-- On MENOR reduce production lvalue -> lvalue ACOL expr FCOL 
+-- On MAIORIGUAL reduce production lvalue -> lvalue ACOL expr FCOL 
+-- On MAIOR reduce production lvalue -> lvalue ACOL expr FCOL 
+-- On IGUAL reduce production lvalue -> lvalue ACOL expr FCOL 
+-- On FPAR reduce production lvalue -> lvalue ACOL expr FCOL 
+-- On FCOL reduce production lvalue -> lvalue ACOL expr FCOL 
+-- On E reduce production lvalue -> lvalue ACOL expr FCOL 
+-- On DIVISAO reduce production lvalue -> lvalue ACOL expr FCOL 
+-- On DIFERENTE reduce production lvalue -> lvalue ACOL expr FCOL 
+-- On DE reduce production lvalue -> lvalue ACOL expr FCOL 
+-- On ATRIB reduce production lvalue -> lvalue ACOL expr FCOL 
+-- On ATE reduce production lvalue -> lvalue ACOL expr FCOL 
+-- On ACOL reduce production lvalue -> lvalue ACOL expr FCOL 
+
+State 77:
+expr -> expr . SOMA expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . SUB expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . MULT expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . DIVISAO expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . POTENCIA expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . MOD expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . IGUAL expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . DIFERENTE expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . MENOR expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . MENORIGUAL expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . MAIOR expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . MAIORIGUAL expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . E expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . OU expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> APAR expr . FPAR [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On SUB shift to state 48
+-- On SOMA shift to state 58
+-- On POTENCIA shift to state 50
+-- On OU shift to state 60
+-- On MULT shift to state 52
+-- On MOD shift to state 54
+-- On MENORIGUAL shift to state 62
+-- On MENOR shift to state 64
+-- On MAIORIGUAL shift to state 66
+-- On MAIOR shift to state 68
+-- On IGUAL shift to state 70
+-- On FPAR shift to state 78
+-- On E shift to state 72
+-- On DIVISAO shift to state 56
+-- On DIFERENTE shift to state 74
+
+State 78:
+expr -> APAR expr FPAR . [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On VIRGULA reduce production expr -> APAR expr FPAR 
+-- On SUB reduce production expr -> APAR expr FPAR 
+-- On SOMA reduce production expr -> APAR expr FPAR 
+-- On POTENCIA reduce production expr -> APAR expr FPAR 
+-- On PONTOEVIRGULA reduce production expr -> APAR expr FPAR 
+-- On PASSO reduce production expr -> APAR expr FPAR 
+-- On OU reduce production expr -> APAR expr FPAR 
+-- On MULT reduce production expr -> APAR expr FPAR 
+-- On MOD reduce production expr -> APAR expr FPAR 
+-- On MENORIGUAL reduce production expr -> APAR expr FPAR 
+-- On MENOR reduce production expr -> APAR expr FPAR 
+-- On MAIORIGUAL reduce production expr -> APAR expr FPAR 
+-- On MAIOR reduce production expr -> APAR expr FPAR 
+-- On IGUAL reduce production expr -> APAR expr FPAR 
+-- On FPAR reduce production expr -> APAR expr FPAR 
+-- On FCOL reduce production expr -> APAR expr FPAR 
+-- On E reduce production expr -> APAR expr FPAR 
+-- On DIVISAO reduce production expr -> APAR expr FPAR 
+-- On DIFERENTE reduce production expr -> APAR expr FPAR 
+-- On DE reduce production expr -> APAR expr FPAR 
+-- On ATRIB reduce production expr -> APAR expr FPAR 
+-- On ATE reduce production expr -> APAR expr FPAR 
+
+State 79:
+fargs -> separated_nonempty_list(VIRGULA,expr) . [ FPAR ]
+-- On FPAR reduce production fargs -> separated_nonempty_list(VIRGULA,expr) 
+
+State 80:
+fcall -> ID APAR option(fargs) . FPAR [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On FPAR shift to state 81
+
+State 81:
+fcall -> ID APAR option(fargs) FPAR . [ VIRGULA SUB SOMA POTENCIA PONTOEVIRGULA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR FCOL E DIVISAO DIFERENTE DE ATRIB ATE ]
+-- On VIRGULA reduce production fcall -> ID APAR option(fargs) FPAR 
+-- On SUB reduce production fcall -> ID APAR option(fargs) FPAR 
+-- On SOMA reduce production fcall -> ID APAR option(fargs) FPAR 
+-- On POTENCIA reduce production fcall -> ID APAR option(fargs) FPAR 
+-- On PONTOEVIRGULA reduce production fcall -> ID APAR option(fargs) FPAR 
+-- On PASSO reduce production fcall -> ID APAR option(fargs) FPAR 
+-- On OU reduce production fcall -> ID APAR option(fargs) FPAR 
+-- On MULT reduce production fcall -> ID APAR option(fargs) FPAR 
+-- On MOD reduce production fcall -> ID APAR option(fargs) FPAR 
+-- On MENORIGUAL reduce production fcall -> ID APAR option(fargs) FPAR 
+-- On MENOR reduce production fcall -> ID APAR option(fargs) FPAR 
+-- On MAIORIGUAL reduce production fcall -> ID APAR option(fargs) FPAR 
+-- On MAIOR reduce production fcall -> ID APAR option(fargs) FPAR 
+-- On IGUAL reduce production fcall -> ID APAR option(fargs) FPAR 
+-- On FPAR reduce production fcall -> ID APAR option(fargs) FPAR 
+-- On FCOL reduce production fcall -> ID APAR option(fargs) FPAR 
+-- On E reduce production fcall -> ID APAR option(fargs) FPAR 
+-- On DIVISAO reduce production fcall -> ID APAR option(fargs) FPAR 
+-- On DIFERENTE reduce production fcall -> ID APAR option(fargs) FPAR 
+-- On DE reduce production fcall -> ID APAR option(fargs) FPAR 
+-- On ATRIB reduce production fcall -> ID APAR option(fargs) FPAR 
+-- On ATE reduce production fcall -> ID APAR option(fargs) FPAR 
+
+State 82:
+option(fargs) -> fargs . [ FPAR ]
+-- On FPAR reduce production option(fargs) -> fargs 
+
+State 83:
+expr -> expr . SOMA expr [ VIRGULA SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . SUB expr [ VIRGULA SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . MULT expr [ VIRGULA SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . DIVISAO expr [ VIRGULA SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . POTENCIA expr [ VIRGULA SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . MOD expr [ VIRGULA SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . IGUAL expr [ VIRGULA SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . DIFERENTE expr [ VIRGULA SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . MENOR expr [ VIRGULA SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . MENORIGUAL expr [ VIRGULA SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . MAIOR expr [ VIRGULA SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . MAIORIGUAL expr [ VIRGULA SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . E expr [ VIRGULA SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . OU expr [ VIRGULA SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+separated_nonempty_list(VIRGULA,expr) -> expr . [ FPAR ]
+separated_nonempty_list(VIRGULA,expr) -> expr . VIRGULA separated_nonempty_list(VIRGULA,expr) [ FPAR ]
+-- On VIRGULA shift to state 84
+-- On SUB shift to state 48
+-- On SOMA shift to state 58
+-- On POTENCIA shift to state 50
+-- On OU shift to state 60
+-- On MULT shift to state 52
+-- On MOD shift to state 54
+-- On MENORIGUAL shift to state 62
+-- On MENOR shift to state 64
+-- On MAIORIGUAL shift to state 66
+-- On MAIOR shift to state 68
+-- On IGUAL shift to state 70
+-- On E shift to state 72
+-- On DIVISAO shift to state 56
+-- On DIFERENTE shift to state 74
+-- On FPAR reduce production separated_nonempty_list(VIRGULA,expr) -> expr 
+
+State 84:
+separated_nonempty_list(VIRGULA,expr) -> expr VIRGULA . separated_nonempty_list(VIRGULA,expr) [ FPAR ]
+-- On VERDADEIRO shift to state 32
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On APAR shift to state 42
+-- On separated_nonempty_list(VIRGULA,expr) shift to state 85
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On fcall shift to state 46
+-- On expr shift to state 83
+
+State 85:
+separated_nonempty_list(VIRGULA,expr) -> expr VIRGULA separated_nonempty_list(VIRGULA,expr) . [ FPAR ]
+-- On FPAR reduce production separated_nonempty_list(VIRGULA,expr) -> expr VIRGULA separated_nonempty_list(VIRGULA,expr) 
+
+State 86:
+comando_se -> SE APAR expr . FPAR ACHAVE list(comando_list) option(comando_senao) FCHAVE [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+expr -> expr . SOMA expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . SUB expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . MULT expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . DIVISAO expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . POTENCIA expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . MOD expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . IGUAL expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . DIFERENTE expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . MENOR expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . MENORIGUAL expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . MAIOR expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . MAIORIGUAL expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . E expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . OU expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+-- On SUB shift to state 48
+-- On SOMA shift to state 58
+-- On POTENCIA shift to state 50
+-- On OU shift to state 60
+-- On MULT shift to state 52
+-- On MOD shift to state 54
+-- On MENORIGUAL shift to state 62
+-- On MENOR shift to state 64
+-- On MAIORIGUAL shift to state 66
+-- On MAIOR shift to state 68
+-- On IGUAL shift to state 70
+-- On FPAR shift to state 87
+-- On E shift to state 72
+-- On DIVISAO shift to state 56
+-- On DIFERENTE shift to state 74
+
+State 87:
+comando_se -> SE APAR expr FPAR . ACHAVE list(comando_list) option(comando_senao) FCHAVE [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On ACHAVE shift to state 88
+
+State 88:
+comando_se -> SE APAR expr FPAR ACHAVE . list(comando_list) option(comando_senao) FCHAVE [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VERDADEIRO shift to state 32
+-- On SE shift to state 33
+-- On RETORNE shift to state 89
+-- On PARA shift to state 93
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On ESCREVAL shift to state 105
+-- On ESCREVA shift to state 110
+-- On ENQUANTO shift to state 115
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On list(comando_list) shift to state 145
+-- On fcall shift to state 122
+-- On expr shift to state 124
+-- On comando_se shift to state 132
+-- On comando_ret shift to state 133
+-- On comando_para shift to state 134
+-- On comando_list shift to state 135
+-- On comando_leia shift to state 137
+-- On comando_fcall shift to state 138
+-- On comando_escreval shift to state 139
+-- On comando_escreva shift to state 140
+-- On comando_enquanto shift to state 141
+-- On comando_attr shift to state 142
+-- On SENAO reduce production list(comando_list) -> 
+-- On FCHAVE reduce production list(comando_list) -> 
+
+State 89:
+comando_ret -> RETORNE . option(expr) PONTOEVIRGULA [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VERDADEIRO shift to state 32
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On APAR shift to state 42
+-- On option(expr) shift to state 90
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On fcall shift to state 46
+-- On expr shift to state 92
+-- On PONTOEVIRGULA reduce production option(expr) -> 
+
+State 90:
+comando_ret -> RETORNE option(expr) . PONTOEVIRGULA [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On PONTOEVIRGULA shift to state 91
+
+State 91:
+comando_ret -> RETORNE option(expr) PONTOEVIRGULA . [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VOID reduce production comando_ret -> RETORNE option(expr) PONTOEVIRGULA 
+-- On VERDADEIRO reduce production comando_ret -> RETORNE option(expr) PONTOEVIRGULA 
+-- On SENAO reduce production comando_ret -> RETORNE option(expr) PONTOEVIRGULA 
+-- On SE reduce production comando_ret -> RETORNE option(expr) PONTOEVIRGULA 
+-- On RETORNE reduce production comando_ret -> RETORNE option(expr) PONTOEVIRGULA 
+-- On PARA reduce production comando_ret -> RETORNE option(expr) PONTOEVIRGULA 
+-- On LOGICO reduce production comando_ret -> RETORNE option(expr) PONTOEVIRGULA 
+-- On LITSTRING reduce production comando_ret -> RETORNE option(expr) PONTOEVIRGULA 
+-- On LITCHAR reduce production comando_ret -> RETORNE option(expr) PONTOEVIRGULA 
+-- On INTEIRO reduce production comando_ret -> RETORNE option(expr) PONTOEVIRGULA 
+-- On INT reduce production comando_ret -> RETORNE option(expr) PONTOEVIRGULA 
+-- On ID reduce production comando_ret -> RETORNE option(expr) PONTOEVIRGULA 
+-- On FLOAT reduce production comando_ret -> RETORNE option(expr) PONTOEVIRGULA 
+-- On FCHAVE reduce production comando_ret -> RETORNE option(expr) PONTOEVIRGULA 
+-- On FALSO reduce production comando_ret -> RETORNE option(expr) PONTOEVIRGULA 
+-- On ESCREVAL reduce production comando_ret -> RETORNE option(expr) PONTOEVIRGULA 
+-- On ESCREVA reduce production comando_ret -> RETORNE option(expr) PONTOEVIRGULA 
+-- On ENQUANTO reduce production comando_ret -> RETORNE option(expr) PONTOEVIRGULA 
+-- On DOUBLE reduce production comando_ret -> RETORNE option(expr) PONTOEVIRGULA 
+-- On CARACTER reduce production comando_ret -> RETORNE option(expr) PONTOEVIRGULA 
+-- On APAR reduce production comando_ret -> RETORNE option(expr) PONTOEVIRGULA 
+
+State 92:
+expr -> expr . SOMA expr [ SUB SOMA POTENCIA PONTOEVIRGULA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . SUB expr [ SUB SOMA POTENCIA PONTOEVIRGULA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . MULT expr [ SUB SOMA POTENCIA PONTOEVIRGULA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . DIVISAO expr [ SUB SOMA POTENCIA PONTOEVIRGULA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . POTENCIA expr [ SUB SOMA POTENCIA PONTOEVIRGULA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . MOD expr [ SUB SOMA POTENCIA PONTOEVIRGULA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . IGUAL expr [ SUB SOMA POTENCIA PONTOEVIRGULA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . DIFERENTE expr [ SUB SOMA POTENCIA PONTOEVIRGULA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . MENOR expr [ SUB SOMA POTENCIA PONTOEVIRGULA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . MENORIGUAL expr [ SUB SOMA POTENCIA PONTOEVIRGULA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . MAIOR expr [ SUB SOMA POTENCIA PONTOEVIRGULA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . MAIORIGUAL expr [ SUB SOMA POTENCIA PONTOEVIRGULA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . E expr [ SUB SOMA POTENCIA PONTOEVIRGULA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . OU expr [ SUB SOMA POTENCIA PONTOEVIRGULA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+option(expr) -> expr . [ PONTOEVIRGULA ]
+-- On SUB shift to state 48
+-- On SOMA shift to state 58
+-- On POTENCIA shift to state 50
+-- On OU shift to state 60
+-- On MULT shift to state 52
+-- On MOD shift to state 54
+-- On MENORIGUAL shift to state 62
+-- On MENOR shift to state 64
+-- On MAIORIGUAL shift to state 66
+-- On MAIOR shift to state 68
+-- On IGUAL shift to state 70
+-- On E shift to state 72
+-- On DIVISAO shift to state 56
+-- On DIFERENTE shift to state 74
+-- On PONTOEVIRGULA reduce production option(expr) -> expr 
+
+State 93:
+comando_para -> PARA . APAR expr DE expr ATE expr passo FPAR ACHAVE list(comando_list) FCHAVE [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On APAR shift to state 94
+
+State 94:
+comando_para -> PARA APAR . expr DE expr ATE expr passo FPAR ACHAVE list(comando_list) FCHAVE [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VERDADEIRO shift to state 32
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On fcall shift to state 46
+-- On expr shift to state 95
+
+State 95:
+comando_para -> PARA APAR expr . DE expr ATE expr passo FPAR ACHAVE list(comando_list) FCHAVE [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+expr -> expr . SOMA expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE DE ]
+expr -> expr . SUB expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE DE ]
+expr -> expr . MULT expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE DE ]
+expr -> expr . DIVISAO expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE DE ]
+expr -> expr . POTENCIA expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE DE ]
+expr -> expr . MOD expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE DE ]
+expr -> expr . IGUAL expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE DE ]
+expr -> expr . DIFERENTE expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE DE ]
+expr -> expr . MENOR expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE DE ]
+expr -> expr . MENORIGUAL expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE DE ]
+expr -> expr . MAIOR expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE DE ]
+expr -> expr . MAIORIGUAL expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE DE ]
+expr -> expr . E expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE DE ]
+expr -> expr . OU expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE DE ]
+-- On SUB shift to state 48
+-- On SOMA shift to state 58
+-- On POTENCIA shift to state 50
+-- On OU shift to state 60
+-- On MULT shift to state 52
+-- On MOD shift to state 54
+-- On MENORIGUAL shift to state 62
+-- On MENOR shift to state 64
+-- On MAIORIGUAL shift to state 66
+-- On MAIOR shift to state 68
+-- On IGUAL shift to state 70
+-- On E shift to state 72
+-- On DIVISAO shift to state 56
+-- On DIFERENTE shift to state 74
+-- On DE shift to state 96
+
+State 96:
+comando_para -> PARA APAR expr DE . expr ATE expr passo FPAR ACHAVE list(comando_list) FCHAVE [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VERDADEIRO shift to state 32
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On fcall shift to state 46
+-- On expr shift to state 97
+
+State 97:
+comando_para -> PARA APAR expr DE expr . ATE expr passo FPAR ACHAVE list(comando_list) FCHAVE [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+expr -> expr . SOMA expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATE ]
+expr -> expr . SUB expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATE ]
+expr -> expr . MULT expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATE ]
+expr -> expr . DIVISAO expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATE ]
+expr -> expr . POTENCIA expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATE ]
+expr -> expr . MOD expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATE ]
+expr -> expr . IGUAL expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATE ]
+expr -> expr . DIFERENTE expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATE ]
+expr -> expr . MENOR expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATE ]
+expr -> expr . MENORIGUAL expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATE ]
+expr -> expr . MAIOR expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATE ]
+expr -> expr . MAIORIGUAL expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATE ]
+expr -> expr . E expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATE ]
+expr -> expr . OU expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATE ]
+-- On SUB shift to state 48
+-- On SOMA shift to state 58
+-- On POTENCIA shift to state 50
+-- On OU shift to state 60
+-- On MULT shift to state 52
+-- On MOD shift to state 54
+-- On MENORIGUAL shift to state 62
+-- On MENOR shift to state 64
+-- On MAIORIGUAL shift to state 66
+-- On MAIOR shift to state 68
+-- On IGUAL shift to state 70
+-- On E shift to state 72
+-- On DIVISAO shift to state 56
+-- On DIFERENTE shift to state 74
+-- On ATE shift to state 98
+
+State 98:
+comando_para -> PARA APAR expr DE expr ATE . expr passo FPAR ACHAVE list(comando_list) FCHAVE [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VERDADEIRO shift to state 32
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On fcall shift to state 46
+-- On expr shift to state 99
+
+State 99:
+comando_para -> PARA APAR expr DE expr ATE expr . passo FPAR ACHAVE list(comando_list) FCHAVE [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+expr -> expr . SOMA expr [ SUB SOMA POTENCIA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . SUB expr [ SUB SOMA POTENCIA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . MULT expr [ SUB SOMA POTENCIA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . DIVISAO expr [ SUB SOMA POTENCIA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . POTENCIA expr [ SUB SOMA POTENCIA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . MOD expr [ SUB SOMA POTENCIA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . IGUAL expr [ SUB SOMA POTENCIA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . DIFERENTE expr [ SUB SOMA POTENCIA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . MENOR expr [ SUB SOMA POTENCIA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . MENORIGUAL expr [ SUB SOMA POTENCIA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . MAIOR expr [ SUB SOMA POTENCIA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . MAIORIGUAL expr [ SUB SOMA POTENCIA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . E expr [ SUB SOMA POTENCIA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . OU expr [ SUB SOMA POTENCIA PASSO OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+-- On SUB shift to state 48
+-- On SOMA shift to state 58
+-- On POTENCIA shift to state 50
+-- On PASSO shift to state 100
+-- On OU shift to state 60
+-- On MULT shift to state 52
+-- On MOD shift to state 54
+-- On MENORIGUAL shift to state 62
+-- On MENOR shift to state 64
+-- On MAIORIGUAL shift to state 66
+-- On MAIOR shift to state 68
+-- On IGUAL shift to state 70
+-- On E shift to state 72
+-- On DIVISAO shift to state 56
+-- On DIFERENTE shift to state 74
+-- On passo shift to state 102
+
+State 100:
+passo -> PASSO . INT [ FPAR ]
+-- On INT shift to state 101
+
+State 101:
+passo -> PASSO INT . [ FPAR ]
+-- On FPAR reduce production passo -> PASSO INT 
+
+State 102:
+comando_para -> PARA APAR expr DE expr ATE expr passo . FPAR ACHAVE list(comando_list) FCHAVE [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On FPAR shift to state 103
+
+State 103:
+comando_para -> PARA APAR expr DE expr ATE expr passo FPAR . ACHAVE list(comando_list) FCHAVE [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On ACHAVE shift to state 104
+
+State 104:
+comando_para -> PARA APAR expr DE expr ATE expr passo FPAR ACHAVE . list(comando_list) FCHAVE [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VERDADEIRO shift to state 32
+-- On SE shift to state 33
+-- On RETORNE shift to state 89
+-- On PARA shift to state 93
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On ESCREVAL shift to state 105
+-- On ESCREVA shift to state 110
+-- On ENQUANTO shift to state 115
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On list(comando_list) shift to state 143
+-- On fcall shift to state 122
+-- On expr shift to state 124
+-- On comando_se shift to state 132
+-- On comando_ret shift to state 133
+-- On comando_para shift to state 134
+-- On comando_list shift to state 135
+-- On comando_leia shift to state 137
+-- On comando_fcall shift to state 138
+-- On comando_escreval shift to state 139
+-- On comando_escreva shift to state 140
+-- On comando_enquanto shift to state 141
+-- On comando_attr shift to state 142
+-- On FCHAVE reduce production list(comando_list) -> 
+
+State 105:
+comando_escreval -> ESCREVAL . APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On APAR shift to state 106
+
+State 106:
+comando_escreval -> ESCREVAL APAR . separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VERDADEIRO shift to state 32
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On APAR shift to state 42
+-- On separated_nonempty_list(VIRGULA,expr) shift to state 107
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On fcall shift to state 46
+-- On expr shift to state 83
+
+State 107:
+comando_escreval -> ESCREVAL APAR separated_nonempty_list(VIRGULA,expr) . FPAR PONTOEVIRGULA [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On FPAR shift to state 108
+
+State 108:
+comando_escreval -> ESCREVAL APAR separated_nonempty_list(VIRGULA,expr) FPAR . PONTOEVIRGULA [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On PONTOEVIRGULA shift to state 109
+
+State 109:
+comando_escreval -> ESCREVAL APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA . [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VOID reduce production comando_escreval -> ESCREVAL APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On VERDADEIRO reduce production comando_escreval -> ESCREVAL APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On SENAO reduce production comando_escreval -> ESCREVAL APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On SE reduce production comando_escreval -> ESCREVAL APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On RETORNE reduce production comando_escreval -> ESCREVAL APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On PARA reduce production comando_escreval -> ESCREVAL APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On LOGICO reduce production comando_escreval -> ESCREVAL APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On LITSTRING reduce production comando_escreval -> ESCREVAL APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On LITCHAR reduce production comando_escreval -> ESCREVAL APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On INTEIRO reduce production comando_escreval -> ESCREVAL APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On INT reduce production comando_escreval -> ESCREVAL APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On ID reduce production comando_escreval -> ESCREVAL APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On FLOAT reduce production comando_escreval -> ESCREVAL APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On FCHAVE reduce production comando_escreval -> ESCREVAL APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On FALSO reduce production comando_escreval -> ESCREVAL APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On ESCREVAL reduce production comando_escreval -> ESCREVAL APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On ESCREVA reduce production comando_escreval -> ESCREVAL APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On ENQUANTO reduce production comando_escreval -> ESCREVAL APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On DOUBLE reduce production comando_escreval -> ESCREVAL APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On CARACTER reduce production comando_escreval -> ESCREVAL APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On APAR reduce production comando_escreval -> ESCREVAL APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+
+State 110:
+comando_escreva -> ESCREVA . APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On APAR shift to state 111
+
+State 111:
+comando_escreva -> ESCREVA APAR . separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VERDADEIRO shift to state 32
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On APAR shift to state 42
+-- On separated_nonempty_list(VIRGULA,expr) shift to state 112
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On fcall shift to state 46
+-- On expr shift to state 83
+
+State 112:
+comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expr) . FPAR PONTOEVIRGULA [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On FPAR shift to state 113
+
+State 113:
+comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expr) FPAR . PONTOEVIRGULA [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On PONTOEVIRGULA shift to state 114
+
+State 114:
+comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA . [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VOID reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On VERDADEIRO reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On SENAO reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On SE reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On RETORNE reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On PARA reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On LOGICO reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On LITSTRING reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On LITCHAR reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On INTEIRO reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On INT reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On ID reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On FLOAT reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On FCHAVE reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On FALSO reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On ESCREVAL reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On ESCREVA reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On ENQUANTO reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On DOUBLE reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On CARACTER reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+-- On APAR reduce production comando_escreva -> ESCREVA APAR separated_nonempty_list(VIRGULA,expr) FPAR PONTOEVIRGULA 
+
+State 115:
+comando_enquanto -> ENQUANTO . APAR expr FPAR ACHAVE list(comando_list) FCHAVE [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On APAR shift to state 116
+
+State 116:
+comando_enquanto -> ENQUANTO APAR . expr FPAR ACHAVE list(comando_list) FCHAVE [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VERDADEIRO shift to state 32
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On fcall shift to state 46
+-- On expr shift to state 117
+
+State 117:
+comando_enquanto -> ENQUANTO APAR expr . FPAR ACHAVE list(comando_list) FCHAVE [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+expr -> expr . SOMA expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . SUB expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . MULT expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . DIVISAO expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . POTENCIA expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . MOD expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . IGUAL expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . DIFERENTE expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . MENOR expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . MENORIGUAL expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . MAIOR expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . MAIORIGUAL expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . E expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+expr -> expr . OU expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL FPAR E DIVISAO DIFERENTE ]
+-- On SUB shift to state 48
+-- On SOMA shift to state 58
+-- On POTENCIA shift to state 50
+-- On OU shift to state 60
+-- On MULT shift to state 52
+-- On MOD shift to state 54
+-- On MENORIGUAL shift to state 62
+-- On MENOR shift to state 64
+-- On MAIORIGUAL shift to state 66
+-- On MAIOR shift to state 68
+-- On IGUAL shift to state 70
+-- On FPAR shift to state 118
+-- On E shift to state 72
+-- On DIVISAO shift to state 56
+-- On DIFERENTE shift to state 74
+
+State 118:
+comando_enquanto -> ENQUANTO APAR expr FPAR . ACHAVE list(comando_list) FCHAVE [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On ACHAVE shift to state 119
+
+State 119:
+comando_enquanto -> ENQUANTO APAR expr FPAR ACHAVE . list(comando_list) FCHAVE [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VERDADEIRO shift to state 32
+-- On SE shift to state 33
+-- On RETORNE shift to state 89
+-- On PARA shift to state 93
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On ESCREVAL shift to state 105
+-- On ESCREVA shift to state 110
+-- On ENQUANTO shift to state 115
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On list(comando_list) shift to state 120
+-- On fcall shift to state 122
+-- On expr shift to state 124
+-- On comando_se shift to state 132
+-- On comando_ret shift to state 133
+-- On comando_para shift to state 134
+-- On comando_list shift to state 135
+-- On comando_leia shift to state 137
+-- On comando_fcall shift to state 138
+-- On comando_escreval shift to state 139
+-- On comando_escreva shift to state 140
+-- On comando_enquanto shift to state 141
+-- On comando_attr shift to state 142
+-- On FCHAVE reduce production list(comando_list) -> 
+
+State 120:
+comando_enquanto -> ENQUANTO APAR expr FPAR ACHAVE list(comando_list) . FCHAVE [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On FCHAVE shift to state 121
+
+State 121:
+comando_enquanto -> ENQUANTO APAR expr FPAR ACHAVE list(comando_list) FCHAVE . [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VOID reduce production comando_enquanto -> ENQUANTO APAR expr FPAR ACHAVE list(comando_list) FCHAVE 
+-- On VERDADEIRO reduce production comando_enquanto -> ENQUANTO APAR expr FPAR ACHAVE list(comando_list) FCHAVE 
+-- On SENAO reduce production comando_enquanto -> ENQUANTO APAR expr FPAR ACHAVE list(comando_list) FCHAVE 
+-- On SE reduce production comando_enquanto -> ENQUANTO APAR expr FPAR ACHAVE list(comando_list) FCHAVE 
+-- On RETORNE reduce production comando_enquanto -> ENQUANTO APAR expr FPAR ACHAVE list(comando_list) FCHAVE 
+-- On PARA reduce production comando_enquanto -> ENQUANTO APAR expr FPAR ACHAVE list(comando_list) FCHAVE 
+-- On LOGICO reduce production comando_enquanto -> ENQUANTO APAR expr FPAR ACHAVE list(comando_list) FCHAVE 
+-- On LITSTRING reduce production comando_enquanto -> ENQUANTO APAR expr FPAR ACHAVE list(comando_list) FCHAVE 
+-- On LITCHAR reduce production comando_enquanto -> ENQUANTO APAR expr FPAR ACHAVE list(comando_list) FCHAVE 
+-- On INTEIRO reduce production comando_enquanto -> ENQUANTO APAR expr FPAR ACHAVE list(comando_list) FCHAVE 
+-- On INT reduce production comando_enquanto -> ENQUANTO APAR expr FPAR ACHAVE list(comando_list) FCHAVE 
+-- On ID reduce production comando_enquanto -> ENQUANTO APAR expr FPAR ACHAVE list(comando_list) FCHAVE 
+-- On FLOAT reduce production comando_enquanto -> ENQUANTO APAR expr FPAR ACHAVE list(comando_list) FCHAVE 
+-- On FCHAVE reduce production comando_enquanto -> ENQUANTO APAR expr FPAR ACHAVE list(comando_list) FCHAVE 
+-- On FALSO reduce production comando_enquanto -> ENQUANTO APAR expr FPAR ACHAVE list(comando_list) FCHAVE 
+-- On ESCREVAL reduce production comando_enquanto -> ENQUANTO APAR expr FPAR ACHAVE list(comando_list) FCHAVE 
+-- On ESCREVA reduce production comando_enquanto -> ENQUANTO APAR expr FPAR ACHAVE list(comando_list) FCHAVE 
+-- On ENQUANTO reduce production comando_enquanto -> ENQUANTO APAR expr FPAR ACHAVE list(comando_list) FCHAVE 
+-- On DOUBLE reduce production comando_enquanto -> ENQUANTO APAR expr FPAR ACHAVE list(comando_list) FCHAVE 
+-- On CARACTER reduce production comando_enquanto -> ENQUANTO APAR expr FPAR ACHAVE list(comando_list) FCHAVE 
+-- On APAR reduce production comando_enquanto -> ENQUANTO APAR expr FPAR ACHAVE list(comando_list) FCHAVE 
+
+State 122:
+comando_fcall -> fcall . PONTOEVIRGULA [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+expr -> fcall . [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATRIB ]
+-- On PONTOEVIRGULA shift to state 123
+-- On SUB reduce production expr -> fcall 
+-- On SOMA reduce production expr -> fcall 
+-- On POTENCIA reduce production expr -> fcall 
+-- On OU reduce production expr -> fcall 
+-- On MULT reduce production expr -> fcall 
+-- On MOD reduce production expr -> fcall 
+-- On MENORIGUAL reduce production expr -> fcall 
+-- On MENOR reduce production expr -> fcall 
+-- On MAIORIGUAL reduce production expr -> fcall 
+-- On MAIOR reduce production expr -> fcall 
+-- On IGUAL reduce production expr -> fcall 
+-- On E reduce production expr -> fcall 
+-- On DIVISAO reduce production expr -> fcall 
+-- On DIFERENTE reduce production expr -> fcall 
+-- On ATRIB reduce production expr -> fcall 
+
+State 123:
+comando_fcall -> fcall PONTOEVIRGULA . [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VOID reduce production comando_fcall -> fcall PONTOEVIRGULA 
+-- On VERDADEIRO reduce production comando_fcall -> fcall PONTOEVIRGULA 
+-- On SENAO reduce production comando_fcall -> fcall PONTOEVIRGULA 
+-- On SE reduce production comando_fcall -> fcall PONTOEVIRGULA 
+-- On RETORNE reduce production comando_fcall -> fcall PONTOEVIRGULA 
+-- On PARA reduce production comando_fcall -> fcall PONTOEVIRGULA 
+-- On LOGICO reduce production comando_fcall -> fcall PONTOEVIRGULA 
+-- On LITSTRING reduce production comando_fcall -> fcall PONTOEVIRGULA 
+-- On LITCHAR reduce production comando_fcall -> fcall PONTOEVIRGULA 
+-- On INTEIRO reduce production comando_fcall -> fcall PONTOEVIRGULA 
+-- On INT reduce production comando_fcall -> fcall PONTOEVIRGULA 
+-- On ID reduce production comando_fcall -> fcall PONTOEVIRGULA 
+-- On FLOAT reduce production comando_fcall -> fcall PONTOEVIRGULA 
+-- On FCHAVE reduce production comando_fcall -> fcall PONTOEVIRGULA 
+-- On FALSO reduce production comando_fcall -> fcall PONTOEVIRGULA 
+-- On ESCREVAL reduce production comando_fcall -> fcall PONTOEVIRGULA 
+-- On ESCREVA reduce production comando_fcall -> fcall PONTOEVIRGULA 
+-- On ENQUANTO reduce production comando_fcall -> fcall PONTOEVIRGULA 
+-- On DOUBLE reduce production comando_fcall -> fcall PONTOEVIRGULA 
+-- On CARACTER reduce production comando_fcall -> fcall PONTOEVIRGULA 
+-- On APAR reduce production comando_fcall -> fcall PONTOEVIRGULA 
+
+State 124:
+comando_attr -> expr . ATRIB expr PONTOEVIRGULA [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+comando_leia -> expr . ATRIB LEIA APAR FPAR PONTOEVIRGULA [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+expr -> expr . SOMA expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATRIB ]
+expr -> expr . SUB expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATRIB ]
+expr -> expr . MULT expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATRIB ]
+expr -> expr . DIVISAO expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATRIB ]
+expr -> expr . POTENCIA expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATRIB ]
+expr -> expr . MOD expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATRIB ]
+expr -> expr . IGUAL expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATRIB ]
+expr -> expr . DIFERENTE expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATRIB ]
+expr -> expr . MENOR expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATRIB ]
+expr -> expr . MENORIGUAL expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATRIB ]
+expr -> expr . MAIOR expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATRIB ]
+expr -> expr . MAIORIGUAL expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATRIB ]
+expr -> expr . E expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATRIB ]
+expr -> expr . OU expr [ SUB SOMA POTENCIA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ATRIB ]
+-- On SUB shift to state 48
+-- On SOMA shift to state 58
+-- On POTENCIA shift to state 50
+-- On OU shift to state 60
+-- On MULT shift to state 52
+-- On MOD shift to state 54
+-- On MENORIGUAL shift to state 62
+-- On MENOR shift to state 64
+-- On MAIORIGUAL shift to state 66
+-- On MAIOR shift to state 68
+-- On IGUAL shift to state 70
+-- On E shift to state 72
+-- On DIVISAO shift to state 56
+-- On DIFERENTE shift to state 74
+-- On ATRIB shift to state 125
+
+State 125:
+comando_attr -> expr ATRIB . expr PONTOEVIRGULA [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+comando_leia -> expr ATRIB . LEIA APAR FPAR PONTOEVIRGULA [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VERDADEIRO shift to state 32
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On LEIA shift to state 126
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On fcall shift to state 46
+-- On expr shift to state 130
+
+State 126:
+comando_leia -> expr ATRIB LEIA . APAR FPAR PONTOEVIRGULA [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On APAR shift to state 127
+
+State 127:
+comando_leia -> expr ATRIB LEIA APAR . FPAR PONTOEVIRGULA [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On FPAR shift to state 128
+
+State 128:
+comando_leia -> expr ATRIB LEIA APAR FPAR . PONTOEVIRGULA [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On PONTOEVIRGULA shift to state 129
+
+State 129:
+comando_leia -> expr ATRIB LEIA APAR FPAR PONTOEVIRGULA . [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VOID reduce production comando_leia -> expr ATRIB LEIA APAR FPAR PONTOEVIRGULA 
+-- On VERDADEIRO reduce production comando_leia -> expr ATRIB LEIA APAR FPAR PONTOEVIRGULA 
+-- On SENAO reduce production comando_leia -> expr ATRIB LEIA APAR FPAR PONTOEVIRGULA 
+-- On SE reduce production comando_leia -> expr ATRIB LEIA APAR FPAR PONTOEVIRGULA 
+-- On RETORNE reduce production comando_leia -> expr ATRIB LEIA APAR FPAR PONTOEVIRGULA 
+-- On PARA reduce production comando_leia -> expr ATRIB LEIA APAR FPAR PONTOEVIRGULA 
+-- On LOGICO reduce production comando_leia -> expr ATRIB LEIA APAR FPAR PONTOEVIRGULA 
+-- On LITSTRING reduce production comando_leia -> expr ATRIB LEIA APAR FPAR PONTOEVIRGULA 
+-- On LITCHAR reduce production comando_leia -> expr ATRIB LEIA APAR FPAR PONTOEVIRGULA 
+-- On INTEIRO reduce production comando_leia -> expr ATRIB LEIA APAR FPAR PONTOEVIRGULA 
+-- On INT reduce production comando_leia -> expr ATRIB LEIA APAR FPAR PONTOEVIRGULA 
+-- On ID reduce production comando_leia -> expr ATRIB LEIA APAR FPAR PONTOEVIRGULA 
+-- On FLOAT reduce production comando_leia -> expr ATRIB LEIA APAR FPAR PONTOEVIRGULA 
+-- On FCHAVE reduce production comando_leia -> expr ATRIB LEIA APAR FPAR PONTOEVIRGULA 
+-- On FALSO reduce production comando_leia -> expr ATRIB LEIA APAR FPAR PONTOEVIRGULA 
+-- On ESCREVAL reduce production comando_leia -> expr ATRIB LEIA APAR FPAR PONTOEVIRGULA 
+-- On ESCREVA reduce production comando_leia -> expr ATRIB LEIA APAR FPAR PONTOEVIRGULA 
+-- On ENQUANTO reduce production comando_leia -> expr ATRIB LEIA APAR FPAR PONTOEVIRGULA 
+-- On DOUBLE reduce production comando_leia -> expr ATRIB LEIA APAR FPAR PONTOEVIRGULA 
+-- On CARACTER reduce production comando_leia -> expr ATRIB LEIA APAR FPAR PONTOEVIRGULA 
+-- On APAR reduce production comando_leia -> expr ATRIB LEIA APAR FPAR PONTOEVIRGULA 
+
+State 130:
+comando_attr -> expr ATRIB expr . PONTOEVIRGULA [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+expr -> expr . SOMA expr [ SUB SOMA POTENCIA PONTOEVIRGULA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . SUB expr [ SUB SOMA POTENCIA PONTOEVIRGULA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . MULT expr [ SUB SOMA POTENCIA PONTOEVIRGULA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . DIVISAO expr [ SUB SOMA POTENCIA PONTOEVIRGULA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . POTENCIA expr [ SUB SOMA POTENCIA PONTOEVIRGULA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . MOD expr [ SUB SOMA POTENCIA PONTOEVIRGULA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . IGUAL expr [ SUB SOMA POTENCIA PONTOEVIRGULA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . DIFERENTE expr [ SUB SOMA POTENCIA PONTOEVIRGULA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . MENOR expr [ SUB SOMA POTENCIA PONTOEVIRGULA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . MENORIGUAL expr [ SUB SOMA POTENCIA PONTOEVIRGULA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . MAIOR expr [ SUB SOMA POTENCIA PONTOEVIRGULA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . MAIORIGUAL expr [ SUB SOMA POTENCIA PONTOEVIRGULA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . E expr [ SUB SOMA POTENCIA PONTOEVIRGULA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+expr -> expr . OU expr [ SUB SOMA POTENCIA PONTOEVIRGULA OU MULT MOD MENORIGUAL MENOR MAIORIGUAL MAIOR IGUAL E DIVISAO DIFERENTE ]
+-- On SUB shift to state 48
+-- On SOMA shift to state 58
+-- On POTENCIA shift to state 50
+-- On PONTOEVIRGULA shift to state 131
+-- On OU shift to state 60
+-- On MULT shift to state 52
+-- On MOD shift to state 54
+-- On MENORIGUAL shift to state 62
+-- On MENOR shift to state 64
+-- On MAIORIGUAL shift to state 66
+-- On MAIOR shift to state 68
+-- On IGUAL shift to state 70
+-- On E shift to state 72
+-- On DIVISAO shift to state 56
+-- On DIFERENTE shift to state 74
+
+State 131:
+comando_attr -> expr ATRIB expr PONTOEVIRGULA . [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VOID reduce production comando_attr -> expr ATRIB expr PONTOEVIRGULA 
+-- On VERDADEIRO reduce production comando_attr -> expr ATRIB expr PONTOEVIRGULA 
+-- On SENAO reduce production comando_attr -> expr ATRIB expr PONTOEVIRGULA 
+-- On SE reduce production comando_attr -> expr ATRIB expr PONTOEVIRGULA 
+-- On RETORNE reduce production comando_attr -> expr ATRIB expr PONTOEVIRGULA 
+-- On PARA reduce production comando_attr -> expr ATRIB expr PONTOEVIRGULA 
+-- On LOGICO reduce production comando_attr -> expr ATRIB expr PONTOEVIRGULA 
+-- On LITSTRING reduce production comando_attr -> expr ATRIB expr PONTOEVIRGULA 
+-- On LITCHAR reduce production comando_attr -> expr ATRIB expr PONTOEVIRGULA 
+-- On INTEIRO reduce production comando_attr -> expr ATRIB expr PONTOEVIRGULA 
+-- On INT reduce production comando_attr -> expr ATRIB expr PONTOEVIRGULA 
+-- On ID reduce production comando_attr -> expr ATRIB expr PONTOEVIRGULA 
+-- On FLOAT reduce production comando_attr -> expr ATRIB expr PONTOEVIRGULA 
+-- On FCHAVE reduce production comando_attr -> expr ATRIB expr PONTOEVIRGULA 
+-- On FALSO reduce production comando_attr -> expr ATRIB expr PONTOEVIRGULA 
+-- On ESCREVAL reduce production comando_attr -> expr ATRIB expr PONTOEVIRGULA 
+-- On ESCREVA reduce production comando_attr -> expr ATRIB expr PONTOEVIRGULA 
+-- On ENQUANTO reduce production comando_attr -> expr ATRIB expr PONTOEVIRGULA 
+-- On DOUBLE reduce production comando_attr -> expr ATRIB expr PONTOEVIRGULA 
+-- On CARACTER reduce production comando_attr -> expr ATRIB expr PONTOEVIRGULA 
+-- On APAR reduce production comando_attr -> expr ATRIB expr PONTOEVIRGULA 
+
+State 132:
+comando_list -> comando_se . [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VOID reduce production comando_list -> comando_se 
+-- On VERDADEIRO reduce production comando_list -> comando_se 
+-- On SENAO reduce production comando_list -> comando_se 
+-- On SE reduce production comando_list -> comando_se 
+-- On RETORNE reduce production comando_list -> comando_se 
+-- On PARA reduce production comando_list -> comando_se 
+-- On LOGICO reduce production comando_list -> comando_se 
+-- On LITSTRING reduce production comando_list -> comando_se 
+-- On LITCHAR reduce production comando_list -> comando_se 
+-- On INTEIRO reduce production comando_list -> comando_se 
+-- On INT reduce production comando_list -> comando_se 
+-- On ID reduce production comando_list -> comando_se 
+-- On FLOAT reduce production comando_list -> comando_se 
+-- On FCHAVE reduce production comando_list -> comando_se 
+-- On FALSO reduce production comando_list -> comando_se 
+-- On ESCREVAL reduce production comando_list -> comando_se 
+-- On ESCREVA reduce production comando_list -> comando_se 
+-- On ENQUANTO reduce production comando_list -> comando_se 
+-- On DOUBLE reduce production comando_list -> comando_se 
+-- On CARACTER reduce production comando_list -> comando_se 
+-- On APAR reduce production comando_list -> comando_se 
+
+State 133:
+comando_list -> comando_ret . [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VOID reduce production comando_list -> comando_ret 
+-- On VERDADEIRO reduce production comando_list -> comando_ret 
+-- On SENAO reduce production comando_list -> comando_ret 
+-- On SE reduce production comando_list -> comando_ret 
+-- On RETORNE reduce production comando_list -> comando_ret 
+-- On PARA reduce production comando_list -> comando_ret 
+-- On LOGICO reduce production comando_list -> comando_ret 
+-- On LITSTRING reduce production comando_list -> comando_ret 
+-- On LITCHAR reduce production comando_list -> comando_ret 
+-- On INTEIRO reduce production comando_list -> comando_ret 
+-- On INT reduce production comando_list -> comando_ret 
+-- On ID reduce production comando_list -> comando_ret 
+-- On FLOAT reduce production comando_list -> comando_ret 
+-- On FCHAVE reduce production comando_list -> comando_ret 
+-- On FALSO reduce production comando_list -> comando_ret 
+-- On ESCREVAL reduce production comando_list -> comando_ret 
+-- On ESCREVA reduce production comando_list -> comando_ret 
+-- On ENQUANTO reduce production comando_list -> comando_ret 
+-- On DOUBLE reduce production comando_list -> comando_ret 
+-- On CARACTER reduce production comando_list -> comando_ret 
+-- On APAR reduce production comando_list -> comando_ret 
+
+State 134:
+comando_list -> comando_para . [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VOID reduce production comando_list -> comando_para 
+-- On VERDADEIRO reduce production comando_list -> comando_para 
+-- On SENAO reduce production comando_list -> comando_para 
+-- On SE reduce production comando_list -> comando_para 
+-- On RETORNE reduce production comando_list -> comando_para 
+-- On PARA reduce production comando_list -> comando_para 
+-- On LOGICO reduce production comando_list -> comando_para 
+-- On LITSTRING reduce production comando_list -> comando_para 
+-- On LITCHAR reduce production comando_list -> comando_para 
+-- On INTEIRO reduce production comando_list -> comando_para 
+-- On INT reduce production comando_list -> comando_para 
+-- On ID reduce production comando_list -> comando_para 
+-- On FLOAT reduce production comando_list -> comando_para 
+-- On FCHAVE reduce production comando_list -> comando_para 
+-- On FALSO reduce production comando_list -> comando_para 
+-- On ESCREVAL reduce production comando_list -> comando_para 
+-- On ESCREVA reduce production comando_list -> comando_para 
+-- On ENQUANTO reduce production comando_list -> comando_para 
+-- On DOUBLE reduce production comando_list -> comando_para 
+-- On CARACTER reduce production comando_list -> comando_para 
+-- On APAR reduce production comando_list -> comando_para 
+
+State 135:
+list(comando_list) -> comando_list . list(comando_list) [ VOID SENAO LOGICO INTEIRO FCHAVE DOUBLE CARACTER ]
+-- On VERDADEIRO shift to state 32
+-- On SE shift to state 33
+-- On RETORNE shift to state 89
+-- On PARA shift to state 93
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On ESCREVAL shift to state 105
+-- On ESCREVA shift to state 110
+-- On ENQUANTO shift to state 115
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On list(comando_list) shift to state 136
+-- On fcall shift to state 122
+-- On expr shift to state 124
+-- On comando_se shift to state 132
+-- On comando_ret shift to state 133
+-- On comando_para shift to state 134
+-- On comando_list shift to state 135
+-- On comando_leia shift to state 137
+-- On comando_fcall shift to state 138
+-- On comando_escreval shift to state 139
+-- On comando_escreva shift to state 140
+-- On comando_enquanto shift to state 141
+-- On comando_attr shift to state 142
+-- On VOID reduce production list(comando_list) -> 
+-- On SENAO reduce production list(comando_list) -> 
+-- On LOGICO reduce production list(comando_list) -> 
+-- On INTEIRO reduce production list(comando_list) -> 
+-- On FCHAVE reduce production list(comando_list) -> 
+-- On DOUBLE reduce production list(comando_list) -> 
+-- On CARACTER reduce production list(comando_list) -> 
+
+State 136:
+list(comando_list) -> comando_list list(comando_list) . [ VOID SENAO LOGICO INTEIRO FCHAVE DOUBLE CARACTER ]
+-- On VOID reduce production list(comando_list) -> comando_list list(comando_list) 
+-- On SENAO reduce production list(comando_list) -> comando_list list(comando_list) 
+-- On LOGICO reduce production list(comando_list) -> comando_list list(comando_list) 
+-- On INTEIRO reduce production list(comando_list) -> comando_list list(comando_list) 
+-- On FCHAVE reduce production list(comando_list) -> comando_list list(comando_list) 
+-- On DOUBLE reduce production list(comando_list) -> comando_list list(comando_list) 
+-- On CARACTER reduce production list(comando_list) -> comando_list list(comando_list) 
+
+State 137:
+comando_list -> comando_leia . [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VOID reduce production comando_list -> comando_leia 
+-- On VERDADEIRO reduce production comando_list -> comando_leia 
+-- On SENAO reduce production comando_list -> comando_leia 
+-- On SE reduce production comando_list -> comando_leia 
+-- On RETORNE reduce production comando_list -> comando_leia 
+-- On PARA reduce production comando_list -> comando_leia 
+-- On LOGICO reduce production comando_list -> comando_leia 
+-- On LITSTRING reduce production comando_list -> comando_leia 
+-- On LITCHAR reduce production comando_list -> comando_leia 
+-- On INTEIRO reduce production comando_list -> comando_leia 
+-- On INT reduce production comando_list -> comando_leia 
+-- On ID reduce production comando_list -> comando_leia 
+-- On FLOAT reduce production comando_list -> comando_leia 
+-- On FCHAVE reduce production comando_list -> comando_leia 
+-- On FALSO reduce production comando_list -> comando_leia 
+-- On ESCREVAL reduce production comando_list -> comando_leia 
+-- On ESCREVA reduce production comando_list -> comando_leia 
+-- On ENQUANTO reduce production comando_list -> comando_leia 
+-- On DOUBLE reduce production comando_list -> comando_leia 
+-- On CARACTER reduce production comando_list -> comando_leia 
+-- On APAR reduce production comando_list -> comando_leia 
+
+State 138:
+comando_list -> comando_fcall . [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VOID reduce production comando_list -> comando_fcall 
+-- On VERDADEIRO reduce production comando_list -> comando_fcall 
+-- On SENAO reduce production comando_list -> comando_fcall 
+-- On SE reduce production comando_list -> comando_fcall 
+-- On RETORNE reduce production comando_list -> comando_fcall 
+-- On PARA reduce production comando_list -> comando_fcall 
+-- On LOGICO reduce production comando_list -> comando_fcall 
+-- On LITSTRING reduce production comando_list -> comando_fcall 
+-- On LITCHAR reduce production comando_list -> comando_fcall 
+-- On INTEIRO reduce production comando_list -> comando_fcall 
+-- On INT reduce production comando_list -> comando_fcall 
+-- On ID reduce production comando_list -> comando_fcall 
+-- On FLOAT reduce production comando_list -> comando_fcall 
+-- On FCHAVE reduce production comando_list -> comando_fcall 
+-- On FALSO reduce production comando_list -> comando_fcall 
+-- On ESCREVAL reduce production comando_list -> comando_fcall 
+-- On ESCREVA reduce production comando_list -> comando_fcall 
+-- On ENQUANTO reduce production comando_list -> comando_fcall 
+-- On DOUBLE reduce production comando_list -> comando_fcall 
+-- On CARACTER reduce production comando_list -> comando_fcall 
+-- On APAR reduce production comando_list -> comando_fcall 
+
+State 139:
+comando_list -> comando_escreval . [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VOID reduce production comando_list -> comando_escreval 
+-- On VERDADEIRO reduce production comando_list -> comando_escreval 
+-- On SENAO reduce production comando_list -> comando_escreval 
+-- On SE reduce production comando_list -> comando_escreval 
+-- On RETORNE reduce production comando_list -> comando_escreval 
+-- On PARA reduce production comando_list -> comando_escreval 
+-- On LOGICO reduce production comando_list -> comando_escreval 
+-- On LITSTRING reduce production comando_list -> comando_escreval 
+-- On LITCHAR reduce production comando_list -> comando_escreval 
+-- On INTEIRO reduce production comando_list -> comando_escreval 
+-- On INT reduce production comando_list -> comando_escreval 
+-- On ID reduce production comando_list -> comando_escreval 
+-- On FLOAT reduce production comando_list -> comando_escreval 
+-- On FCHAVE reduce production comando_list -> comando_escreval 
+-- On FALSO reduce production comando_list -> comando_escreval 
+-- On ESCREVAL reduce production comando_list -> comando_escreval 
+-- On ESCREVA reduce production comando_list -> comando_escreval 
+-- On ENQUANTO reduce production comando_list -> comando_escreval 
+-- On DOUBLE reduce production comando_list -> comando_escreval 
+-- On CARACTER reduce production comando_list -> comando_escreval 
+-- On APAR reduce production comando_list -> comando_escreval 
+
+State 140:
+comando_list -> comando_escreva . [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VOID reduce production comando_list -> comando_escreva 
+-- On VERDADEIRO reduce production comando_list -> comando_escreva 
+-- On SENAO reduce production comando_list -> comando_escreva 
+-- On SE reduce production comando_list -> comando_escreva 
+-- On RETORNE reduce production comando_list -> comando_escreva 
+-- On PARA reduce production comando_list -> comando_escreva 
+-- On LOGICO reduce production comando_list -> comando_escreva 
+-- On LITSTRING reduce production comando_list -> comando_escreva 
+-- On LITCHAR reduce production comando_list -> comando_escreva 
+-- On INTEIRO reduce production comando_list -> comando_escreva 
+-- On INT reduce production comando_list -> comando_escreva 
+-- On ID reduce production comando_list -> comando_escreva 
+-- On FLOAT reduce production comando_list -> comando_escreva 
+-- On FCHAVE reduce production comando_list -> comando_escreva 
+-- On FALSO reduce production comando_list -> comando_escreva 
+-- On ESCREVAL reduce production comando_list -> comando_escreva 
+-- On ESCREVA reduce production comando_list -> comando_escreva 
+-- On ENQUANTO reduce production comando_list -> comando_escreva 
+-- On DOUBLE reduce production comando_list -> comando_escreva 
+-- On CARACTER reduce production comando_list -> comando_escreva 
+-- On APAR reduce production comando_list -> comando_escreva 
+
+State 141:
+comando_list -> comando_enquanto . [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VOID reduce production comando_list -> comando_enquanto 
+-- On VERDADEIRO reduce production comando_list -> comando_enquanto 
+-- On SENAO reduce production comando_list -> comando_enquanto 
+-- On SE reduce production comando_list -> comando_enquanto 
+-- On RETORNE reduce production comando_list -> comando_enquanto 
+-- On PARA reduce production comando_list -> comando_enquanto 
+-- On LOGICO reduce production comando_list -> comando_enquanto 
+-- On LITSTRING reduce production comando_list -> comando_enquanto 
+-- On LITCHAR reduce production comando_list -> comando_enquanto 
+-- On INTEIRO reduce production comando_list -> comando_enquanto 
+-- On INT reduce production comando_list -> comando_enquanto 
+-- On ID reduce production comando_list -> comando_enquanto 
+-- On FLOAT reduce production comando_list -> comando_enquanto 
+-- On FCHAVE reduce production comando_list -> comando_enquanto 
+-- On FALSO reduce production comando_list -> comando_enquanto 
+-- On ESCREVAL reduce production comando_list -> comando_enquanto 
+-- On ESCREVA reduce production comando_list -> comando_enquanto 
+-- On ENQUANTO reduce production comando_list -> comando_enquanto 
+-- On DOUBLE reduce production comando_list -> comando_enquanto 
+-- On CARACTER reduce production comando_list -> comando_enquanto 
+-- On APAR reduce production comando_list -> comando_enquanto 
+
+State 142:
+comando_list -> comando_attr . [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VOID reduce production comando_list -> comando_attr 
+-- On VERDADEIRO reduce production comando_list -> comando_attr 
+-- On SENAO reduce production comando_list -> comando_attr 
+-- On SE reduce production comando_list -> comando_attr 
+-- On RETORNE reduce production comando_list -> comando_attr 
+-- On PARA reduce production comando_list -> comando_attr 
+-- On LOGICO reduce production comando_list -> comando_attr 
+-- On LITSTRING reduce production comando_list -> comando_attr 
+-- On LITCHAR reduce production comando_list -> comando_attr 
+-- On INTEIRO reduce production comando_list -> comando_attr 
+-- On INT reduce production comando_list -> comando_attr 
+-- On ID reduce production comando_list -> comando_attr 
+-- On FLOAT reduce production comando_list -> comando_attr 
+-- On FCHAVE reduce production comando_list -> comando_attr 
+-- On FALSO reduce production comando_list -> comando_attr 
+-- On ESCREVAL reduce production comando_list -> comando_attr 
+-- On ESCREVA reduce production comando_list -> comando_attr 
+-- On ENQUANTO reduce production comando_list -> comando_attr 
+-- On DOUBLE reduce production comando_list -> comando_attr 
+-- On CARACTER reduce production comando_list -> comando_attr 
+-- On APAR reduce production comando_list -> comando_attr 
+
+State 143:
+comando_para -> PARA APAR expr DE expr ATE expr passo FPAR ACHAVE list(comando_list) . FCHAVE [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On FCHAVE shift to state 144
+
+State 144:
+comando_para -> PARA APAR expr DE expr ATE expr passo FPAR ACHAVE list(comando_list) FCHAVE . [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VOID reduce production comando_para -> PARA APAR expr DE expr ATE expr passo FPAR ACHAVE list(comando_list) FCHAVE 
+-- On VERDADEIRO reduce production comando_para -> PARA APAR expr DE expr ATE expr passo FPAR ACHAVE list(comando_list) FCHAVE 
+-- On SENAO reduce production comando_para -> PARA APAR expr DE expr ATE expr passo FPAR ACHAVE list(comando_list) FCHAVE 
+-- On SE reduce production comando_para -> PARA APAR expr DE expr ATE expr passo FPAR ACHAVE list(comando_list) FCHAVE 
+-- On RETORNE reduce production comando_para -> PARA APAR expr DE expr ATE expr passo FPAR ACHAVE list(comando_list) FCHAVE 
+-- On PARA reduce production comando_para -> PARA APAR expr DE expr ATE expr passo FPAR ACHAVE list(comando_list) FCHAVE 
+-- On LOGICO reduce production comando_para -> PARA APAR expr DE expr ATE expr passo FPAR ACHAVE list(comando_list) FCHAVE 
+-- On LITSTRING reduce production comando_para -> PARA APAR expr DE expr ATE expr passo FPAR ACHAVE list(comando_list) FCHAVE 
+-- On LITCHAR reduce production comando_para -> PARA APAR expr DE expr ATE expr passo FPAR ACHAVE list(comando_list) FCHAVE 
+-- On INTEIRO reduce production comando_para -> PARA APAR expr DE expr ATE expr passo FPAR ACHAVE list(comando_list) FCHAVE 
+-- On INT reduce production comando_para -> PARA APAR expr DE expr ATE expr passo FPAR ACHAVE list(comando_list) FCHAVE 
+-- On ID reduce production comando_para -> PARA APAR expr DE expr ATE expr passo FPAR ACHAVE list(comando_list) FCHAVE 
+-- On FLOAT reduce production comando_para -> PARA APAR expr DE expr ATE expr passo FPAR ACHAVE list(comando_list) FCHAVE 
+-- On FCHAVE reduce production comando_para -> PARA APAR expr DE expr ATE expr passo FPAR ACHAVE list(comando_list) FCHAVE 
+-- On FALSO reduce production comando_para -> PARA APAR expr DE expr ATE expr passo FPAR ACHAVE list(comando_list) FCHAVE 
+-- On ESCREVAL reduce production comando_para -> PARA APAR expr DE expr ATE expr passo FPAR ACHAVE list(comando_list) FCHAVE 
+-- On ESCREVA reduce production comando_para -> PARA APAR expr DE expr ATE expr passo FPAR ACHAVE list(comando_list) FCHAVE 
+-- On ENQUANTO reduce production comando_para -> PARA APAR expr DE expr ATE expr passo FPAR ACHAVE list(comando_list) FCHAVE 
+-- On DOUBLE reduce production comando_para -> PARA APAR expr DE expr ATE expr passo FPAR ACHAVE list(comando_list) FCHAVE 
+-- On CARACTER reduce production comando_para -> PARA APAR expr DE expr ATE expr passo FPAR ACHAVE list(comando_list) FCHAVE 
+-- On APAR reduce production comando_para -> PARA APAR expr DE expr ATE expr passo FPAR ACHAVE list(comando_list) FCHAVE 
+
+State 145:
+comando_se -> SE APAR expr FPAR ACHAVE list(comando_list) . option(comando_senao) FCHAVE [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On SENAO shift to state 146
+-- On option(comando_senao) shift to state 148
+-- On comando_senao shift to state 150
+-- On FCHAVE reduce production option(comando_senao) -> 
+
+State 146:
+comando_senao -> SENAO . list(comando_list) [ FCHAVE ]
+-- On VERDADEIRO shift to state 32
+-- On SE shift to state 33
+-- On RETORNE shift to state 89
+-- On PARA shift to state 93
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On ESCREVAL shift to state 105
+-- On ESCREVA shift to state 110
+-- On ENQUANTO shift to state 115
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On list(comando_list) shift to state 147
+-- On fcall shift to state 122
+-- On expr shift to state 124
+-- On comando_se shift to state 132
+-- On comando_ret shift to state 133
+-- On comando_para shift to state 134
+-- On comando_list shift to state 135
+-- On comando_leia shift to state 137
+-- On comando_fcall shift to state 138
+-- On comando_escreval shift to state 139
+-- On comando_escreva shift to state 140
+-- On comando_enquanto shift to state 141
+-- On comando_attr shift to state 142
+-- On FCHAVE reduce production list(comando_list) -> 
+
+State 147:
+comando_senao -> SENAO list(comando_list) . [ FCHAVE ]
+-- On FCHAVE reduce production comando_senao -> SENAO list(comando_list) 
+
+State 148:
+comando_se -> SE APAR expr FPAR ACHAVE list(comando_list) option(comando_senao) . FCHAVE [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On FCHAVE shift to state 149
+
+State 149:
+comando_se -> SE APAR expr FPAR ACHAVE list(comando_list) option(comando_senao) FCHAVE . [ VOID VERDADEIRO SENAO SE RETORNE PARA LOGICO LITSTRING LITCHAR INTEIRO INT ID FLOAT FCHAVE FALSO ESCREVAL ESCREVA ENQUANTO DOUBLE CARACTER APAR ]
+-- On VOID reduce production comando_se -> SE APAR expr FPAR ACHAVE list(comando_list) option(comando_senao) FCHAVE 
+-- On VERDADEIRO reduce production comando_se -> SE APAR expr FPAR ACHAVE list(comando_list) option(comando_senao) FCHAVE 
+-- On SENAO reduce production comando_se -> SE APAR expr FPAR ACHAVE list(comando_list) option(comando_senao) FCHAVE 
+-- On SE reduce production comando_se -> SE APAR expr FPAR ACHAVE list(comando_list) option(comando_senao) FCHAVE 
+-- On RETORNE reduce production comando_se -> SE APAR expr FPAR ACHAVE list(comando_list) option(comando_senao) FCHAVE 
+-- On PARA reduce production comando_se -> SE APAR expr FPAR ACHAVE list(comando_list) option(comando_senao) FCHAVE 
+-- On LOGICO reduce production comando_se -> SE APAR expr FPAR ACHAVE list(comando_list) option(comando_senao) FCHAVE 
+-- On LITSTRING reduce production comando_se -> SE APAR expr FPAR ACHAVE list(comando_list) option(comando_senao) FCHAVE 
+-- On LITCHAR reduce production comando_se -> SE APAR expr FPAR ACHAVE list(comando_list) option(comando_senao) FCHAVE 
+-- On INTEIRO reduce production comando_se -> SE APAR expr FPAR ACHAVE list(comando_list) option(comando_senao) FCHAVE 
+-- On INT reduce production comando_se -> SE APAR expr FPAR ACHAVE list(comando_list) option(comando_senao) FCHAVE 
+-- On ID reduce production comando_se -> SE APAR expr FPAR ACHAVE list(comando_list) option(comando_senao) FCHAVE 
+-- On FLOAT reduce production comando_se -> SE APAR expr FPAR ACHAVE list(comando_list) option(comando_senao) FCHAVE 
+-- On FCHAVE reduce production comando_se -> SE APAR expr FPAR ACHAVE list(comando_list) option(comando_senao) FCHAVE 
+-- On FALSO reduce production comando_se -> SE APAR expr FPAR ACHAVE list(comando_list) option(comando_senao) FCHAVE 
+-- On ESCREVAL reduce production comando_se -> SE APAR expr FPAR ACHAVE list(comando_list) option(comando_senao) FCHAVE 
+-- On ESCREVA reduce production comando_se -> SE APAR expr FPAR ACHAVE list(comando_list) option(comando_senao) FCHAVE 
+-- On ENQUANTO reduce production comando_se -> SE APAR expr FPAR ACHAVE list(comando_list) option(comando_senao) FCHAVE 
+-- On DOUBLE reduce production comando_se -> SE APAR expr FPAR ACHAVE list(comando_list) option(comando_senao) FCHAVE 
+-- On CARACTER reduce production comando_se -> SE APAR expr FPAR ACHAVE list(comando_list) option(comando_senao) FCHAVE 
+-- On APAR reduce production comando_se -> SE APAR expr FPAR ACHAVE list(comando_list) option(comando_senao) FCHAVE 
+
+State 150:
+option(comando_senao) -> comando_senao . [ FCHAVE ]
+-- On FCHAVE reduce production option(comando_senao) -> comando_senao 
+
+State 151:
+func_bloc -> ACHAVE list(comando_list) . [ VOID LOGICO INTEIRO FCHAVE DOUBLE CARACTER ]
+-- On VOID reduce production func_bloc -> ACHAVE list(comando_list) 
+-- On LOGICO reduce production func_bloc -> ACHAVE list(comando_list) 
+-- On INTEIRO reduce production func_bloc -> ACHAVE list(comando_list) 
+-- On FCHAVE reduce production func_bloc -> ACHAVE list(comando_list) 
+-- On DOUBLE reduce production func_bloc -> ACHAVE list(comando_list) 
+-- On CARACTER reduce production func_bloc -> ACHAVE list(comando_list) 
+
+State 152:
+func_decl -> STATIC func_type ID APAR option(fparams) FPAR func_bloc . list(var_decl) FCHAVE [ STATIC PUBLIC ]
+-- On VOID shift to state 7
+-- On LOGICO shift to state 8
+-- On INTEIRO shift to state 9
+-- On DOUBLE shift to state 10
+-- On CARACTER shift to state 11
+-- On var_decl shift to state 12
+-- On tp_primitivo shift to state 13
+-- On list(var_decl) shift to state 153
+-- On FCHAVE reduce production list(var_decl) -> 
+
+State 153:
+func_decl -> STATIC func_type ID APAR option(fparams) FPAR func_bloc list(var_decl) . FCHAVE [ STATIC PUBLIC ]
+-- On FCHAVE shift to state 154
+
+State 154:
+func_decl -> STATIC func_type ID APAR option(fparams) FPAR func_bloc list(var_decl) FCHAVE . [ STATIC PUBLIC ]
+-- On STATIC reduce production func_decl -> STATIC func_type ID APAR option(fparams) FPAR func_bloc list(var_decl) FCHAVE 
+-- On PUBLIC reduce production func_decl -> STATIC func_type ID APAR option(fparams) FPAR func_bloc list(var_decl) FCHAVE 
+
+State 155:
+option(fparams) -> fparams . [ FPAR ]
+-- On FPAR reduce production option(fparams) -> fparams 
+
+State 156:
+separated_nonempty_list(VIRGULA,fparam) -> fparam . [ FPAR ]
+separated_nonempty_list(VIRGULA,fparam) -> fparam . VIRGULA separated_nonempty_list(VIRGULA,fparam) [ FPAR ]
+-- On VIRGULA shift to state 157
+-- On FPAR reduce production separated_nonempty_list(VIRGULA,fparam) -> fparam 
+
+State 157:
+separated_nonempty_list(VIRGULA,fparam) -> fparam VIRGULA . separated_nonempty_list(VIRGULA,fparam) [ FPAR ]
+-- On VOID shift to state 7
+-- On LOGICO shift to state 8
+-- On INTEIRO shift to state 9
+-- On DOUBLE shift to state 10
+-- On CARACTER shift to state 11
+-- On tp_primitivo shift to state 26
+-- On separated_nonempty_list(VIRGULA,fparam) shift to state 158
+-- On fparam shift to state 156
+
+State 158:
+separated_nonempty_list(VIRGULA,fparam) -> fparam VIRGULA separated_nonempty_list(VIRGULA,fparam) . [ FPAR ]
+-- On FPAR reduce production separated_nonempty_list(VIRGULA,fparam) -> fparam VIRGULA separated_nonempty_list(VIRGULA,fparam) 
+
+State 159:
+prog -> declaracao_algoritmo list(var_decl) list(func_decl) . comando_block EOF [ # ]
+-- On PUBLIC shift to state 160
+-- On comando_block shift to state 173
+
+State 160:
+comando_block -> PUBLIC . STATIC VOID MAIN APAR CARACTER ACOL FCOL ID FPAR ACHAVE list(comando_list) FCHAVE [ EOF ]
+-- On STATIC shift to state 161
+
+State 161:
+comando_block -> PUBLIC STATIC . VOID MAIN APAR CARACTER ACOL FCOL ID FPAR ACHAVE list(comando_list) FCHAVE [ EOF ]
+-- On VOID shift to state 162
+
+State 162:
+comando_block -> PUBLIC STATIC VOID . MAIN APAR CARACTER ACOL FCOL ID FPAR ACHAVE list(comando_list) FCHAVE [ EOF ]
+-- On MAIN shift to state 163
+
+State 163:
+comando_block -> PUBLIC STATIC VOID MAIN . APAR CARACTER ACOL FCOL ID FPAR ACHAVE list(comando_list) FCHAVE [ EOF ]
+-- On APAR shift to state 164
+
+State 164:
+comando_block -> PUBLIC STATIC VOID MAIN APAR . CARACTER ACOL FCOL ID FPAR ACHAVE list(comando_list) FCHAVE [ EOF ]
+-- On CARACTER shift to state 165
+
+State 165:
+comando_block -> PUBLIC STATIC VOID MAIN APAR CARACTER . ACOL FCOL ID FPAR ACHAVE list(comando_list) FCHAVE [ EOF ]
+-- On ACOL shift to state 166
+
+State 166:
+comando_block -> PUBLIC STATIC VOID MAIN APAR CARACTER ACOL . FCOL ID FPAR ACHAVE list(comando_list) FCHAVE [ EOF ]
+-- On FCOL shift to state 167
+
+State 167:
+comando_block -> PUBLIC STATIC VOID MAIN APAR CARACTER ACOL FCOL . ID FPAR ACHAVE list(comando_list) FCHAVE [ EOF ]
+-- On ID shift to state 168
+
+State 168:
+comando_block -> PUBLIC STATIC VOID MAIN APAR CARACTER ACOL FCOL ID . FPAR ACHAVE list(comando_list) FCHAVE [ EOF ]
+-- On FPAR shift to state 169
+
+State 169:
+comando_block -> PUBLIC STATIC VOID MAIN APAR CARACTER ACOL FCOL ID FPAR . ACHAVE list(comando_list) FCHAVE [ EOF ]
+-- On ACHAVE shift to state 170
+
+State 170:
+comando_block -> PUBLIC STATIC VOID MAIN APAR CARACTER ACOL FCOL ID FPAR ACHAVE . list(comando_list) FCHAVE [ EOF ]
+-- On VERDADEIRO shift to state 32
+-- On SE shift to state 33
+-- On RETORNE shift to state 89
+-- On PARA shift to state 93
+-- On LITSTRING shift to state 35
+-- On LITCHAR shift to state 36
+-- On INT shift to state 37
+-- On ID shift to state 38
+-- On FLOAT shift to state 40
+-- On FALSO shift to state 41
+-- On ESCREVAL shift to state 105
+-- On ESCREVA shift to state 110
+-- On ENQUANTO shift to state 115
+-- On APAR shift to state 42
+-- On lvalue shift to state 43
+-- On logico_value shift to state 45
+-- On list(comando_list) shift to state 171
+-- On fcall shift to state 122
+-- On expr shift to state 124
+-- On comando_se shift to state 132
+-- On comando_ret shift to state 133
+-- On comando_para shift to state 134
+-- On comando_list shift to state 135
+-- On comando_leia shift to state 137
+-- On comando_fcall shift to state 138
+-- On comando_escreval shift to state 139
+-- On comando_escreva shift to state 140
+-- On comando_enquanto shift to state 141
+-- On comando_attr shift to state 142
+-- On FCHAVE reduce production list(comando_list) -> 
+
+State 171:
+comando_block -> PUBLIC STATIC VOID MAIN APAR CARACTER ACOL FCOL ID FPAR ACHAVE list(comando_list) . FCHAVE [ EOF ]
+-- On FCHAVE shift to state 172
+
+State 172:
+comando_block -> PUBLIC STATIC VOID MAIN APAR CARACTER ACOL FCOL ID FPAR ACHAVE list(comando_list) FCHAVE . [ EOF ]
+-- On EOF reduce production comando_block -> PUBLIC STATIC VOID MAIN APAR CARACTER ACOL FCOL ID FPAR ACHAVE list(comando_list) FCHAVE 
+
+State 173:
+prog -> declaracao_algoritmo list(var_decl) list(func_decl) comando_block . EOF [ # ]
+-- On EOF shift to state 174
+
+State 174:
+prog -> declaracao_algoritmo list(var_decl) list(func_decl) comando_block EOF . [ # ]
+-- On # reduce production prog -> declaracao_algoritmo list(var_decl) list(func_decl) comando_block EOF 
+
+State 175:
+list(func_decl) -> func_decl . list(func_decl) [ PUBLIC ]
+-- On STATIC shift to state 21
+-- On list(func_decl) shift to state 176
+-- On func_decl shift to state 175
+-- On PUBLIC reduce production list(func_decl) -> 
+
+State 176:
+list(func_decl) -> func_decl list(func_decl) . [ PUBLIC ]
+-- On PUBLIC reduce production list(func_decl) -> func_decl list(func_decl) 
+
